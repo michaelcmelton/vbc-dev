@@ -41,7 +41,7 @@ app.get(path.join(apiRoot, '/'), (req, res) => {
 
 app.use((req, res, next) => {
   res.json({
-    status: 404,
+    status: 500,
     message: 'Sorry can\'t find that!'
   })
 })
