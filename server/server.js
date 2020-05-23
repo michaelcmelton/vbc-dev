@@ -1,3 +1,5 @@
+/* eslint-disable no-magic-numbers */
+/* eslint-disable no-unused-vars */
 const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
@@ -34,6 +36,13 @@ app.get(path.join(apiRoot, '/'), (req, res) => {
   res.json({
     status: 200,
     message: 'API Root'
+  })
+})
+
+app.use((req, res, next) => {
+  res.json({
+    status: 404,
+    message: 'Sorry can\'t find that!'
   })
 })
 
