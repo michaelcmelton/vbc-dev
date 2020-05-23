@@ -39,6 +39,8 @@ app.get(path.join(apiRoot, '/'), (req, res) => {
   })
 })
 
+app.use(path.join(apiRoot, 'business'), require('./routes/business'));
+
 app.use((req, res, next) => {
   res.json({
     status: 500,
