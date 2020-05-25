@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 /* eslint-disable no-magic-numbers */
 /* eslint-disable no-unused-vars */
 const path = require('path')

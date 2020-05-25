@@ -22,7 +22,7 @@ const businessSchema = new Schema({
   },
   ownerId: {
     type: String,
-    required: true
+    required: [true, 'OwnerId is required.']
   },
   branchOfService: {
     type: String,
