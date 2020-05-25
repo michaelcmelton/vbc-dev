@@ -6,19 +6,19 @@ const { Schema } = mongoose
 const businessSchema = new Schema({
   businessName: {
     type: String,
-    required: true
+    required: [true, 'BusinessName is required.']
   },
   city: {
     type: String,
-    required: true
+    required: [true, 'City is required.']
   },
   state: {
     type: String,
-    required: true
+    required: [true, 'State is required.']
   },
   ownerName: {
     type: String,
-    required: true
+    required: [true, 'OwnerName is required.']
   },
   ownerId: {
     type: String,
@@ -26,15 +26,15 @@ const businessSchema = new Schema({
   },
   branchOfService: {
     type: String,
-    required: true
+    required: [true, 'Branch of Service is required.']
   },
   industry: {
     type: String,
-    required: true
+    required: [true, 'Industry is required.']
   },
   areasServiced: {
     type: String,
-    required: true
+    required: [true, 'Areas Serviced is required.']
   },
   phone: {
     type: String,
