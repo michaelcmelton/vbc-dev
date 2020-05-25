@@ -1,3 +1,4 @@
+/* eslint-disable id-length */
 /* eslint-disable capitalized-comments */
 /* eslint-disable max-len */
 /* eslint-disable no-magic-numbers */
@@ -88,11 +89,45 @@ businessRouter.post('/', (req, res) => {
   }
 });
 
-/*
- *  businessRouter.delete('/delete', (req, res) => {
- *
- *  });
- */
+businessRouter.delete('/delete', (req, res) => {
+  if (req.body instanceof Array) {
+    business.deleteMany({ _id: { $in: req.body } }, (err, result) => {
+      if (err) {
+        let message;
+        const messageArr = err.message.split(':');
+        [message, ...rest] = messageArr.reverse().map((element) => element.trim());
+        res.status(422).json({
+          status: 422,
+          error: message
+        });
+
+        return;
+      }
+      res.json({
+        status: 200,
+        data: result
+      });
+    })
+  } else {
+    business.deleteOne(req.body, (err, result) => {
+      if (err) {
+        let message;
+        const messageArr = err.message.split(':');
+        [message, ...rest] = messageArr.reverse().map((element) => element.trim());
+        res.status(422).json({
+          status: 422,
+          error: message
+        });
+
+        return;
+      }
+      res.json({
+        status: 200,
+        data: result
+      });
+    })
+  }
+});
 
 module.exports = businessRouter
 
