@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable id-length */
 /* eslint-disable capitalized-comments */
 /* eslint-disable max-len */
@@ -12,15 +13,6 @@
 const express = require('express')
 const businessRouter = express.Router()
 const business = require('../models/business');
-
-// Root path test. TODO - DELETE
-businessRouter.get('/root', (req, res) => {
-  res.json({
-    status: 200,
-    message: 'Business Router root path.'
-  });
-});
-
 
 // Get All Business Records in the database. (use for search.)
 businessRouter.get('/', (req, res) => {
@@ -89,6 +81,28 @@ businessRouter.post('/', (req, res) => {
   }
 });
 
+// Update record by ID.
+businessRouter.patch('/:id', (req, res) => {
+  business.findOneAndUpdate({ _id: req.params.id }, req.body, {
+    overwrite: true,
+    new: true
+  }, (err, doc) => {
+    if (err) {
+      res.json({
+        status: 404,
+        message: err.message
+      });
+
+      return;
+    }
+    res.json({
+      status: 200,
+      data: doc
+    });
+  });
+});
+
+// Delete records. Handles one or multiple IDs.
 businessRouter.delete('/delete', (req, res) => {
   if (req.body instanceof Array) {
     business.deleteMany({ _id: { $in: req.body } }, (err, result) => {
@@ -127,6 +141,32 @@ businessRouter.delete('/delete', (req, res) => {
       });
     })
   }
+});
+
+// Gets all records for a particular user.
+businessRouter.get('/:ownerId', (req, res) => {
+  business.find({ ownerId: req.params.ownerId }, (err, data) => {
+    if (err) {
+      res.json({
+        status: 500,
+        err: err.message
+      });
+
+      return;
+    }
+    if (data.length === 0) {
+      res.json({
+        status: 204,
+        data: 'No Businesses found for user.'
+      });
+
+      return;
+    }
+    res.json({
+      status: 200,
+      data
+   });
+  });
 });
 
 module.exports = businessRouter
