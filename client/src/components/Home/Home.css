@@ -1,10 +1,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
+.header-logo {
+    display: none;
+}
+.header {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1;
+    grid-row: 3;
+}
 
 .header-banner, .header-subtext, .body-text {
     font-family: 'Roboto', sans-serif;
 }
 
+.header-banner {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    margin-top: 0.5em;
+}
+
+.header-subtext {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    margin-bottom: 0.5em;
+}
+
+.body-text {
+    line-height: 1.65em;       
+}
+
 .header-subtext, .body-text {
     font-weight: 400;
+}
+
+.mobile-header-logo {
+    margin-top: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box {
+    min-width: 20em;
+    min-height: 20em;
+    border-top: 4px solid #2D3763;
+    box-shadow: 2px 3px 7px #ccc;
+    margin-bottom: 0.5em;
+}
+
+/* Desktop Layout */
+
+@media screen and (min-width: 992px) {
+    .mobile-header-logo {
+        display: none;
+    }
+
+    .header-logo {
+        margin-top: 0.5em;
+        display: block;
+    }
+
+    .header-banner {
+        margin: 0;
+        padding: 0;
+        font-size: 54px;
+        margin-top: 1.3em;
+        margin-left: 0.5em;
+    }
+
+    .header-subtext {
+        margin: 0;
+        padding: 0;
+        font-size: 36px;
+        margin-left: 0.75em;
+        padding-top: 0.25em;
+    }
+    
+    .header {
+        display: flex;
+    }
+
+    .body-text {
+        line-height: 1.65em;
+        font-size: 18px;       
+    }
+
+    .box-container { 
+        flex-direction: row;
+        margin-bottom: 4em;
+    }
 }

@@ -5,14 +5,14 @@
 
 @media screen and (min-width: 992px) {
     .content {
-        margin-left: 1.5em;
-        margin-right: 1.5ems;
+        margin-left: 7em;
+        margin-right: 7em;
     }
 }
 
 @media screen and (min-width: 1920px) {
     .content {
-        margin-left: 17em;
-        margin-right: 17em;
+        margin-left: 20em;
+        margin-right: 20em;
     }
 }
