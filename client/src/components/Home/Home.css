@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+
+.header-banner, .header-subtext, .body-text {
+    font-family: 'Roboto', sans-serif;
+}
+
+.header-subtext, .body-text {
+    font-weight: 400;
+}

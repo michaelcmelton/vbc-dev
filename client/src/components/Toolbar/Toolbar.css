@@ -11,10 +11,32 @@
     cursor: pointer;
     padding: 0;
     box-sizing: border-box;
+    margin-top: 1em;
+    margin-left: 0.75em;
 }
 
 .navbar {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #dddddd;
+    padding-bottom: 0.5em;
+}
+
+.mobile-spacer {
+    margin-left: 1.8em;
+}
+
+.mobile-logo {
+    max-width: 2.5em;
+    max-height: 2.5em;
+    margin-top: 0.5em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.nav-menu {
+    display: none;
 }
 
 .mobile-button:focus {
@@ -45,6 +67,7 @@
         margin-right: auto;
     }
     .nav-menu {
+        display: flex;
         margin: 0;
         padding: 0;
     }
@@ -90,5 +113,9 @@
 
     .nav-menu-item:hover:before {
         transform: scaleY(1);
+    }
+
+    .mobile-logo {
+        display: none;
     }
 }
