@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import './Home.css';
 
@@ -24,13 +25,19 @@ const Home = (props) => {
            </div>
            <div className="box-container">
                 <div className="box">
-                        
+                    <h4>List Your Business</h4>
+                    <img alt="list-icon" src={imgPath + 'list-icon.svg'} />
+                    <p>List your business among hundreds of other veterans just like you! Create an account below to get started.</p>
+                    <Link to="/signup"><button>Create an Account</button></Link>
                 </div>
                 <div className="box">
-
+                    <h4>Find a Business</h4>
+                    <img alt="seach-icon" src={imgPath + 'search-icon.svg'} />
+                    <p>We have many veteran-owned businesses waiting for you to find them! Find what you need today! </p>
+                    <Link to="/signup"><button>Search the Directory</button></Link>
                 </div>
                 <div className="box">
-
+                    <h4>Make Connections</h4>
                 </div>
            </div>
         </div>

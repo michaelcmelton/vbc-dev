@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="110px" height="110px" viewBox="0 0 110 110" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>list-icon</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="list-icon">
+            <circle id="Oval" fill="#CD2028" fill-rule="nonzero" cx="55" cy="55" r="55"></circle>
+            <g id="Group" transform="translate(23.000000, 23.000000)">
+                <path d="M0,3.84 C0,1.719 1.719,0 3.84,0 L32,0 L48,13.44 L48,60.16 C48,62.281 46.281,64 44.16,64 L3.84,64 C1.719,64 0,62.281 0,60.16 L0,3.84 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path d="M32,0 L32,9.6 C32,11.721 33.719,13.44 35.84,13.44 L48,13.44 L32,0 Z" id="Path" fill="#F0F1F1" fill-rule="nonzero"></path>
+                <polygon id="Path" fill="#FFFFFF" fill-rule="nonzero" points="54 18.5 59 8 64 18.5 64 57 54 57"></polygon>
+                <polygon id="Path" fill="#FFFFFF" fill-rule="nonzero" points="64 24 64 18.5 59 8 59 24"></polygon>
+                <path d="M64,61 C64,62.657 62.657,64 61,64 L57,64 C55.343,64 54,62.657 54,61 L54,59 L64,59 L64,61 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path d="M39,22 C39,22.55 38.55,23 38,23 L23,23 C22.45,23 22,22.55 22,22 L22,22 C22,21.45 22.45,21 23,21 L38,21 C38.55,21 39,21.45 39,22 L39,22 Z" id="Path" fill="#E2E4E5" fill-rule="nonzero"></path>
+                <path d="M33,27 C33,27.55 32.55,28 32,28 L23,28 C22.45,28 22,27.55 22,27 L22,27 C22,26.45 22.45,26 23,26 L32,26 C32.55,26 33,26.45 33,27 L33,27 Z" id="Path" fill="#E2E4E5" fill-rule="nonzero"></path>
+                <path d="M39,35 C39,35.55 38.55,36 38,36 L23,36 C22.45,36 22,35.55 22,35 L22,35 C22,34.45 22.45,34 23,34 L38,34 C38.55,34 39,34.45 39,35 L39,35 Z" id="Path" fill="#E2E4E5" fill-rule="nonzero"></path>
+                <path d="M33,40 C33,40.55 32.55,41 32,41 L23,41 C22.45,41 22,40.55 22,40 L22,40 C22,39.45 22.45,39 23,39 L32,39 C32.55,39 33,39.45 33,40 L33,40 Z" id="Path" fill="#E2E4E5" fill-rule="nonzero"></path>
+                <path d="M39,48 C39,48.55 38.55,49 38,49 L23,49 C22.45,49 22,48.55 22,48 L22,48 C22,47.45 22.45,47 23,47 L38,47 C38.55,47 39,47.45 39,48 L39,48 Z" id="Path" fill="#E2E4E5" fill-rule="nonzero"></path>
+                <path d="M33,53 C33,53.55 32.55,54 32,54 L23,54 C22.45,54 22,53.55 22,53 L22,53 C22,52.45 22.45,52 23,52 L32,52 C32.55,52 33,52.45 33,53 L33,53 Z" id="Path" fill="#E2E4E5" fill-rule="nonzero"></path>
+                <rect id="Rectangle" fill="#E2E4E5" x="8" y="47" width="10" height="8"></rect>
+                <rect id="Rectangle" fill="#E2E4E5" x="8" y="33" width="10" height="8"></rect>
+                <rect id="Rectangle" fill="#E2E4E5" x="8" y="21" width="10" height="8"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" x="54" y="56" width="10" height="3"></rect>
+                <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" x="54" y="57" width="5" height="2"></rect>
+                <path d="M59.013,7.984 L57.156,11.883 C57.668,12.561 58.308,12.984 59.013,12.984 C59.718,12.984 60.358,12.562 60.87,11.883 L59.013,7.984 Z" id="Path" stroke="#000000" stroke-width="0.1" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path d="M61.5,20 C60.346,20 59.374,19.218 59.087,18.155 C59.061,18.058 58.94,18.058 58.914,18.155 C58.626,19.218 57.654,20 56.5,20 C55.448,20 54.547,19.35 54.178,18.429 C54.139,18.332 54,18.359 54,18.464 L54,57 L64,57 L64,18.464 C64,18.359 63.861,18.333 63.822,18.43 C63.453,19.35 62.552,20 61.5,20 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path d="M54,57 L54,18.493 C54,18.382 54.147,18.354 54.19,18.457 C54.565,19.363 55.458,20 56.5,20 C57.659,20 58.634,19.211 58.917,18.141 C58.931,18.089 59,18.096 59,18.15 L59,57 L54,57 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path d="M54,59 L54,61 C54,62.657 55.343,64 57,64 L59,64 L59,59 L54,59 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
