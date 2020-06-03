@@ -3,14 +3,11 @@ import React, { Component } from 'react';
 import './Footer.css';
 
 class Footer extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
-            <div>
-
+            <div className="footer">
+                <h4>&#169; 2020. Veteran Business Connection. Designed and Developed by <a href="https://meltondevelopment.com/">Melton Development</a>.</h4>
             </div>
         );
     }

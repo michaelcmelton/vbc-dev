@@ -4,6 +4,7 @@ import './App.css';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
 import Home from './components/Home/Home';
+import Footer from './components/Footer/Footer';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
               <Route path="/" exact component={Home} />
             </Switch>
           </div>
+          <Footer />
         </div>
       </Router>
     );

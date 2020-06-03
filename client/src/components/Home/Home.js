@@ -34,11 +34,23 @@ const Home = (props) => {
                     <h4>Find a Business</h4>
                     <img alt="seach-icon" src={imgPath + 'search-icon.svg'} />
                     <p>We have many veteran-owned businesses waiting for you to find them! Find what you need today! </p>
-                    <Link to="/signup"><button>Search the Directory</button></Link>
+                    <Link to="/directory"><button>Search the Directory</button></Link>
                 </div>
                 <div className="box">
                     <h4>Make Connections</h4>
+                    <img alt="connect-icon" src= {imgPath + 'connect-icon.svg'} />
+                    <p>We will help you make connections with clients and fellow veterans alike. Giving back to those who served.</p>
+                    <Link to="/signup"><button>Create an Account</button></Link>
                 </div>
+           </div>
+           <div className="founders">
+               <h1>Our Team</h1>
+               <div className="founder">
+                    <h2>Chad Gleaton</h2>
+               </div>
+               <div className="founder">
+                   <h2>Jason Gaver</h2>
+               </div>
            </div>
         </div>
     );

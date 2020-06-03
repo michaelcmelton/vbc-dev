@@ -22,7 +22,7 @@ const SideDrawer = (props) => {
                 <Link to='/about'><li className="sidedrawer-item">About</li></Link>
             </ul>
             <div className="sidedrawer-copyright">
-                Copyright 2020. Veteran Business Connection.
+                &#169; 2020. Veteran Business Connection. Designed and Developed by <a href="https://meltondevelopment.com/">Melton Development</a>.
             </div>
         </div>
     );

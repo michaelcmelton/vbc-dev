@@ -1,0 +1,27 @@
+.footer {
+    display: none;
+}
+
+@media screen and (min-width: 992px) {
+    .footer {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer h4 a {
+        text-decoration: none;
+        color: #ccc;
+    }
+
+    .footer h4 a:hover {
+        cursor: pointer;
+    }
+
+    .footer h4 {
+        font-size: 12px;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 400;
+        color: #ccc;
+    }
+}

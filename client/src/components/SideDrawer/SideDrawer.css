@@ -50,3 +50,8 @@
     color: #cccccc;
     margin-bottom: 0.75em;
 }
+
+sidedrawer-copyright a {
+    color: #cccccc;
+    text-decoration: none;
+}
