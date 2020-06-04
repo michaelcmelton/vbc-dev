@@ -57,9 +57,14 @@
     }
 
     .navbar {
+        border-top:5px solid #2D3763;
         background-color: #cccccc;
         margin: 0;
         padding: 0;
+        position: sticky;
+        top: 0;
+        left: 0;
+        box-shadow: 1px 2px 5px #aaa;
     }
 
     .nav {

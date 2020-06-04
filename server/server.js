@@ -7,9 +7,12 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 const express = require('express')
 const bodyParser = require('body-parser')
 const apiRoot = process.env.API_ROOT
-const port = process.env.API_PORT
+const apiPort = process.env.API_PORT
 const mongoose = require('mongoose')
 const connString = process.env.CONN_STRING
+const publicPath = path.join(__dirname, '..', 'client/build');
+const port = process.env.PORT || 3000;
+
 
 const app = express();
 
@@ -33,6 +36,10 @@ mongoose.connect(connString, {
   console.log('MongoDB Connected.')
 })
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
+
 app.get(path.join(apiRoot, '/'), (req, res) => {
   res.json({
     status: 200,
@@ -50,5 +57,9 @@ app.use((req, res, next) => {
 })
 
 app.listen(port, () => {
-  console.log(`Server listening on ${port}`)
+  console.log('Server is up!');
+});
+
+app.listen(apiPort, () => {
+  console.log(`Server listening on ${apiPort}`)
 })

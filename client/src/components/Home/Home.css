@@ -108,6 +108,69 @@
         display: none;
     }
 
+    .founders h1 {
+        text-align: center;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 36px;
+    }
+    
+    .founder {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.9em;
+    }
+
+    .founder-text-right {
+        max-width: 60em;
+    }
+
+    .founder-text-right h2 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 28px;
+        margin: 0;
+        padding: 0;
+        margin-top: 0.8em;
+        text-align: right;
+    }
+
+    .founder-text-right p {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.67em;
+        font-size: 18px;
+        text-align: right;
+    }
+
+    .founder-text-right p a {
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        color: #999999;
+    }
+
+    .founder-text-left h2 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 28px;
+        margin: 0;
+        padding: 0;
+        margin-top: 0.8em;
+    }
+
+    .founder-text-left p {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.67em;
+        font-size: 18px;
+    }
+
+    .founder-text-left p a {
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        color: #999999;
+    }
+
+    .clip-circle {
+        clip-path: circle(8em at 47% 37%);
+        margin: 0;
+        padding: 0;
+    }
     .header-logo {
         margin-top: 0.5em;
         display: block;

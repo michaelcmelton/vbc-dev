@@ -1,9 +1,5 @@
 @import-normalize;
 
-html {
-  border-top:5px solid #2D3763;
-}
-
 html, body {
   background-color: #FBFBFB;
   margin: 0;
