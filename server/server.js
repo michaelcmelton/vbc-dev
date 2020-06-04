@@ -16,6 +16,9 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
+app.use(express.static(publicPath));
+app.use(express.static(path.join(publicPath, 'static')));
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   next()
@@ -57,7 +60,7 @@ app.use((req, res, next) => {
 })
 
 app.listen(port, () => {
-  console.log('Server is up!');
+  console.log(`Server is up on ${port}!`);
 });
 
 app.listen(apiPort, () => {
