@@ -8,36 +8,33 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const apiRoot = process.env.API_ROOT
 const apiPort = process.env.API_PORT
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 const connString = process.env.CONN_STRING
 const publicPath = path.join(__dirname, '..', 'client/build');
 const port = process.env.PORT || 3000;
-
-
 const app = express();
 
 app.use(express.static(publicPath));
 app.use(express.static(path.join(publicPath, 'static')));
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   next()
 })
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-
-mongoose.connect(connString, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true
-}, (err) => {
-  if (err) {
-    console.error(err)
-  }
-  console.log('MongoDB Connected.')
-})
+// mongoose.connect(connString, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useFindAndModify: false,
+//   useCreateIndex: true
+// }, (err) => {
+//   if (err) {
+//     console.error(err)
+//   }
+//   console.log('MongoDB Connected.')
+// })
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
