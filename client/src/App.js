@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Toolbar from './components/Toolbar/Toolbar';
-import './App.css';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import './App.css';
 
 class App extends Component {
   state = {
