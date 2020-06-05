@@ -20,14 +20,16 @@ class App extends Component {
   
   render() {
     let backdrop;
-
     if(this.state.sideDrawerOpen) {
       backdrop = <Backdrop drawerClickHandler={this.drawerToggleClickHandler}/>;
+      document.body.classList.add('open-side');
+    } else if (document.body.classList.length > 0) {
+      document.body.classList.remove('open-side');
     }
 
     return (
       <Router>
-        <div className="App">
+        <div className='App'>
           <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
           <SideDrawer drawerClickHandler={this.drawerToggleClickHandler} show={this.state.sideDrawerOpen}/>
           {backdrop}

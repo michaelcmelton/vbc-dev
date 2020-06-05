@@ -51,7 +51,11 @@
     margin-bottom: 0.75em;
 }
 
-sidedrawer-copyright a {
+.sidedrawer-copyright p {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.sidedrawer-copyright p a {
     color: #cccccc;
     text-decoration: none;
 }

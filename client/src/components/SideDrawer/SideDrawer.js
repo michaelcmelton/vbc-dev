@@ -21,7 +21,7 @@ const SideDrawer = (props) => {
                 <Link to='/about'><li className="sidedrawer-item">About</li></Link>
             </ul>
             <div className="sidedrawer-copyright">
-                &#169; 2020. Veteran Business Connection. Designed and Developed by <a href="https://meltondevelopment.com/">Melton Development</a>.
+                <p>&#169; 2020. Veteran Business Connection. Designed and Developed by <a href="https://meltondevelopment.com/">Melton Development</a></p>.
             </div>
         </div>
     );

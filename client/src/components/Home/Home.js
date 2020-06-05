@@ -43,11 +43,11 @@ const Home = (props) => {
                     <Link to="/signup"><button>Create an Account</button></Link>
                 </div>
             </div>
-            <div className="founders">
+            <div className="founders-desktop">
                 <h1>Our Team</h1>
                 <div className="founder">
                     <img alt="chad-gleaton" src={imgPath + 'chad-picture.jpg'} className="clip-circle" />
-                    <div class="founder-text-right">
+                    <div className="founder-text-right">
                         <h2>Chad Gleaton</h2>
                         <p>Chad Gleaton served over six years on active duty with the 75th Ranger Regiment.  He was assigned to the 1st Ranger Battalion serving there from 2005 to 2008 where he deployed three times, twice to Iraq and once to Afghanistan.
                         From 2008 to 2011, he served as a RIP instructor with the 75th Ranger Special Troops Battalion.  He served in the SC Army National Guard and has responded to the historic ‘1000 Year Flood’ in 2014, Hurricane Matthew in 2015, and Hurricane Irma in 2017.
@@ -62,6 +62,27 @@ const Home = (props) => {
                             He was a founding member of TASC Veteran, or TVETS, an employee resource group open solely to TASC employees who are veterans. <Link to='/about/'>Find out more about Jason...</Link></p>
                     </div>
                     <img alt="jason-gaver" src={imgPath + 'jason-picture.jpg'} className='clip-circle' />
+                </div>
+            </div>
+            <div className="founders-mobile">
+                <h1>Our Team</h1>
+                <div className="founder">
+                    <img alt="chad-gleaton" src={imgPath + 'chad-picture.jpg'} className="clip-circle" />
+                    <div className="founder-text">
+                        <h2>Chad Gleaton</h2>
+                        <p>Chad Gleaton served over six years on active duty with the 75th Ranger Regiment.  He was assigned to the 1st Ranger Battalion serving there from 2005 to 2008 where he deployed three times, twice to Iraq and once to Afghanistan.
+                        From 2008 to 2011, he served as a RIP instructor with the 75th Ranger Special Troops Battalion.  He served in the SC Army National Guard and has responded to the historic ‘1000 Year Flood’ in 2014, Hurricane Matthew in 2015, and Hurricane Irma in 2017.
+                            He is continuing his service within the AK Army National Guard. <Link to='/about'>Find out more about Chad...</Link></p>
+                    </div>
+                </div>
+                <div className="founder">
+                <img alt="jason-gaver" src={imgPath + 'jason-picture.jpg'} className='clip-circle' />
+                    <div className="founder-text">
+                        <h2>Jason Gaver</h2>
+                        <p>Jason Gaver served four years on active duty with the U.S. Navy and five additional years in the U.S. Navy Reserves where he deployed numerous times around the globe.
+                        Jason spent 10 years as a Test & Evaluation Engineer supporting numerous Department of Defense Surface Ship Weapons Programs.
+                            He was a founding member of TASC Veteran, or TVETS, an employee resource group open solely to TASC employees who are veterans. <Link to='/about/'>Find out more about Jason...</Link></p>
+                    </div>
                 </div>
             </div>
             <div className="final">

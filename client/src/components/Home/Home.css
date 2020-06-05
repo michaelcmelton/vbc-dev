@@ -1,5 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
+.clip-circle {
+    clip-path: circle(7.5em at 48% 37%);
+    margin: 0;
+    padding: 0;
+    max-width: 95%;
+}
+
+.founders-desktop {
+    display: none;
+}
+
+.founder-text h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+    margin-top: 0.8em;
+}
+
+.founder-text p {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.67em;
+    font-size: 18px;
+}
+
+.founder-text p a {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color: #999999;
+}
+
 .header-logo {
     display: none;
 }
@@ -107,6 +138,15 @@
     .mobile-header-logo {
         display: none;
     }
+
+    .founders-desktop {
+        display: block;
+    }
+
+    .founders-mobile {
+        display: none;
+    }
+
 
     .founders h1 {
         text-align: center;
