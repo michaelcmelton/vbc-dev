@@ -19,7 +19,6 @@ const Toolbar = (props) => {
                         <Link to='/'><button className="nav-menu-item">Home</button></Link>
                         <Link to='/profile'><button className="nav-menu-item">Profile</button></Link>
                         <Link to='/directory'><button className="nav-menu-item">Directory</button></Link>
-                        <Link to='/faq'><button className="nav-menu-item">FAQ</button></Link>
                         <Link to='/contact'><button className="nav-menu-item">Contact</button></Link>
                         <Link to='/about'><button className="nav-menu-item">About</button></Link>
                     </ul>

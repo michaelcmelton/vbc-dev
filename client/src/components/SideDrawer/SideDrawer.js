@@ -17,7 +17,6 @@ const SideDrawer = (props) => {
                 <Link to='/'><li className="sidedrawer-item">Home</li></Link>
                 <Link to='/profile'><li className="sidedrawer-item">Profile</li></Link>
                 <Link to='/directory'><li className="sidedrawer-item">Directory</li></Link>
-                <Link to='/faq'><li className="sidedrawer-item">FAQ</li></Link>
                 <Link to='/contact'><li className="sidedrawer-item">Contact</li></Link>
                 <Link to='/about'><li className="sidedrawer-item">About</li></Link>
             </ul>
