@@ -10,10 +10,7 @@ const apiRoot = process.env.API_ROOT
 const apiPort = process.env.API_PORT
 const mongoose = require('mongoose')
 const connString = process.env.CONN_STRING
-
-if(process.env.NODE_ENV === "production") {
-  const publicPath = path.join(__dirname, '..', 'client/build');
-}
+const publicPath = path.join(__dirname, '..', 'client/build');
 
 const port = process.env.PORT || 3000;
 const app = express();
