@@ -1,5 +1,6 @@
 .footer {
     display: none;
+    z-index: 300;
 }
 
 @media screen and (min-width: 992px) {
@@ -7,15 +8,18 @@
         display: flex;
         width: 100%;
         justify-content: center;
+        z-index: 300;
     }
 
     .footer h4 a {
         text-decoration: none;
         color: #ccc;
+        z-index: 300;
     }
 
     .footer h4 a:hover {
         cursor: pointer;
+
     }
 
     .footer h4 {
@@ -23,5 +27,6 @@
         font-family: 'Barlow Condensed', sans-serif;
         font-weight: 400;
         color: #ccc;
+        z-index: 300;
     }
 }
