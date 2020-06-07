@@ -19,6 +19,7 @@ const SideDrawer = (props) => {
                 <Link to='/directory'><li className="sidedrawer-item">Directory</li></Link>
                 <Link to='/contact'><li className="sidedrawer-item">Contact</li></Link>
                 <Link to='/about'><li className="sidedrawer-item">About</li></Link>
+                <Link to='/login'><button className="nav-menu-item">Login</button></Link>
             </ul>
             <div className="sidedrawer-copyright">
                 <p>&#169; 2020. Veteran Business Connection. Designed and Developed by <a href="https://meltondevelopment.com/">Melton Development</a></p>.

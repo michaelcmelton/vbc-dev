@@ -50,12 +50,13 @@
     padding: 0;
     font-size: 24px;
     margin-top: 0.5em;
+    text-align: center;
 }
 
 .header-subtext {
     margin: 0;
     padding: 0;
-    font-size: 22px;
+    font-size: 16px;
     margin-bottom: 0.5em;
 }
 
@@ -221,14 +222,14 @@
         padding: 0;
         font-size: 54px;
         margin-top: 1.3em;
-        margin-left: 0.5em;
+        margin-left: 1.1em;
     }
 
     .header-subtext {
         margin: 0;
         padding: 0;
         font-size: 36px;
-        margin-left: 0.75em;
+        margin-left: 1.2em;
         padding-top: 0.25em;
     }
     

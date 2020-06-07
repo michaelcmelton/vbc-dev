@@ -5,6 +5,8 @@ import './Home.css';
 
 const Home = (props) => {
 
+    document.body.style.overflowY = 'scroll';
+
     const imgPath = process.env.PUBLIC_URL + '/img/';
     return (
         <div className="home">
@@ -12,7 +14,7 @@ const Home = (props) => {
                 <img className="header-logo" alt="logo" src={imgPath + 'VBC.png'} />
                 <div className="header-flex-container">
                     <h1 className="header-banner">You Served. They Served.</h1>
-                    <h4 className="header-subtext">Let us connect you as Civilans.</h4>
+                    <h4 className="header-subtext">Let us connect you as civilians and to civilians.</h4>
                 </div>
                 <img className="mobile-header-logo" alt="logo" src={imgPath + 'VBC.png'} />
             </div>
@@ -28,7 +30,7 @@ const Home = (props) => {
                     <h4>List Your Business</h4>
                     <img alt="list-icon" src={imgPath + 'list-icon.svg'} />
                     <p>List your business among hundreds of other veterans just like you! Create an account below to get started.</p>
-                    <Link to="/signup"><button>Create an Account</button></Link>
+                    <Link to="/register"><button>Create an Account</button></Link>
                 </div>
                 <div className="box">
                     <h4>Find a Business</h4>
@@ -40,7 +42,7 @@ const Home = (props) => {
                     <h4>Make Connections</h4>
                     <img alt="connect-icon" src={imgPath + 'connect-icon.svg'} />
                     <p>We will help you make connections with clients and fellow veterans alike. Giving back to those who served.</p>
-                    <Link to="/signup"><button>Create an Account</button></Link>
+                    <Link to="/register"><button>Create an Account</button></Link>
                 </div>
             </div>
             <div className="founders-desktop">

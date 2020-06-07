@@ -1,4 +1,4 @@
-.login {
+.register {
     display: flex;
     justify-content: center;
     height: 79vh;
@@ -7,23 +7,23 @@
 .flag-backdrop {
     display: none;
 }
-.form-container {
+.register-form-container {
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow:  3px 2px 15px #cccccc;
-    margin-top: 8em;
+    margin-top: 4em;
     border: 1px solid #aaaaaa;
     margin-bottom: 12em;
     z-index: 300;
 }
 
-.form-container h1 {
+.register-form-container h1 {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 48px;
 }
 
-.form-container input{
+.register-form-container input{
     margin-left: 1.6em;
     margin-bottom: 0.5em;
     width: 85%;
@@ -31,17 +31,28 @@
     height: 2.5em;
 }
 
-.form-container input:invalid {
+.register-form-container select{
+    margin-left: 1.6em;
+    margin-bottom: 0.5em;
+    width: 87%;
+    display: block;
+    height: 2.5em;
+}
+
+.button-group {
+    margin-top: 1em;
+}
+.register-form-container input:invalid {
     border: 1px solid red;
 }
 
-.form-container a button {
+.register-form-container a button {
     margin-top: auto;
     margin-left: 0.5em;
     margin-right: 0.5em;
 }
 
-.form-container button a {
+.register-form-container button a {
     text-decoration: none;
     color: #2f2f2f;
 }
@@ -77,8 +88,8 @@ form button {
 }
 
 @media screen and (min-width: 992px) {
-    .form-container {
-        margin-bottom: 4em;
+    .register-form-container {
+        margin-bottom: 2em;
     }
 
     .flag-backdrop {

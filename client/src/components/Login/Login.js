@@ -18,8 +18,10 @@ const Login = (props) => {
                 <form>
                     <input name="email" type="email" pattern="[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}" placeholder="example@example.com" />
                     <input name="password" type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" />
-                    <button type="submit">Login</button>
-                    <Link to='/'><button type="button" onClick="form.c">Cancel</button></Link>
+                    <div className="button-group">
+                        <button type="submit">Login</button>
+                        <Link to='/'><button type="button" onClick="form.c">Cancel</button></Link>
+                    </div>
                 </form>
                 <button type='button'><Link to='/register'>Don't have an account? Click here to create one.</Link></button>
             </div>
