@@ -5,9 +5,9 @@ const path = require('path')
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
 const express = require('express')
-const bodyParser = require('body-parser')
 const apiRoot = process.env.API_ROOT
 const apiPort = process.env.API_PORT
+const morgan = require('morgan')
 const mongoose = require('mongoose')
 const connString = process.env.CONN_STRING
 const publicPath = path.join(__dirname, '..', 'client/build');
@@ -19,8 +19,8 @@ if(process.env.NODE_ENV === "production") {
   app.use(express.static(publicPath));
   app.use(express.static(path.join(publicPath, 'static')));
 }
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(morgan('combined'));
+app.use(express.json());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
@@ -55,6 +55,7 @@ app.get(path.join(apiRoot, '/'), (req, res) => {
 })
 
 app.use(path.join(apiRoot, 'business'), require('./routes/business'));
+app.use(path.join(apiRoot, 'user'), require('./routes/users'));
 
 app.use((req, res, next) => {
   res.json({

@@ -15,6 +15,10 @@ const UsersSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  branch: {
+    type: String,
+    required: true
   }
 })
 
