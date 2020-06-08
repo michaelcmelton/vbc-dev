@@ -9,11 +9,12 @@
 /* eslint-disable no-implicit-globals */
 /* eslint-disable max-statements */
 /* eslint-disable new-cap */
-
+require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 const express = require('express')
 const userRouter = express.Router()
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 userRouter.get('/', (req, res) => {
     res.send({
@@ -64,13 +65,17 @@ userRouter.post('/register', (req, res) => {
                 if(err) throw err;
                 newUser.password = hash;
                 newUser.save().then(user => {
-                    res.json({
-                        user: {
-                            id: user.id,
-                            name: user.name,
-                            email: user.email,
-                            branch: user.branch
-                        }
+                    jwt.sign({id: user.id}, process.env.JWT_SECRET, { expiresIn: 1800 }, (err, token) => {
+                        if(err) throw err;
+                        res.status(201).json({
+                            user: {
+                                id: user.id,
+                                name: user.name,
+                                email: user.email,
+                                branch: user.branch
+                            },
+                            token
+                        })
                     });
                 });
             });
