@@ -7,9 +7,23 @@ import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+
+import {loadUser} from './actions/authActions';
 import './App.css';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers';
+import {createStore, applyMiddleware, compose} from 'redux';
+import thunk from 'redux-thunk';
+
+const store = createStore(rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(thunk));
 
 class App extends Component {
+
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
+
   state = {
     sideDrawerOpen: false
   };
@@ -19,7 +33,7 @@ class App extends Component {
       return {sideDrawerOpen: !prevState.sideDrawerOpen};
     });
   };
-  
+
   render() {
     let backdrop;
     if(this.state.sideDrawerOpen) {
@@ -31,6 +45,7 @@ class App extends Component {
 
     return (
       <Router>
+        <Provider store={store}>
         <div className='App'>
           <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
           <SideDrawer drawerClickHandler={this.drawerToggleClickHandler} show={this.state.sideDrawerOpen}/>
@@ -44,6 +59,7 @@ class App extends Component {
           </div>
           <Footer />
         </div>
+        </Provider>
       </Router>
     );
   }

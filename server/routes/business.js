@@ -13,6 +13,7 @@
 const express = require('express')
 const businessRouter = express.Router()
 const business = require('../models/business');
+const auth = require('../middleware/auth');
 
 // Get All Business Records in the database. (use for search.)
 businessRouter.get('/', (req, res) => {
@@ -35,7 +36,7 @@ businessRouter.get('/', (req, res) => {
  * Post new businesses to database. Allows for multi-create or single record
  * creation
  */
-businessRouter.post('/', (req, res) => {
+businessRouter.post('/', auth, (req, res) => {
   if (req.body instanceof Array) {
     const createItemsLength = req.body.length;
     const createItems = req.body;
@@ -82,7 +83,7 @@ businessRouter.post('/', (req, res) => {
 });
 
 // Update record by ID.
-businessRouter.patch('/:id', (req, res) => {
+businessRouter.patch('/:id', auth, (req, res) => {
   business.findOneAndUpdate({ _id: req.params.id }, req.body, {
     overwrite: true,
     new: true
@@ -103,7 +104,7 @@ businessRouter.patch('/:id', (req, res) => {
 });
 
 // Delete records. Handles one or multiple IDs.
-businessRouter.delete('/delete', (req, res) => {
+businessRouter.delete('/delete', auth, (req, res) => {
   if (req.body instanceof Array) {
     business.deleteMany({ _id: { $in: req.body } }, (err, result) => {
       if (err) {
@@ -144,7 +145,7 @@ businessRouter.delete('/delete', (req, res) => {
 });
 
 // Gets all records for a particular user.
-businessRouter.get('/:ownerId', (req, res) => {
+businessRouter.get('/:ownerId', auth, (req, res) => {
   business.find({ ownerId: req.params.ownerId }, (err, data) => {
     if (err) {
       res.json({
