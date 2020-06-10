@@ -6,6 +6,7 @@ import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import Profile from './components/Profile/Profile';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import {loadUser} from './actions/authActions';
@@ -15,8 +16,16 @@ import rootReducer from './reducers';
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 
-const store = createStore(rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(thunk));
+const initialState = {};
+
+const middleWare = [thunk];
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  rootReducer,
+  initialState,
+  composeEnhancers(applyMiddleware(...middleWare))
+);
 
 class App extends Component {
 
@@ -55,6 +64,7 @@ class App extends Component {
               <Route path="/" exact component={Home} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
+              <Route path="/profile" component={Profile} />
             </Switch>
           </div>
           <Footer />

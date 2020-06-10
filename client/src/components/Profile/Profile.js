@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Profile = (props) => {
+class Profile extends Component {
+    render() {
 
+        if(!this.props.isAuthenticated) {
+            return <Redirect to='/'/>
+          }
+
+        return (
+            <h4>{this.props.user.name}</h4>
+        )
+    }
 }
 
-export default Profile;
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    user: state.auth.user
+})
+
+export default connect(mapStateToProps, {})(Profile);

@@ -16,6 +16,7 @@ const userRouter = express.Router()
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth');
 
 userRouter.get('/', (req, res) => {
     res.send({
@@ -24,30 +25,56 @@ userRouter.get('/', (req, res) => {
     });
 })
 
+userRouter.get('/token', auth, (req, res) => {
+    User.findById(req.user.id)
+    .select('-password')
+    .then(user => res.json(user));
+});
+
+userRouter.post('/login', (req, res) => {
+    const { email, password } = req.body;
+    User.findOne({email}, (err, user) => {
+        if(err) throw err;
+        bcrypt.compare(password, user.password, (err, success) => {
+            if(err || success === false) {
+                return res.status(401).json({
+                    message: 'Password Invalid. Please try again.'
+                });
+            }
+            jwt.sign({id: user.id}, process.env.JWT_SECRET, { expiresIn: 1800 }, (err, token) => {
+                if(err) throw err;
+                res.status(200).json({
+                    user: {
+                        id: user.id,
+                        name: user.name,
+                        email: user.email,
+                        branch: user.branch
+                    },
+                    token
+                })
+            });
+        });
+    })
+});
+
 userRouter.post('/register', (req, res) => {
     const  passwordValidation = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[\]:;<>,.?~_+-=|]).{15,32}$/gm;
     const {email, password, confPassword, branch, name} = req.body;
-
-    console
-
-    if(passwordValidation.test(password) === false) {
-        return res.status(400).json({
-            message: 'Passwords does not meet minimum security requirements.'
-        });
-    }
-
-    if(password !== confPassword ) {
-        return res.status(400).json({
-            message: 'Passwords do not match.'
-        });
-    }
-
     if(!email || !password || !confPassword || !branch || !name ) {
         return res.status(400).json({
             message: 'All Fields Required.'
         });
     }
-
+    if(passwordValidation.test(password) === false) {
+        return res.status(400).json({
+            message: 'Passwords does not meet minimum security requirements.'
+        });
+    }
+    if(password !== confPassword ) {
+        return res.status(400).json({
+            message: 'Passwords do not match.'
+        });
+    }
     User.findOne({email}).then(user => {
         if(user) {
             return res.status(400).json({
@@ -59,8 +86,7 @@ userRouter.post('/register', (req, res) => {
             branch,
             name,
             password
-        })
-
+        });
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt,(err, hash) => {
                 if(err) throw err;
@@ -83,6 +109,5 @@ userRouter.post('/register', (req, res) => {
         });
     });
 });
-
 
 module.exports = userRouter;
