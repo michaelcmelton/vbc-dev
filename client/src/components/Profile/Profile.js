@@ -10,7 +10,25 @@ class Profile extends Component {
           }
 
         return (
-            <h4>{this.props.user.name}</h4>
+            <div>
+                <h4>User Profile for {this.props.user.name}</h4>
+                <div>
+                    <div>
+                        <h3>Change Password</h3>
+                        <form>
+                            <label for="password">Current Password:</label>
+                            <input type="password"/>
+                            <label for="password">New Password:</label>
+                            <input type="password"/>
+                            <button type="button">Change Password</button>
+                        </form>
+                    </div>
+                    <div>
+                        <h2>Businesses</h2>
+                        <button>Add Business</button>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

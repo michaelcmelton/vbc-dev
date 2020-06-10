@@ -63,7 +63,7 @@ class Login extends Component {
             </div>
             <div className="form-container">
                 <h1>Login</h1>
-                {this.state.msg ? <h4>{this.state.msg}</h4> : null}
+                {this.state.msg ? <h4 className="error-msg">{this.state.msg}</h4> : null}
                 <form onSubmit={this.onSubmit}>
                     <input onChange={this.onChange} name="email" type="email" placeholder="example@example.com" />
                     <input onChange={this.onChange} name="password" type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" />

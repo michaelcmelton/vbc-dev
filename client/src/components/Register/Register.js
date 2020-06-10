@@ -68,7 +68,7 @@ class Register extends Component {
                 </div>
                 <div className="register-form-container">
                     <h1>Register</h1>
-                    {this.state.msg ? <h4>{this.state.msg}</h4> : null}
+                    {this.state.msg ? <h4 className="error-msg">{this.state.msg}</h4> : null}
                     <form onSubmit={this.onSubmit}>
                         <input onChange={this.onChange} name="email" type="email" placeholder="example@example.com" />
                         <input onChange={this.onChange} name="name" placeholder="Name" />

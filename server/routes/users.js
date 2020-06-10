@@ -57,19 +57,46 @@ userRouter.post('/login', (req, res) => {
     })
 });
 
+
+userRouter.post('/passwordchange', auth, (req, res) => {
+    const {email, password, newPassword} = req.body;
+    User.findOne({email}, (err, user) => {
+        if(err) throw err;
+        bcrypt.compare(password, user.password, (err, success) => {
+            if(err || success === false) {
+                return res.status(401).json({
+                    message: 'Current Password does not match. Please try again.'
+                })
+            }
+            bcrypt.genSalt(10).then(salt =>{
+                bcrypt.hash(newPassword, salt, (err, hash) => {
+                    user.password = hash;
+                    user.save().select('-password').then(user => {
+                        res.status(203).json({
+                            msg:'Password Successfully Updated.',
+                            user
+                        })
+                    });
+
+                })
+            })
+        });
+    })
+});
+
 userRouter.post('/register', (req, res) => {
-    const  passwordValidation = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[\]:;<>,.?~_+-=|]).{15,32}$/gm;
+    // const  passwordValidation = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[\]:;<>,.?~_+-=|]).{15,32}$/gm;
     const {email, password, confPassword, branch, name} = req.body;
     if(!email || !password || !confPassword || !branch || !name ) {
         return res.status(400).json({
             message: 'All Fields Required.'
         });
     }
-    if(passwordValidation.test(password) === false) {
-        return res.status(400).json({
-            message: 'Passwords does not meet minimum security requirements.'
-        });
-    }
+    // if(passwordValidation.test(password) === false) {
+    //     return res.status(400).json({
+    //         message: 'Passwords does not meet minimum security requirements.'
+    //     });
+    // }
     if(password !== confPassword ) {
         return res.status(400).json({
             message: 'Passwords do not match.'
