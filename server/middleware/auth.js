@@ -13,7 +13,7 @@ function auth(req, res, next) {
         req.user = decoded;
         next();
     } catch (error) {
-        res.status(400).json({message: 'Invalid token. Please sign in again.'})
+        res.status(400).json({message: 'Session Expired. Please sign in again.'})
     }
 } 
 

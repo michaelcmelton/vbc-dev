@@ -9,7 +9,8 @@ import {
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    CHANGE_SUCCESS
 } from './types';
 
 
@@ -21,8 +22,7 @@ export const loadUser = () => (dispatch, getState) => {
             payload: res.data
         }))
         .catch(err => {
-            console.log(err.response.data.message);
-            dispatch(returnErrors(err.response.data.message, err.response.status));
+            dispatch(returnErrors(err.response.data.message, err.response.status, 'AUTH_FAIL'));
             dispatch({
                 type: AUTH_ERROR
             });
@@ -48,6 +48,20 @@ export const logout = () => {
     return {
         type: LOGOUT_SUCCESS
     }
+}
+
+export const changePass = ({email, password, newPassword}) => (dispatch, getState) => {
+    const body = JSON.stringify({email, password, newPassword});
+    axios.post('/api/user/passwordchange', body, tokenConfig(getState))
+    .then(res => {
+        dispatch({
+            type: CHANGE_SUCCESS,
+            payload: res.data
+        })
+    })
+    .catch(err => {
+        console.log(err);
+    })
 }
 
 export const login = ({email, password}) => dispatch => {

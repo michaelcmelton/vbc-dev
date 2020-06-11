@@ -27,7 +27,6 @@ app.use((req, res, next) => {
   next()
 })
 
-if(process.env.NODE_ENV === "development") {
 mongoose.connect(connString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -39,7 +38,6 @@ mongoose.connect(connString, {
   }
   console.log('MongoDB Connected.')
 })
-} else {}
 
 if(process.env.NODE_ENV === "production") {
   app.get('/', (req, res) => {

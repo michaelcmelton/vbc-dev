@@ -27,22 +27,22 @@ userRouter.get('/', (req, res) => {
 
 userRouter.get('/token', auth, (req, res) => {
     User.findById(req.user.id)
-    .select('-password')
-    .then(user => res.json(user));
+        .select('-password')
+        .then(user => res.json(user));
 });
 
 userRouter.post('/login', (req, res) => {
     const { email, password } = req.body;
-    User.findOne({email}, (err, user) => {
-        if(err) throw err;
+    User.findOne({ email }, (err, user) => {
+        if (err) throw err;
         bcrypt.compare(password, user.password, (err, success) => {
-            if(err || success === false) {
+            if (err || success === false) {
                 return res.status(401).json({
                     message: 'Password Invalid. Please try again.'
                 });
             }
-            jwt.sign({id: user.id}, process.env.JWT_SECRET, { expiresIn: 30 }, (err, token) => {
-                if(err) throw err;
+            jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 1800 }, (err, token) => {
+                if (err) throw err;
                 res.status(200).json({
                     user: {
                         id: user.id,
@@ -59,35 +59,35 @@ userRouter.post('/login', (req, res) => {
 
 
 userRouter.post('/passwordchange', auth, (req, res) => {
-    const {email, password, newPassword} = req.body;
-    User.findOne({email}, (err, user) => {
-        if(err) throw err;
+    const { email, password, newPassword } = req.body;
+    User.findOne({ email }, (err, user) => {
+        if (err) throw err;
         bcrypt.compare(password, user.password, (err, success) => {
-            if(err || success === false) {
+            if (err || success === false) {
                 return res.status(401).json({
                     message: 'Current Password does not match. Please try again.'
                 })
             }
-            bcrypt.genSalt(10).then(salt =>{
+            bcrypt.genSalt(10).then(salt => {
                 bcrypt.hash(newPassword, salt, (err, hash) => {
                     user.password = hash;
-                    user.save().select('-password').then(user => {
-                        res.status(203).json({
-                            msg:'Password Successfully Updated.',
-                            user
-                        })
-                    });
-
-                })
+                    user.save().then(res.status(203).json({user: {
+                        _id: user['_id'],
+                        email: user.email,
+                        branch: user.branch,
+                        name: user.name,
+                        _v: user['_v']
+                    }, msg: 'Password successfully updated.'}))
+                });
             })
         });
-    })
+    });
 });
 
 userRouter.post('/register', (req, res) => {
     // const  passwordValidation = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[\]:;<>,.?~_+-=|]).{15,32}$/gm;
-    const {email, password, confPassword, branch, name} = req.body;
-    if(!email || !password || !confPassword || !branch || !name ) {
+    const { email, password, confPassword, branch, name } = req.body;
+    if (!email || !password || !confPassword || !branch || !name) {
         return res.status(400).json({
             message: 'All Fields Required.'
         });
@@ -97,13 +97,13 @@ userRouter.post('/register', (req, res) => {
     //         message: 'Passwords does not meet minimum security requirements.'
     //     });
     // }
-    if(password !== confPassword ) {
+    if (password !== confPassword) {
         return res.status(400).json({
             message: 'Passwords do not match.'
         });
     }
-    User.findOne({email}).then(user => {
-        if(user) {
+    User.findOne({ email }).then(user => {
+        if (user) {
             return res.status(400).json({
                 message: 'Email already in use.'
             });
@@ -115,12 +115,12 @@ userRouter.post('/register', (req, res) => {
             password
         });
         bcrypt.genSalt(10, (err, salt) => {
-            bcrypt.hash(newUser.password, salt,(err, hash) => {
-                if(err) throw err;
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+                if (err) throw err;
                 newUser.password = hash;
                 newUser.save().then(user => {
-                    jwt.sign({id: user.id}, process.env.JWT_SECRET, { expiresIn: 30 }, (err, token) => {
-                        if(err) throw err;
+                    jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 1800 }, (err, token) => {
+                        if (err) throw err;
                         res.status(201).json({
                             user: {
                                 id: user.id,

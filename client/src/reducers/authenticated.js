@@ -6,14 +6,16 @@ import {
     LOGIN_FAIL,
     LOGOUT_SUCCESS,
     REGISTER_SUCCESS,
-    REGISTER_FAIL
+    REGISTER_FAIL,
+    CHANGE_SUCCESS
 } from '../actions/types';
 
 const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     isLoading: false,
-    user: null
+    user: null,
+    opMsg: null
 }
 
 export default function(state = initialState, action) {
@@ -42,7 +44,14 @@ export default function(state = initialState, action) {
                 token: null,
                 user: null,
                 isAuthenticated: false,
-                isLoading: false
+                isLoading: false,
+                opMsg: null
+            }
+        case CHANGE_SUCCESS:
+            return {
+                ...state,
+                user: action.payload.user,
+                opMsg: action.payload.msg
             }
         default: 
             return state;
