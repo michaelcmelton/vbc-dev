@@ -41,7 +41,7 @@ userRouter.post('/login', (req, res) => {
                     message: 'Password Invalid. Please try again.'
                 });
             }
-            jwt.sign({id: user.id}, process.env.JWT_SECRET, { expiresIn: 1800 }, (err, token) => {
+            jwt.sign({id: user.id}, process.env.JWT_SECRET, { expiresIn: 30 }, (err, token) => {
                 if(err) throw err;
                 res.status(200).json({
                     user: {
@@ -119,7 +119,7 @@ userRouter.post('/register', (req, res) => {
                 if(err) throw err;
                 newUser.password = hash;
                 newUser.save().then(user => {
-                    jwt.sign({id: user.id}, process.env.JWT_SECRET, { expiresIn: 1800 }, (err, token) => {
+                    jwt.sign({id: user.id}, process.env.JWT_SECRET, { expiresIn: 30 }, (err, token) => {
                         if(err) throw err;
                         res.status(201).json({
                             user: {
