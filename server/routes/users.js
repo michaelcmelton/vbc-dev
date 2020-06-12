@@ -34,7 +34,7 @@ userRouter.get('/token', auth, (req, res) => {
 userRouter.post('/login', (req, res) => {
     const { email, password } = req.body;
     User.findOne({ email }, (err, user) => {
-        if (err) throw err;
+        if (user === null) return res.status(400).json({message: 'Email not found. Do you have an account?'});
         bcrypt.compare(password, user.password, (err, success) => {
             if (err || success === false) {
                 return res.status(401).json({

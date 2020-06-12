@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changePass } from '../../actions/authActions';
 import PropTypes from 'prop-types';
-import { findRenderedComponentWithType } from 'react-dom/test-utils';
+import Backdrop from '../Backdrop/Backdrop';
+import BusinessForm from '../BusinessForm/BusinessForm';
 
 
 class Profile extends Component {
-    state = {
-        password:'',
-        newPassword:''
-    }
+         state = {
+            password: '',
+            newPassword: '',
+            businessModalOpen: false
+        }
 
     static propTypes = {
         changePass: PropTypes.func.isRequired
@@ -22,7 +24,7 @@ class Profile extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const {password, newPassword} = this.state;
+        const { password, newPassword } = this.state;
         const passwordChange = {
             email: this.props.user.email,
             password,
@@ -32,29 +34,36 @@ class Profile extends Component {
     }
 
     render() {
+        let backdrop, businessForm;
+        if (!this.props.isAuthenticated) {
+            return <Redirect to='/login' />
+        }
 
-        if(!this.props.isAuthenticated) {
-            return <Redirect to='/login'/>
-          }
+        if(this.props.show) {
+            backdrop = <Backdrop />
+            businessForm = <BusinessForm click={this.props.close}/>
+        }
 
         return (
-            <div>
+            <div className="profile">
+                {backdrop}
                 <h4>User Profile for {this.props.user.name}</h4>
                 <div>
                     <div>
                         <h3>Change Password</h3>
-                        {this.props.passMsg ? <h5>{this.props.passMsg}</h5> : ''} 
+                        {this.props.passMsg ? <h5>{this.props.passMsg}</h5> : ''}
                         <form onSubmit={this.onSubmit}>
                             <label>Current Password:</label>
-                            <input onChange={this.onChange} name="password" type="password"/>
+                            <input onChange={this.onChange} name="password" type="password" />
                             <label>New Password:</label>
-                            <input onChange={this.onChange} name="newPassword" type="password"/>
+                            <input onChange={this.onChange} name="newPassword" type="password" />
                             <button>Change Password</button>
                         </form>
                     </div>
+                    {businessForm}
                     <div>
                         <h2>Businesses</h2>
-                        <button>Add Business</button>
+                        <button onClick={this.props.open}>Add Business</button>
                     </div>
                     <div>
                         <h2>Delete Account</h2>
@@ -73,4 +82,4 @@ const mapStateToProps = state => ({
     passMsg: state.auth.opMsg
 })
 
-export default connect(mapStateToProps, {changePass})(Profile);
+export default connect(mapStateToProps, { changePass })(Profile);

@@ -34,11 +34,20 @@ class App extends Component {
   }
 
   state = {
-    sideDrawerOpen: false
+    sideDrawerOpen: false,
+    businesssFormOpen: false
+  };
+
+  businessFormOpenHandler = () => {
+    this.setState({businesssFormOpen: true});
+  };
+
+  businessFormCloseHandler = () => {
+    this.setState({businesssFormOpen: false});
   };
 
   drawerToggleClickHandler = () => {
-    this.setState((prevState) => {
+    this.setState((prevState) => { 
       return {sideDrawerOpen: !prevState.sideDrawerOpen};
     });
   };
@@ -64,7 +73,7 @@ class App extends Component {
               <Route path="/" exact component={Home} />
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
-              <Route path="/profile" component={Profile} />
+              <Route path="/profile" render={(props) => <Profile {...props} show={this.state.businesssFormOpen} open={this.businessFormOpenHandler} close={this.businessFormCloseHandler} />} />
             </Switch>
           </div>
           <Footer />

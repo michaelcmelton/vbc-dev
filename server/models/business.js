@@ -4,6 +4,10 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const businessSchema = new Schema({
+  ownerId: {
+    type: String,
+    required: true
+  }, 
   businessName: {
     type: String,
     required: [true, 'BusinessName is required.']
@@ -15,18 +19,6 @@ const businessSchema = new Schema({
   state: {
     type: String,
     required: [true, 'State is required.']
-  },
-  ownerName: {
-    type: String,
-    required: [true, 'OwnerName is required.']
-  },
-  ownerId: {
-    type: String,
-    required: [true, 'OwnerId is required.']
-  },
-  branchOfService: {
-    type: String,
-    required: [true, 'Branch of Service is required.']
   },
   industry: {
     type: String,
@@ -57,8 +49,19 @@ const businessSchema = new Schema({
     required: [true, 'Business email required']
   },
   website: {
-    type: String,
-    required: [true, 'Website is Required']
+    type: String
+  },
+  facebook: {
+    type: String
+  },
+  instagram: {
+    type: String
+  },
+  twitter: {
+    type: String
+  },
+  biography: {
+    type: String
   }
 })
 

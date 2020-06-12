@@ -1,8 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Logout from '../Logout/Logout';
+import {useSelector} from 'react-redux';
+
 
 import './SideDrawer.css'
 const SideDrawer = (props) => {
+    const auth = useSelector(state => state.auth.isAuthenticated);
     let classes
     if(props.show) {
         classes = 'sidedrawer-nav open'
@@ -19,7 +23,8 @@ const SideDrawer = (props) => {
                 <Link to='/directory'><li className="sidedrawer-item">Directory</li></Link>
                 <Link to='/contact'><li className="sidedrawer-item">Contact</li></Link>
                 <Link to='/about'><li className="sidedrawer-item">About</li></Link>
-                <Link to='/login'><button className="nav-menu-item">Login</button></Link>
+                {auth ? <Link to='/profile'><li className="sidedrawer-item">Profile</li></Link> : <Link to='/login'><li className="sidedrawer-item">Login</li></Link>}
+                        {auth ? <Logout /> : null}
             </ul>
             <div className="sidedrawer-copyright">
                 <p>&#169; 2020. Veteran Business Connection. Designed and Developed by <a href="https://meltondevelopment.com/">Melton Development</a></p>.

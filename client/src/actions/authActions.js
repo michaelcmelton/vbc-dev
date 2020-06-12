@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { returnErrors } from'./errorActions';
+import { returnErrors, clearErrors } from'./errorActions';
 
 import {
     USER_LOADED,
@@ -73,10 +73,11 @@ export const login = ({email, password}) => dispatch => {
    const body = JSON.stringify({email, password});
    axios.post('/api/user/login', body, config)
    .then(res => {
-       dispatch({
-           type: LOGIN_SUCCESS,
-           payload: res.data
-       })
+        dispatch(clearErrors());
+        dispatch({
+            type: LOGIN_SUCCESS,
+            payload: res.data
+        })
    })
    .catch(err => {
        dispatch(returnErrors(err.response.data.message, err.response.status, 'LOGIN_FAIL'));
@@ -96,6 +97,7 @@ export const register = ({name, email, password, confPassword, branch}) => dispa
     const body = JSON.stringify({name, email, password, confPassword, branch});
     axios.post('/api/user/register', body, config)
         .then(res => {
+            dispatch(clearErrors());
             dispatch({
                 type: REGISTER_SUCCESS,
                 payload: res.data

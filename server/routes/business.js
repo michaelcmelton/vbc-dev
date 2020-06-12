@@ -46,8 +46,7 @@ businessRouter.post('/', auth, (req, res) => {
         const messageArr = err.message.split(':');
         [message, ...rest] = messageArr.reverse().map((element) => element.trim());
         res.status(422).json({
-          status: 422,
-          error: message
+          message
         });
 
         return;
@@ -63,12 +62,12 @@ businessRouter.post('/', auth, (req, res) => {
     const createItem = req.body;
     business.create(createItem, (err, data) => {
       if (err) {
+        console.log(err);
         let message;
         const messageArr = err.message.split(':');
         [message, ...rest] = messageArr.reverse().map((element) => element.trim());
         res.status(422).json({
-          status: 422,
-          error: message
+          message
         });
 
         return;
