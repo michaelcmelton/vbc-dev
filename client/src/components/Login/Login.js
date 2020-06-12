@@ -61,7 +61,7 @@ class Login extends Component {
                 <img alt="flag-backdrop" src={imgPath + 'flag.jpg'} />
                 <div className="fillbox" />
             </div>
-            <div className="form-container">
+            <div className="login-form-container">
                 <h1>Login</h1>
                 {this.state.msg ? <h4 className="error-msg">{this.state.msg}</h4> : null}
                 <form onSubmit={this.onSubmit}>

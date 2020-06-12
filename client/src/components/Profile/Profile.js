@@ -6,13 +6,28 @@ import PropTypes from 'prop-types';
 import Backdrop from '../Backdrop/Backdrop';
 import BusinessForm from '../BusinessForm/BusinessForm';
 
-
 class Profile extends Component {
-         state = {
-            password: '',
-            newPassword: '',
-            businessModalOpen: false
-        }
+    state = {
+        password: '',
+        newPassword: '',
+        businessModalOpen: false,
+        industryOption: null,
+        businessList: null
+    }
+
+    componentDidMount() {
+        fetch('/api/business/')
+            .then(res => res.json())
+            .then(data => {
+                let arr = []
+                for (var i = 0; i < data.data.length; i++) {
+                    arr.push(data.data[i].industry);
+                }
+                arr = arr.sort();
+
+                this.setState({ industryOption: arr });
+            });
+    }
 
     static propTypes = {
         changePass: PropTypes.func.isRequired
@@ -34,14 +49,15 @@ class Profile extends Component {
     }
 
     render() {
-        let backdrop, businessForm;
+        let backdrop, businessForm, businessList;
         if (!this.props.isAuthenticated) {
             return <Redirect to='/login' />
         }
-
-        if(this.props.show) {
+        
+        if (this.props.show) {
+            document.body.style.overflowY = 'scroll';
             backdrop = <Backdrop />
-            businessForm = <BusinessForm click={this.props.close}/>
+            businessForm = <BusinessForm click={this.props.close} industryOption={this.state.industryOption} />
         }
 
         return (
@@ -63,6 +79,7 @@ class Profile extends Component {
                     {businessForm}
                     <div>
                         <h2>Businesses</h2>
+                        {businessList}
                         <button onClick={this.props.open}>Add Business</button>
                     </div>
                     <div>
@@ -78,6 +95,7 @@ class Profile extends Component {
 
 const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated,
+    token: state.auth.token,
     user: state.auth.user,
     passMsg: state.auth.opMsg
 })

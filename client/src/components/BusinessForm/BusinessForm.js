@@ -21,7 +21,8 @@ class BusinessForm extends Component {
         website: null,
         facebook: null,
         instagram: null,
-        twitter: null
+        twitter: null,
+        industryOption: null
     }
     static propTypes = {
         businessAdd: PropTypes.func.isRequired
@@ -79,9 +80,11 @@ class BusinessForm extends Component {
                 twitter }
         }
         this.props.businessAdd(newBusiness);
+        this.props.click();
     }
 
     render() {
+        let optionValues = this.props.industryOption.map((industry, index) => <option key={index} value={industry}>{industry}</option>);
         return (
             <div className="business-form">
                 <div className="form-container">
@@ -93,6 +96,7 @@ class BusinessForm extends Component {
                         <input onChange={this.onChange} name="state" placeholder="State" type="state"></input>
                         <select onChange={this.onChange} id="industry" name="industry">
                             <option value="">Select an Industry</option>
+                            {optionValues}
                             <option value="other">Other</option>
                         </select>
                         {this.state.industry === 'other' ? <input onChange={this.onChange} name="industryOther" placeholder="Input your industry here"></input> : ''}

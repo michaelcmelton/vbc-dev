@@ -11,11 +11,27 @@
         align-items: center;
     }
     .form-container {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow:  3px 2px 15px #cccccc;
+        margin-top: 8em;
+        border: 1px solid #aaaaaa;
+        margin-bottom: 12em;
+        z-index: 300;
         position: absolute;
         top: -5%;
         left: 30%;
         width: 44em;
     }
+
+    .form-container input{
+        margin-left: 1.6em;
+        margin-bottom: 0.5em;
+        width: 85%;
+        display: block;
+        height: 2.5em;
+    }
+
     #industry {
         margin-left: 1.5em;
         margin-bottom: 0.25em;
