@@ -41,6 +41,7 @@
 
 .nav-menu {
     display: none;
+    list-style-type: none;
 }
 
 .mobile-button:focus {

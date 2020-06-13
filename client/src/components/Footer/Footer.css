@@ -13,7 +13,6 @@
 
     .footer h4 a {
         text-decoration: none;
-        color: #ccc;
         z-index: 300;
     }
 
@@ -26,7 +25,6 @@
         font-size: 12px;
         font-family: 'Barlow Condensed', sans-serif;
         font-weight: 400;
-        color: #ccc;
         z-index: 300;
     }
 }

@@ -90,9 +90,21 @@ const Home = (props) => {
             <div className="final">
                 <div className="cta">
                     <h3>Ready to list?</h3>
+                    <p>Create an account below to get started!</p>
+                    <Link to='/register'><button>Create an account</button></Link> 
                 </div>
                 <div className="contact">
                     <h3>Questions?</h3>
+                    <h4>Ask below and we will get back to you as soon as possible!</h4>
+                    <form className='contact-form'>
+                        <label for="name">Name: </label>
+                        <input id="name" name="name" placeholder="Name"></input>
+                        <label for="email">Email: </label>
+                        <input id="email" email="email" placeholder="Email"></input>
+                        <label for="questions">Questions: </label>
+                        <textarea id="questions" name="questions" rows='10' cols='15' placeholder="Put your questions here."></textarea>
+                        <button type="button">Submit Questions</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -1,14 +1,14 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logout from '../Logout/Logout';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 import './SideDrawer.css'
 const SideDrawer = (props) => {
     const auth = useSelector(state => state.auth.isAuthenticated);
     let classes
-    if(props.show) {
+    if (props.show) {
         classes = 'sidedrawer-nav open'
     } else {
         classes = 'sidedrawer-nav'
@@ -16,15 +16,15 @@ const SideDrawer = (props) => {
 
     return (
         <div className={classes} onClick={props.drawerClickHandler}>
-            <div className="sidedrawer-spacer"/>
+            <div className="sidedrawer-spacer" />
             <ul className="sidedrawer-menu">
-                <Link to='/'><li className="sidedrawer-item">Home</li></Link>
-                <Link to='/profile'><li className="sidedrawer-item">Profile</li></Link>
-                <Link to='/directory'><li className="sidedrawer-item">Directory</li></Link>
-                <Link to='/contact'><li className="sidedrawer-item">Contact</li></Link>
-                <Link to='/about'><li className="sidedrawer-item">About</li></Link>
-                {auth ? <Link to='/profile'><li className="sidedrawer-item">Profile</li></Link> : <Link to='/login'><li className="sidedrawer-item">Login</li></Link>}
-                        {auth ? <Logout /> : null}
+                <li className="sidedrawer-item"><Link to='/'>Home</Link></li>
+                <li className="sidedrawer-item"><Link to='/profile'>Profile</Link></li>
+                <li className="sidedrawer-item"><Link to='/directory'>Directory</Link></li>
+                <li className="sidedrawer-item"><Link to='/contact'>Contact</Link></li>
+                <li className="sidedrawer-item"><Link to='/about'>About</Link></li>
+                {auth ? <li className="sidedrawer-item"><Link to='/profile'>Profile</Link></li> : <li className="sidedrawer-item"><Link to='/login'>Login</Link></li>}
+                {auth ? <li className="sidedrawer-item"><Logout /></li> : null}
             </ul>
             <div className="sidedrawer-copyright">
                 <p>&#169; 2020. Veteran Business Connection. Designed and Developed by <a href="https://meltondevelopment.com/">Melton Development</a></p>.

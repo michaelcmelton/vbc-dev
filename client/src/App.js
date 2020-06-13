@@ -9,6 +9,7 @@ import Register from './components/Register/Register';
 import Profile from './components/Profile/Profile';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import {loadBusiness } from './actions/businessActions';
 import { loadUser } from './actions/authActions';
 import './App.css';
 import { Provider } from 'react-redux';
@@ -30,6 +31,7 @@ const store = createStore(
 class App extends Component {
 
   componentDidMount() {
+    store.dispatch(loadBusiness());
     store.dispatch(loadUser());
   }
 

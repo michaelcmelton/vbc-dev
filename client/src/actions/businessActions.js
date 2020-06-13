@@ -1,9 +1,9 @@
-import {tokenConfig} from '../actions/authActions';
+import { tokenConfig } from '../actions/authActions';
 import axios from 'axios';
-import { BUSINESS_ADD_SUCCESS, BUSINESS_ADD_FAIL } from './types';
+import { BUSINESS_ADD_SUCCESS, BUSINESS_ADD_FAIL, BUSINESS_LOADING, BUSINESS_LOADED, BUSINESS_LOAD_FAIL } from './types';
 import { returnErrors } from './errorActions';
 
-export const businessAdd = ({ownerId,
+export const businessAdd = ({ ownerId,
     businessName,
     city,
     state,
@@ -16,9 +16,10 @@ export const businessAdd = ({ownerId,
     website,
     facebook,
     instagram,
-    twitter}) => (dispatch, getState) => {
+    twitter }) => (dispatch, getState) => {
         console.log(ownerId)
-        const body = JSON.stringify({ownerId,
+        const body = JSON.stringify({
+            ownerId,
             businessName,
             city,
             state,
@@ -31,7 +32,8 @@ export const businessAdd = ({ownerId,
             website,
             facebook,
             instagram,
-            twitter});
+            twitter
+        });
         axios.post('/api/business/', body, tokenConfig(getState))
             .then(res => {
                 dispatch({
@@ -45,4 +47,21 @@ export const businessAdd = ({ownerId,
                     type: BUSINESS_ADD_FAIL
                 });
             })
-};
+    };
+
+export const loadBusiness = () => (dispatch) => {
+    dispatch({ type: BUSINESS_LOADING });
+    axios.get('/api/business/')
+        .then(res => {
+            dispatch({
+                type: BUSINESS_LOADED,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            dispatch(returnErrors(err.response.data.message, err.status, 'BUSINESS_LOAD_FAIL'));
+            dispatch({
+                type: BUSINESS_LOAD_FAIL
+            });
+        })
+}

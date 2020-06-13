@@ -7,6 +7,76 @@
     max-width: 95%;
 }
 
+.cta h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-align: center;
+    font-size: 24px;
+}
+
+.cta p {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+.cta button {
+    color: white;
+    background-color: #2D3763;
+    border: none;
+    padding: .75em 2em;
+    font-size: 18px;
+    width: 100%;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.contact-form input{
+    display: block;
+    height: 3.2em;
+    margin-bottom: 0.5em;
+}
+
+.contact-form button {
+    width: 100%;
+    margin-top: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-align: center;
+    font-size: 24px;
+}
+
+.contact h4 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 18px;
+}
+
+.contact-form textarea {
+    font-family: 'Roboto', sans-serif;
+}
+
+.founders-mobile h1 { 
+    font-size: 32px;
+    text-align:center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: bold;
+}
+
+.founders-mobile h2 {
+    text-align: center;
+    font-size: 28px;
+}
+
 .founders-desktop {
     display: none;
 }
@@ -136,6 +206,34 @@
 /* Desktop Layout */
 
 @media screen and (min-width: 992px) {
+    .final {
+        display: flex;
+    }
+
+    .final .cta, .final .contact {
+       width: 50%;
+    }
+
+    .cta p {
+        margin-top: 8.5em;
+    }
+    .cta button {
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 50%;
+    }
+
+    .founders-desktop h1 { 
+        font-size: 32px;
+        text-align:center;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: bold;
+    }
+
+    .contact-form button {
+        width: 50%;
+    }
+
     .mobile-header-logo {
         display: none;
     }
@@ -184,7 +282,7 @@
     .founder-text-right p a {
         font-family: 'Roboto', sans-serif;
         text-decoration: none;
-        color: #999999;
+        color: #2D3763;
     }
 
     .founder-text-left h2 {
@@ -204,7 +302,7 @@
     .founder-text-left p a {
         font-family: 'Roboto', sans-serif;
         text-decoration: none;
-        color: #999999;
+        color: #2D3763;
     }
 
     .clip-circle {

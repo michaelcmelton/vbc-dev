@@ -20,12 +20,12 @@ const Toolbar = (props) => {
                 </button>
                 <div className="nav">
                     <ul className="nav-menu">
-                        <Link to='/'><button className="nav-menu-item">Home</button></Link>
-                        <Link to='/directory'><button className="nav-menu-item">Directory</button></Link>
-                        <Link to='/contact'><button className="nav-menu-item">Contact</button></Link>
-                        <Link to='/about'><button className="nav-menu-item">About</button></Link>
-                        {auth ? <Link to='/profile'><button className="nav-menu-item">Profile</button></Link> : <Link to='/login'><button className="nav-menu-item">Login</button></Link>}
-                        {auth ? <Logout /> : null}
+                        <li><Link to='/'><button className="nav-menu-item">Home</button></Link></li>
+                        <li><Link to='/directory'><button className="nav-menu-item">Directory</button></Link></li>
+                        <li><Link to='/contact'><button className="nav-menu-item">Contact</button></Link></li>
+                        <li><Link to='/about'><button className="nav-menu-item">About</button></Link></li>
+                        {auth ? <li><Link to='/profile'><button className="nav-menu-item">Profile</button></Link></li> : <li><Link to='/login'><button className="nav-menu-item">Login</button></Link></li>}
+                        {auth ? <li><Logout /></li> : null}
                     </ul>
                 </div>
                 <img src={imgPath + '/VBC.png'} alt="mobile-logo" className="mobile-logo"/>
