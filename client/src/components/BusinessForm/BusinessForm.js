@@ -8,7 +8,7 @@ import './BusinessForm.css';
 
 class BusinessForm extends Component {
     state = {
-        ownerId: this.props.user._id,
+        ownerId: this.props.user.id,
         businessName: null,
         city: null,
         state: null,
@@ -49,6 +49,7 @@ class BusinessForm extends Component {
             instagram,
             twitter } = this.state;
         let newBusiness;
+        this.props.addBusiness(businessName);
         console.log(ownerId);
         if(industry === 'other') { 
             newBusiness = { ownerId,

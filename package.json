@@ -67,6 +67,11 @@
   },
   "proxy": "http://localhost:8080",
   "nodemonConfig": {
-    "ignore": ["client/**"]
+    "ignore": [
+      "client/**"
+    ],
+    "events": {
+      "start": "clear"
+    }
   }
 }

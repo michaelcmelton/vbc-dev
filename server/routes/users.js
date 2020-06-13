@@ -28,7 +28,12 @@ userRouter.get('/', (req, res) => {
 userRouter.get('/token', auth, (req, res) => {
     User.findById(req.user.id)
         .select('-password')
-        .then(user => res.json(user));
+        .then(user => res.json({
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            branch: user.branch
+        }));
 });
 
 userRouter.post('/login', (req, res) => {
@@ -72,11 +77,10 @@ userRouter.post('/passwordchange', auth, (req, res) => {
                 bcrypt.hash(newPassword, salt, (err, hash) => {
                     user.password = hash;
                     user.save().then(res.status(203).json({user: {
-                        _id: user['_id'],
-                        email: user.email,
-                        branch: user.branch,
+                        id: user.id,
                         name: user.name,
-                        _v: user['_v']
+                        email: user.email,
+                        branch: user.branch
                     }, msg: 'Password successfully updated.'}))
                 });
             })

@@ -37,6 +37,11 @@ class Profile extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
+    addBusinesstoState = (businessName) => {
+        const arr = this.state.industryOption;
+        this.setState({ industryOption: [...arr, businessName]});
+    }
+
     onSubmit = e => {
         e.preventDefault();
         const { password, newPassword } = this.state;
@@ -57,7 +62,7 @@ class Profile extends Component {
         if (this.props.show) {
             document.body.style.overflowY = 'scroll';
             backdrop = <Backdrop />
-            businessForm = <BusinessForm click={this.props.close} industryOption={this.state.industryOption} />
+            businessForm = <BusinessForm click={this.props.close} industryOption={this.state.industryOption} addBusiness={this.addBusinesstoState}/>
         }
 
         return (
