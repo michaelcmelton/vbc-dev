@@ -80,6 +80,7 @@ export const login = ({email, password}) => dispatch => {
         })
    })
    .catch(err => {
+       console.log(err.response);
        dispatch(returnErrors(err.response.data.message, err.response.status, 'LOGIN_FAIL'));
        dispatch({
            type: LOGIN_FAIL

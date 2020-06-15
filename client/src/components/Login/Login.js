@@ -63,7 +63,7 @@ class Login extends Component {
             </div>
             <div className="login-form-container">
                 <h1>Login</h1>
-                {this.state.msg ? <h4 className="error-msg">{this.state.msg}</h4> : null}
+                {this.state.msg ? <h4 className="error-msg">{this.state.msg}</h4> : <br/>}
                 <form onSubmit={this.onSubmit}>
                     <input onChange={this.onChange} name="email" type="email" placeholder="example@example.com" />
                     <input onChange={this.onChange} name="password" type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" />
@@ -72,7 +72,7 @@ class Login extends Component {
                         <Link to='/'><button type="button">Cancel</button></Link>
                     </div>
                 </form>
-                <button type='button'><Link to='/register'>Don't have an account? Click here to create one.</Link></button>
+                <button id='register-link' type='button'><Link to='/register'>Don't have an account?</Link></button>
             </div>
         </div>
     )
