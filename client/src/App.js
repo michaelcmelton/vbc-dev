@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Profile from './components/Profile/Profile';
+import Directory from './components/Directory/Directory';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import {loadBusiness } from './actions/businessActions';
@@ -75,6 +76,7 @@ class App extends Component {
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/login" component={Login} />
+                <Route path="/directory" component={Directory} />
                 <Route path="/register" component={Register} />
                 <Route path="/profile" render={(props) => <Profile {...props} show={this.state.businesssFormOpen} open={this.businessFormOpenHandler} businessList={this.props.businessList} close={this.businessFormCloseHandler} />} />
               </Switch>
