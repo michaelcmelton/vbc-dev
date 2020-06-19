@@ -2,11 +2,20 @@ import React, { Component } from 'react';
 import List from './List';
 
 import './Directory.css'
+import Backdrop from '../Backdrop/Backdrop';
+import BusinessDetail from './BusinessDetail';
 class Directory extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      directoryData: [],
+      directoryFormat: [],
+      businessDetailData: {}
+    };
+  }
 
-  state = {
-    directoryData: [],
-    directoryFormat: []
+  passBusinessDetailBack = (childData) => {
+    this.setState({businessDetailData: childData}, () => console.log(this.state.businessDetailData));
   }
 
   componentDidMount() {
@@ -23,7 +32,11 @@ class Directory extends Component {
           for (let industry of industries) {
             let obj = {};
             obj.name = industry;
-            obj.people = data.data.filter(i => i.state === st && i.industry === industry).map(i => {return {name: i.businessName}});
+            obj.people = data.data.filter(i => i.state === st && i.industry === industry).map(i => {
+              i.name = i.businessName; 
+              delete i.businessName; 
+              return i;
+            });
             object.people.push(obj);
           }
           this.setState({directoryData: [...this.state.directoryData, JSON.parse(JSON.stringify(object))]});
@@ -32,12 +45,18 @@ class Directory extends Component {
   }
 
   render() {
-
+    let backdrop;
+    let businessDetail;
+    if(this.props.show) {
+      backdrop = <Backdrop drawerClickHandler={this.props.close}/>
+      businessDetail = <BusinessDetail close={this.props.close} data={this.state.businessDetailData} />
+    }
+    console.log(this.props);
     let nodes = this.state.directoryData.map(function(person) {                   
       return (
-        <List node={person} children={person.people} />
+        <List callback={this.passBusinessDetailBack.bind(this)} show={this.props.show} close={this.props.close} open={this.props.open} node={person} children={person.people} />
       );
-    });
+    }, this);
 
     return (
       <div className="Directory">
@@ -51,6 +70,8 @@ class Directory extends Component {
             {nodes}
           </ul>
         </div>
+        {backdrop}
+        {businessDetail}
       </div>
     )
   }

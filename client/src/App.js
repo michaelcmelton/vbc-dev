@@ -10,7 +10,6 @@ import Profile from './components/Profile/Profile';
 import Directory from './components/Directory/Directory';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import {loadBusiness } from './actions/businessActions';
 import { loadUser } from './actions/authActions';
 import './App.css';
 import { Provider } from 'react-redux';
@@ -32,15 +31,22 @@ const store = createStore(
 class App extends Component {
 
   componentDidMount() {
-    store.dispatch(loadBusiness());
     store.dispatch(loadUser());
   }
 
   state = {
     sideDrawerOpen: false,
     businesssFormOpen: false,
-    businesssList: null
+    businessDetailOpen: false
   };
+
+  openBusinessDetail = () => {
+    this.setState({ businessDetailOpen: true });
+  }
+
+  closeBuinessDetail = () => {
+    this.setState({ businessDetailOpen: false });
+  }
 
   businessFormOpenHandler = () => {
     this.setState({ businesssFormOpen: true });
@@ -76,7 +82,7 @@ class App extends Component {
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/login" component={Login} />
-                <Route path="/directory" component={Directory} />
+                <Route path="/directory" render={(props) => <Directory {...props} show={this.state.businessDetailOpen} open={this.openBusinessDetail} close={this.closeBuinessDetail} />} />
                 <Route path="/register" component={Register} />
                 <Route path="/profile" render={(props) => <Profile {...props} show={this.state.businesssFormOpen} open={this.businessFormOpenHandler} businessList={this.props.businessList} close={this.businessFormCloseHandler} />} />
               </Switch>

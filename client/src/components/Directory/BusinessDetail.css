@@ -1,0 +1,9 @@
+.businessDetail {
+    z-index: 500;
+    background-color: #eee;
+    max-width: 30em;
+    min-height: 30em;
+    position: fixed;
+    top: 15%;
+    left: 35em;
+}
