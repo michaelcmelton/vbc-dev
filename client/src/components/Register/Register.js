@@ -88,7 +88,7 @@ class Register extends Component {
                             <Link to='/'><button type="button">Cancel</button></Link>
                         </div>
                     </form>
-                    <button type='button'><Link to='/login'>Already have an account? Click here to sign in.</Link></button>
+                    <button id="login-link" type='button'><Link to='/login'>Already have an account?</Link></button>
                 </div>
             </div>
         )
