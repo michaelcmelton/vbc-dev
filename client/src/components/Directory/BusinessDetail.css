@@ -1,9 +1,48 @@
 .businessDetail {
     z-index: 500;
     background-color: #eee;
-    max-width: 30em;
+    min-width: 30em;
     min-height: 30em;
     position: fixed;
     top: 15%;
     left: 35em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:15% 1fr 1fr;
+    grid-template-areas: 
+    "detail1 detail1"
+    "location-div social-div"
+    "contact-div contact-div";
+}
+
+#detail-name {
+    text-align: center;
+    grid-row: 1;
+    grid-area: detail1;
+}
+
+.businessDetail h4 {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 1.5em;
+}
+
+.businessDetail .location-div {
+    grid-area: location-div;
+}
+
+.businessDetail .social-div {
+    grid-area: social-div;
+}
+
+.businessDetail .contact-div {
+    grid-area: contact-div;
+}
+
+.active {
+    color: rgba(0,0,255,0.7);
+}
+
+.inactive {
+    color: rgba(135,135,135, 0.7);
 }
