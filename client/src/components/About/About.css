@@ -1,0 +1,56 @@
+.founder-block {
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 2;
+    grid-template-areas: 
+    "h1 h1"
+    "picture text";
+}
+
+#about-logo {
+    margin-left: 4em;
+}
+
+.company-content {
+    display: flex;
+    align-items: center;
+}
+
+.company-content p {
+    margin-left: 5em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.67;
+}
+
+.founder-block h4 {
+    grid-area: h1;
+    font-size: 22px;
+    font-family: 'Barlow Condensed', sans-serif;
+    margin-left: 6em;
+}
+
+#jason-pic {
+    clip-path: circle(7.5em at 48% 37%);
+    margin-top: 1em;
+    margin-right: 2.5em;
+}
+
+#chad-pic {
+    clip-path: circle(7.5em at 48% 37%);
+    margin-top: 1em;
+    margin-right: 2.5em;
+    min-width: 23em;
+}
+
+.paragraph-text {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.67;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    margin-bottom: 0;
+}

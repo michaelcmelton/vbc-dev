@@ -16,6 +16,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import About from './components/About/About';
 
 const initialState = {};
 
@@ -81,6 +82,7 @@ class App extends Component {
             <div className="content">
               <Switch>
                 <Route path="/" exact component={Home} />
+                <Route path="/about" component={About} />
                 <Route path="/login" component={Login} />
                 <Route path="/directory" render={(props) => <Directory {...props} show={this.state.businessDetailOpen} open={this.openBusinessDetail} close={this.closeBuinessDetail} />} />
                 <Route path="/register" component={Register} />
