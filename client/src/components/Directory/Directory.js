@@ -10,7 +10,8 @@ class Directory extends Component {
     this.state = {
       directoryData: [],
       directoryFormat: [],
-      businessDetailData: {}
+      businessDetailData: {},
+      industries: []
     };
   }
 
@@ -27,6 +28,8 @@ class Directory extends Component {
         states.forEach((st, index) => {
           object.name = st;
           object.id = index;
+          const industriesAll = data.data.map( i => i.industry);
+          this.setState({ industries: industriesAll });
           const industries = data.data.filter(i => i.state === st).map( i => i.industry);
           object.people = [];
           for (let industry of industries) {
@@ -42,16 +45,22 @@ class Directory extends Component {
           this.setState({directoryData: [...this.state.directoryData, JSON.parse(JSON.stringify(object))]});
         })
       })
+    
   }
 
   render() {
     let backdrop;
     let businessDetail;
+    let optionValues;
     if(this.props.show) {
       backdrop = <Backdrop drawerClickHandler={this.props.close}/>
       businessDetail = <BusinessDetail close={this.props.close} data={this.state.businessDetailData} />
     }
-    console.log(this.props);
+
+    optionValues = this.state.industries.map((option) => {
+      return <option value={option}>{option}</option>
+    })
+
     let nodes = this.state.directoryData.map(function(person) {                   
       return (
         <List callback={this.passBusinessDetailBack.bind(this)} show={this.props.show} close={this.props.close} open={this.props.open} node={person} children={person.people} />
@@ -59,11 +68,20 @@ class Directory extends Component {
     }, this);
 
     return (
-      <div className="Directory">
+      <div className="directory-main">
         <h1>Directory Search</h1>
-        <div>
+        <div className='search-form'>
           <h4>What are you looking for today?</h4>
-
+          <form>
+            <label for="service">Service: </label>
+            <input id="service" type="input" placeholder="Service Needed"/>
+            <h3>or</h3>
+            <label for="industry">Industry: </label>
+            <select id="industry">
+              <option value="">Select an industry</option>
+              {optionValues}
+            </select>
+          </form>
         </div>
         <div className="directory">
           <ul>

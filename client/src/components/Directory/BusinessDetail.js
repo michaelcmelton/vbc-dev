@@ -15,9 +15,11 @@ class BusinessDetail extends Component {
                 </div>
                 <div className="social-div">
                     <h3>Social Media</h3>
-                    {this.props.data.facebook ? <a target="_blank" href={this.props.data.facebook}><i class="active fa-3x fab fa-facebook"></i></a> : <i class="inactive fa-3x fab fa-facebook"></i>}
-                    {this.props.data.instagram ? <a target="_blank" href={this.props.data.instagram}><i class="active fa-3x fab fa-instagram"></i></a> : <i class="inactive fa-3x fab fa-instagram"></i>}
-                    {this.props.data.twitter ? <a target="_blank" href={this.props.data.twitter}><i class="active fa-3x fab fa-twitter"></i></a> : <i class="inactive fa-3x fab fa-twitter"></i>}
+                    <div id="social-links">
+                        {this.props.data.facebook ? <a target="_blank" rel="noopener noreferrer" href={this.props.data.facebook}><i className="active fa-3x fab fa-facebook"></i></a> : <i className="inactive fa-3x fab fa-facebook"></i>}
+                        {this.props.data.instagram ? <a target="_blank" rel="noopener noreferrer" href={this.props.data.instagram}><i className="active fa-3x fab fa-instagram"></i></a> : <i className="inactive fa-3x fab fa-instagram"></i>}
+                        {this.props.data.twitter ? <a target="_blank" rel="noopener noreferrer" href={this.props.data.twitter}><i className="active fa-3x fab fa-twitter"></i></a> : <i className="inactive fa-3x fab fa-twitter"></i>}
+                    </div>
                 </div>
                 <div className="contact-div">
                     <h3>Contact</h3>
@@ -27,6 +29,10 @@ class BusinessDetail extends Component {
                     <h4>{this.props.data.email}</h4>
                     <h4>website</h4>
                     <h4>{this.props.data.website}</h4>
+                </div>
+                <div className="bio-div">
+                    <h3>About</h3>
+                    <p>{this.props.data.biography}</p>
                 </div>
             </div>
         )

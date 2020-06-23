@@ -5,17 +5,18 @@
     min-height: 30em;
     position: fixed;
     top: 15%;
-    left: 35em;
+    left: 45em;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows:15% 1fr 1fr;
     grid-template-areas: 
-    "detail1 detail1"
-    "location-div social-div"
-    "contact-div contact-div";
+    "detail1 detail1 detail1"
+    "location-div social-div bio"
+    "contact-div contact-div bio";
 }
 
 #detail-name {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     grid-row: 1;
     grid-area: detail1;
@@ -45,4 +46,24 @@
 
 .inactive {
     color: rgba(135,135,135, 0.7);
+}
+
+.social-div h3 {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.social-div h3, .location-div h3, .contact-div h3, .bio-div h3 {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.bio-div p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.social-div #social-links {
+    display: flex;
+    justify-content: space-evenly;
 }

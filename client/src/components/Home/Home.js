@@ -97,11 +97,11 @@ const Home = (props) => {
                     <h3>Questions?</h3>
                     <h4>Ask below and we will get back to you as soon as possible!</h4>
                     <form className='contact-form'>
-                        <label for="name">Name: </label>
+                        <label htmlFor="name">Name: </label>
                         <input id="name" name="name" placeholder="Name"></input>
-                        <label for="email">Email: </label>
+                        <label htmlFor="email">Email: </label>
                         <input id="email" email="email" placeholder="Email"></input>
-                        <label for="questions">Questions: </label>
+                        <label htmlFor="questions">Questions: </label>
                         <textarea id="questions" name="questions" rows='10' cols='15' placeholder="Put your questions here."></textarea>
                         <button type="button">Submit Questions</button>
                     </form>

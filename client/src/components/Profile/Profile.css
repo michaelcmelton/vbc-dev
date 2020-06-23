@@ -1,0 +1,20 @@
+.profile-container {
+    display: grid;
+    grid-template-columns: 2;
+    grid-template-rows: 2;
+    grid-template-areas: 
+    "business business"
+    "change delete";
+}
+
+.business-list {
+    grid-area: business;
+}
+
+.password-change {
+    grid-area: change;
+}
+
+.delete-account {
+    grid-area: delete;
+}

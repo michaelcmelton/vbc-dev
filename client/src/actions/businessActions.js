@@ -1,6 +1,6 @@
 import { tokenConfig } from '../actions/authActions';
 import axios from 'axios';
-import { BUSINESS_ADD_SUCCESS, BUSINESS_ADD_FAIL, BUSINESS_LOADING, BUSINESS_LOADED, BUSINESS_LOAD_FAIL } from './types';
+import { BUSINESS_ADD_SUCCESS, BUSINESS_ADD_FAIL, BUSINESS_LOADING, BUSINESS_LOADED, BUSINESS_LOAD_FAIL, USER_BUSINESS_LOADED } from './types';
 import { returnErrors } from './errorActions';
 
 export const businessAdd = ({ ownerId,
@@ -48,6 +48,18 @@ export const businessAdd = ({ ownerId,
                 });
             })
     };
+
+export const loadUserBusiness = (id) => (dispatch, getState) => new Promise((resolve, reject) => {
+    dispatch({type: BUSINESS_LOADING});
+    axios.get(`/api/business/${id}`, tokenConfig(getState))
+        .then(res => {
+            dispatch({
+                type: USER_BUSINESS_LOADED,
+                payload: res.data
+            });
+            resolve();
+        })
+    });
 
 export const loadBusiness = () => (dispatch) => {
     dispatch({ type: BUSINESS_LOADING });
