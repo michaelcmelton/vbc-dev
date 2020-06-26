@@ -40,12 +40,19 @@ businessRouter.post('/', auth, (req, res) => {
   if (req.body instanceof Array) {
     const createItemsLength = req.body.length;
     const createItems = req.body;
+    var test = /(Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New\sHampshire|New\sJersey|New\sMexico|New\sYork|North\sCarolina|North\sDakota|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode\sIsland|South\sCarolina|South\sDakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West\sVirginia|Wisconsin|Wyoming)/gm.test(req.body.state);
+    if(test !== true) {
+      res.status(401).json({
+        message: 'State is not valid.'
+      });
+      return;
+    }
     business.insertMany(createItems, (err, docs) => {
       if (err) {
         let message;
         const messageArr = err.message.split(':');
         [message, ...rest] = messageArr.reverse().map((element) => element.trim());
-        res.status(422).json({
+        res.status(401).json({
           message
         });
 
@@ -66,7 +73,7 @@ businessRouter.post('/', auth, (req, res) => {
         let message;
         const messageArr = err.message.split(':');
         [message, ...rest] = messageArr.reverse().map((element) => element.trim());
-        res.status(422).json({
+        res.status(401).json({
           message
         });
 
@@ -82,7 +89,14 @@ businessRouter.post('/', auth, (req, res) => {
 });
 
 // Update record by ID.
-businessRouter.patch('/:id', auth, (req, res) => {
+businessRouter.post('/:id', auth, (req, res) => {
+  var test = /(Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New\sHampshire|New\sJersey|New\sMexico|New\sYork|North\sCarolina|North\sDakota|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode\sIsland|South\sCarolina|South\sDakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West\sVirginia|Wisconsin|Wyoming)/gm.test(req.body.state);
+  if(test !== true) {
+    res.status(401).json({
+      message: 'State is not valid. Please use the full state name. (eg. North Carolina)'
+    });
+    return;
+  }
   business.findOneAndUpdate({ _id: req.params.id }, req.body, {
     overwrite: true,
     new: true
@@ -110,9 +124,8 @@ businessRouter.delete('/delete', auth, (req, res) => {
         let message;
         const messageArr = err.message.split(':');
         [message, ...rest] = messageArr.reverse().map((element) => element.trim());
-        res.status(422).json({
-          status: 422,
-          error: message
+        res.status(401).json({
+          message
         });
 
         return;
@@ -129,8 +142,7 @@ businessRouter.delete('/delete', auth, (req, res) => {
         const messageArr = err.message.split(':');
         [message, ...rest] = messageArr.reverse().map((element) => element.trim());
         res.status(422).json({
-          status: 422,
-          error: message
+          message
         });
 
         return;

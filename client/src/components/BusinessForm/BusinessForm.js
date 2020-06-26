@@ -7,23 +7,62 @@ import PropTypes from 'prop-types';
 import './BusinessForm.css';
 
 class BusinessForm extends Component {
-    state = {
-        ownerId: this.props.user.id,
-        businessName: null,
-        city: null,
-        state: null,
-        industry: null,
-        industryOther: null,
-        biography: null,
-        areasServiced: null,
-        phone: null,
-        email: null,
-        website: null,
-        facebook: null,
-        instagram: null,
-        twitter: null,
-        industryOption: null
+    constructor(props) {
+        super(props);
+        if (props.business) {
+            this.state = {
+                id: props.business._id,
+                ownerId: props.user.id,
+                businessName: props.business.businessName,
+                city: props.business.city,
+                state: props.business.state,
+                industry: props.business.industry,
+                industryOther: props.business.industryOther,
+                biography: props.business.bigoraphy,
+                areasServiced: props.business.areasServiced,
+                phone: props.business.phone,
+                email: props.business.email,
+                website: props.business.website,
+                facebook: props.business.facebook,
+                instagram: props.business.instagram,
+                twitter: props.business.twitter,
+                industryOption: null,
+                msg: null
+            }
+        } else {
+            this.state = {
+                id: null,
+                ownerId: props.user.id,
+                businessName: null,
+                city: null,
+                state: null,
+                industry: null,
+                industryOther: null,
+                biography: null,
+                areasServiced: null,
+                phone: null,
+                email: null,
+                website: null,
+                facebook: null,
+                instagram: null,
+                twitter: null,
+                industryOption: null,
+                msg: null
+            }
+        }
     }
+
+    componentDidUpdate(prevProps) {
+        const {error} = this.props;
+        if(error !== prevProps.error) {
+            if(error.id === 'BUSINESS_ADD_FAIL' || error.id === 'BUSINESS_EDIT_FAIL') {
+                this.setState({msg : error.msg});
+            } else {
+                this.setState({msg: null});
+            }
+        }
+    }
+
     static propTypes = {
         businessAdd: PropTypes.func.isRequired
     }
@@ -34,43 +73,15 @@ class BusinessForm extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { ownerId,
-            businessName,
-            city,
-            state,
-            industry,
-            industryOther,
-            biography,
-            areasServiced,
-            phone,
-            email,
-            website,
-            facebook,
-            instagram,
-            twitter } = this.state;
-        let newBusiness;
-        this.props.addBusiness(businessName);
-        console.log(ownerId);
-        if(industry === 'other') { 
-            newBusiness = { ownerId,
-                businessName,
-                city,
-                state,
-                industry: industryOther,
-                biography,
-                areasServiced,
-                phone,
-                email,
-                website,
-                facebook,
-                instagram,
-                twitter }
-        } else {
-            newBusiness = { ownerId,
+        if (this.state.id) {
+            const {
+                id,
+                ownerId,
                 businessName,
                 city,
                 state,
                 industry,
+                industryOther,
                 biography,
                 areasServiced,
                 phone,
@@ -78,10 +89,100 @@ class BusinessForm extends Component {
                 website,
                 facebook,
                 instagram,
-                twitter }
+                twitter } = this.state;
+            let editBusiness;
+            if (industry === 'other') {
+                editBusiness = {
+                    id,
+                    ownerId,
+                    businessName,
+                    city,
+                    state,
+                    industry: industryOther,
+                    biography,
+                    areasServiced,
+                    phone,
+                    email,
+                    website,
+                    facebook,
+                    instagram,
+                    twitter
+                }
+            } else {
+                editBusiness = {
+                    id,
+                    ownerId,
+                    businessName,
+                    city,
+                    state,
+                    industry,
+                    biography,
+                    areasServiced,
+                    phone,
+                    email,
+                    website,
+                    facebook,
+                    instagram,
+                    twitter
+                }
+            }
+            this.props.businessAdd(editBusiness).then(
+                data => {
+                    this.props.updateBusiness();
+                    this.props.click();
+                });
+        } else {
+            const { ownerId,
+                businessName,
+                city,
+                state,
+                industry,
+                industryOther,
+                biography,
+                areasServiced,
+                phone,
+                email,
+                website,
+                facebook,
+                instagram,
+                twitter } = this.state;
+            let newBusiness;
+            if (industry === 'other') {
+                newBusiness = {
+                    ownerId,
+                    businessName,
+                    city,
+                    state,
+                    industry: industryOther,
+                    biography,
+                    areasServiced,
+                    phone,
+                    email,
+                    website,
+                    facebook,
+                    instagram,
+                    twitter
+                }
+            } else {
+                newBusiness = {
+                    ownerId,
+                    businessName,
+                    city,
+                    state,
+                    industry,
+                    biography,
+                    areasServiced,
+                    phone,
+                    email,
+                    website,
+                    facebook,
+                    instagram,
+                    twitter
+                }
+            }
+            this.props.businessAdd(newBusiness);
+            this.props.click();
         }
-        this.props.businessAdd(newBusiness);
-        this.props.click();
     }
 
     render() {
@@ -89,41 +190,46 @@ class BusinessForm extends Component {
         return (
             <div className="business-form">
                 <div className="form-container">
-                    <h2>Add Business</h2>
+                    <h2>{this.state.id ? 'Edit Business' : 'Add Business'}</h2>
+                    {this.state.msg ? <h4>{this.state.msg}</h4> : <br/>}
                     <form onSubmit={this.onSubmit}>
                         <h4>General</h4>
-                        <input onChange={this.onChange} name="businessName" placeholder="Business Name"></input>
-                        <input onChange={this.onChange} name="city" placeholder="City"></input>
-                        <input onChange={this.onChange} name="state" placeholder="State" type="state"></input>
-                        <select onChange={this.onChange} id="industry" name="industry">
+                        <input onChange={this.onChange} name="businessName" placeholder="Business Name" value={this.state.businessName ? this.state.businessName : ''}></input>
+                        <input onChange={this.onChange} name="city" placeholder="City" value={this.state.city ? this.state.city : ''}></input>
+                        <input onChange={this.onChange} name="state" placeholder="State" type="state" value={this.state.state ? this.state.state : ''}></input>
+                        <select onChange={this.onChange} id="industry" name="industry" value={this.state.industry ? this.state.industry : ''}>
                             <option value="">Select an Industry</option>
                             {optionValues}
                             <option value="other">Other</option>
                         </select>
                         {this.state.industry === 'other' ? <input onChange={this.onChange} name="industryOther" placeholder="Input your industry here"></input> : ''}
-                        <textarea onChange={this.onChange} id="bio" rows="10" maxLength="750" name="biography" placeholder="Tell us your business story."></textarea>
+                        <textarea onChange={this.onChange} id="bio" rows="10" maxLength="750" name="biography" placeholder="Tell us your business story." value={this.state.biography ? this.state.biography : ''}></textarea>
                         <div className="bottom-half-form">
                             <div>
                                 <h4>Contact Info</h4>
-                                <input onChange={this.onChange} name="areasServiced" placeholder="Areas Serviced"></input>
-                                <input onChange={this.onChange} name="phone" placeholder="Phone Number"></input>
-                                <input onChange={this.onChange} name="email" placeholder="Email"></input>
-                                <input onChange={this.onChange} name="website" placeholder="Website"></input>
+                                <input onChange={this.onChange} name="areasServiced" placeholder="Areas Serviced" value={this.state.areasServiced ? this.state.areasServiced : ''}></input>
+                                <input onChange={this.onChange} name="phone" placeholder="Phone Number" value={this.state.phone ? this.state.phone : ''}></input>
+                                <input onChange={this.onChange} name="email" placeholder="Email" value={this.state.email ? this.state.email : ''}></input>
+                                <input onChange={this.onChange} name="website" placeholder="Website" value={this.state.website ? this.state.website : ''}></input>
                             </div>
                             <div>
                                 <h4>Social Media</h4>
-                                <input onChange={this.onChange} name="facebook" placeholder="Facebook URL"></input>
-                                <input onChange={this.onChange} name="instagram" placeholder="Instagram URL"></input>
-                                <input onChange={this.onChange} name="twitter" placeholder="Twitter URL"></input>
+                                <input onChange={this.onChange} name="facebook" placeholder="Facebook URL" value={this.state.facebook ? this.state.facebook : ''}></input>
+                                <input onChange={this.onChange} name="instagram" placeholder="Instagram URL" value={this.state.instagram ? this.state.instagram : ''}></input>
+                                <input onChange={this.onChange} name="twitter" placeholder="Twitter URL" value={this.state.twitter ? this.state.twitter : ''}></input>
                             </div>
                         </div>
-                        <button>Add Business</button>
+                        <button>{this.state.id ? 'Save Changes' : 'Add Business'}</button>
                         <button type="button" onClick={this.props.click}>Cancel</button>
                     </form>
                 </div>
             </div>
         )
     }
+}
+
+BusinessForm.defaultProps = {
+
 }
 
 const mapStateToProps = state => ({

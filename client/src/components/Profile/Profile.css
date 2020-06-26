@@ -18,3 +18,42 @@
 .delete-account {
     grid-area: delete;
 }
+
+.user-business {
+    width: 100%;
+    list-style-type: none;
+}
+
+.profile h4 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 0;
+}
+
+.business-list h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    text-align: center;
+}
+.business-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75em;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.business-item i {
+    font-size: 22px;
+    margin-right: 0.5em;
+}
+
+.edit {
+    color: #2D3763;
+}
+
+.delete { 
+    color: red;
+}
+
+
