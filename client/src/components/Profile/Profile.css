@@ -43,6 +43,43 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.delete-account h2 {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.delete-account h3 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.delete-button {
+    text-align: center;
+    font-size: 18px;
+    border: none;
+    background-color: #991818;
+    color: white;
+    width: 30%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-left: 35%;
+    margin-right: auto;
+    margin-bottom: 4em;
+}
+
+.business-add {
+    font-size: 18px;
+    border: none;
+    background-color: #2D3763;
+    color: white;
+    width: 20%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-left: 1.5em;
+    margin-right: 1em;
+    margin-bottom: 4em;
+}
+
 .business-item i {
     font-size: 22px;
     margin-right: 0.5em;
@@ -56,4 +93,29 @@
     color: red;
 }
 
+.password-change h3 {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+}
+
+.password-change label {
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+}
+
+.password-change input { 
+    width: 60%;
+    margin-right: 4em;
+    float: right;
+}
+
+.form-group {
+    margin-top:0;
+    margin-bottom: 0.75em;
+}
+
+.password-change button {
+    margin-left: 30%
+}
 

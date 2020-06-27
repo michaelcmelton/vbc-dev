@@ -78,8 +78,6 @@ class Register extends Component {
                             <option value="Navy">Navy</option>
                             <option value="Marine Corps">Marine Corps</option>
                             <option value="Air Force">Air Force</option>
-                            <option value="National Guard">National Guard</option>
-                            <option value="Reserves">Reserves</option>
                         </select>
                         <input onChange={this.onChange} name="password" type="password" placeholder="Password" />
                         <input onChange={this.onChange} name="confPassword" type="password" placeholder="Confirm Password" />

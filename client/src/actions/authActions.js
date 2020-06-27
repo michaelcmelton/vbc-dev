@@ -110,4 +110,13 @@ export const register = ({name, email, password, confPassword, branch}) => dispa
                 type: REGISTER_FAIL
             })
         })
-}
+};
+
+export const deleteUser = (id) => (dispatch, getState) => {
+    axios.delete(`/api/user/${id}`, tokenConfig(getState))
+        .then(res => {
+            dispatch({
+                type: LOGOUT_SUCCESS
+            });
+        });
+};

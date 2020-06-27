@@ -1,5 +1,7 @@
 .directory ul {
     list-style-type: none;
+    font-size: 32px;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
 .directory-main h1 {

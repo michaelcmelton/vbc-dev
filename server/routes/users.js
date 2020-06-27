@@ -11,6 +11,7 @@
 /* eslint-disable new-cap */
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
+const Business = require('../models/business');
 const express = require('express')
 const userRouter = express.Router()
 const User = require('../models/user');
@@ -59,6 +60,34 @@ userRouter.post('/login', (req, res) => {
                 })
             });
         });
+    })
+});
+
+userRouter.delete('/:id', auth, (req, res) => {
+    const id = req.params.id;
+    Business.find({ownerId: id}, (err, docs) => {
+        docs.forEach(doc => {
+            Business.findByIdAndDelete(doc._id, (err, mongores) => {
+                if(err) {
+                    res.status(500).json({
+                        message: err.message,
+                    });
+                    return;
+                }
+            });
+            User.findByIdAndDelete(id,(err, mongores) => {
+                if(err) {
+                    res.status(500).json({
+                        message: err.message,
+                    });
+                    return;
+                }
+                res.status(200).json({
+                    message: mongores
+                });
+                return;
+            });
+        })
     })
 });
 
