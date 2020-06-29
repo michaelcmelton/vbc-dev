@@ -76,6 +76,7 @@ export const businessAdd = ({ id = null, ownerId,
                         type: BUSINESS_ADD_SUCCESS,
                         payload: res.data
                     })
+                    resolve();
                 })
                 .catch(err => {
                     dispatch(returnErrors(err.response.data.message, err.status, 'BUSINESS_ADD_FAIL'));

@@ -53,12 +53,12 @@ class BusinessForm extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const {error} = this.props;
-        if(error !== prevProps.error) {
-            if(error.id === 'BUSINESS_ADD_FAIL' || error.id === 'BUSINESS_EDIT_FAIL') {
-                this.setState({msg : error.msg});
+        const { error } = this.props;
+        if (error !== prevProps.error) {
+            if (error.id === 'BUSINESS_ADD_FAIL' || error.id === 'BUSINESS_EDIT_FAIL') {
+                this.setState({ msg: error.msg });
             } else {
-                this.setState({msg: null});
+                this.setState({ msg: null });
             }
         }
     }
@@ -180,8 +180,11 @@ class BusinessForm extends Component {
                     twitter
                 }
             }
-            this.props.businessAdd(newBusiness);
-            this.props.click();
+            this.props.businessAdd(newBusiness).then(
+                data => {
+                    this.props.updateBusiness();
+                    this.props.click();
+                });
         }
     }
 
@@ -191,7 +194,7 @@ class BusinessForm extends Component {
             <div className="business-form">
                 <div className="form-container">
                     <h2>{this.state.id ? 'Edit Business' : 'Add Business'}</h2>
-                    {this.state.msg ? <h4>{this.state.msg}</h4> : <br/>}
+                    {this.state.msg ? <h4>{this.state.msg}</h4> : <br />}
                     <form onSubmit={this.onSubmit}>
                         <h4>General</h4>
                         <input onChange={this.onChange} name="businessName" placeholder="Business Name" value={this.state.businessName ? this.state.businessName : ''}></input>
