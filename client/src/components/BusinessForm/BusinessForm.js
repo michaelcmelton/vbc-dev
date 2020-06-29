@@ -197,16 +197,16 @@ class BusinessForm extends Component {
                     {this.state.msg ? <h4>{this.state.msg}</h4> : <br />}
                     <form onSubmit={this.onSubmit}>
                         <h4>General</h4>
-                        <input onChange={this.onChange} name="businessName" placeholder="Business Name" value={this.state.businessName ? this.state.businessName : ''}></input>
-                        <input onChange={this.onChange} name="city" placeholder="City" value={this.state.city ? this.state.city : ''}></input>
-                        <input onChange={this.onChange} name="state" placeholder="State" type="state" value={this.state.state ? this.state.state : ''}></input>
-                        <select onChange={this.onChange} id="industry" name="industry" value={this.state.industry ? this.state.industry : ''}>
+                        <input className="general-input" onChange={this.onChange} name="businessName" placeholder="Business Name" value={this.state.businessName ? this.state.businessName : ''}></input>
+                        <input className="general-input" onChange={this.onChange} name="city" placeholder="City" value={this.state.city ? this.state.city : ''}></input>
+                        <input className="general-input" onChange={this.onChange} name="state" placeholder="State" type="state" value={this.state.state ? this.state.state : ''}></input>
+                        <select className="general-input" onChange={this.onChange} id="industry" name="industry" value={this.state.industry ? this.state.industry : ''}>
                             <option value="">Select an Industry</option>
                             {optionValues}
                             <option value="other">Other</option>
                         </select>
                         {this.state.industry === 'other' ? <input onChange={this.onChange} name="industryOther" placeholder="Input your industry here"></input> : ''}
-                        <textarea onChange={this.onChange} id="bio" rows="10" maxLength="750" name="biography" placeholder="Tell us your business story." value={this.state.biography ? this.state.biography : ''}></textarea>
+                        <textarea className="general-input" onChange={this.onChange} id="bio" rows="10" maxLength="750" name="biography" placeholder="Tell us your business story." value={this.state.biography ? this.state.biography : ''}></textarea>
                         <div className="bottom-half-form">
                             <div>
                                 <h4>Contact Info</h4>

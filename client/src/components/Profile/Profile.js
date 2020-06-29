@@ -96,9 +96,13 @@ class Profile extends Component {
         this.setState({ industryOption: newArr });
     }
 
+    addBusiness = () => {
+        this.setState({ edit: null });
+        this.props.open();
+    }
+
     editBusiness = (key) => {
         let businessData = this.props.businessList.find(i => i._id === key);
-        console.log(businessData);
         this.setState({ edit: businessData });
         this.props.open();
     }
@@ -154,7 +158,7 @@ class Profile extends Component {
                         <ul className="user-business">
                             {this.state.businessList}
                         </ul>
-                        <button class="business-add" onClick={this.props.open}>Add Business</button>
+                        <button class="business-add" onClick={this.addBusiness}>Add Business</button>
                     </div>
                     <div className="password-change">
                         <h3>Change Password</h3>
