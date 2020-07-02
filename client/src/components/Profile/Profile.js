@@ -10,6 +10,7 @@ import BusinessForm from '../BusinessForm/BusinessForm';
 import './Profile.css';
 
 class Profile extends Component {
+
     state = {
         password: '',
         newPassword: '',
@@ -47,6 +48,7 @@ class Profile extends Component {
     }
 
     loadData = () => {
+        document.body.style.overflowY = 'scroll';
         fetch('/api/business/')
             .then(res => res.json())
             .then(data => {
@@ -63,8 +65,8 @@ class Profile extends Component {
                             <li className="business-item" key={i._id}>
                                 {i.businessName}
                                 <div>
-                                    <i onClick={() => { this.editBusiness(i._id) }} class="fa fa-2x fa-pencil-square-o edit" aria-hidden="true"></i>
-                                    <i onClick={() => { this.deleteBusiness(i._id) }} class="fa fa-2x fa-trash delete" aria-hidden="true"></i>
+                                    <i onClick={() => { this.editBusiness(i._id) }} className="fa fa-2x fa-pencil-square-o edit" aria-hidden="true"></i>
+                                    <i onClick={() => { this.deleteBusiness(i._id) }} className="fa fa-2x fa-trash delete" aria-hidden="true"></i>
                                 </div>
                             </li>
                         );
@@ -138,14 +140,12 @@ class Profile extends Component {
     }
 
     render() {
-
         let backdrop, businessForm;
         if (!this.props.isAuthenticated) {
             return <Redirect to='/login' />
         }
 
         if (this.props.show) {
-            document.body.style.overflowY = 'scroll';
             backdrop = <Backdrop />
             businessForm = <BusinessForm updateBusiness={this.businessUpdate} business={this.state.edit} click={this.props.close} industryOption={this.state.industryOption} addBusiness={this.addBusinesstoState} />
         }
@@ -158,7 +158,7 @@ class Profile extends Component {
                         <ul className="user-business">
                             {this.state.businessList}
                         </ul>
-                        <button class="business-add" onClick={this.addBusiness}>Add Business</button>
+                        <button className="business-add" onClick={this.addBusiness}>Add Business</button>
                     </div>
                     <div className="password-change">
                         <h3>Change Password</h3>

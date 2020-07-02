@@ -19,7 +19,6 @@ const SideDrawer = (props) => {
             <div className="sidedrawer-spacer" />
             <ul className="sidedrawer-menu">
                 <li className="sidedrawer-item"><Link to='/'>Home</Link></li>
-                <li className="sidedrawer-item"><Link to='/profile'>Profile</Link></li>
                 <li className="sidedrawer-item"><Link to='/directory'>Directory</Link></li>
                 <li className="sidedrawer-item"><Link to='/contact'>Contact</Link></li>
                 <li className="sidedrawer-item"><Link to='/about'>About</Link></li>
