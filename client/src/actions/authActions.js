@@ -22,7 +22,6 @@ export const loadUser = () => (dispatch, getState) => new Promise((resolve, reje
                 type: USER_LOADED,
                 payload: res.data
             });
-            console.log(res.data);
             resolve(res.data);
         })
         .catch(err => {

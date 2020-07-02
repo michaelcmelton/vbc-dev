@@ -24,6 +24,17 @@ class About extends Component {
                 </div>
                 <div>
                     <h2>Founders</h2>
+                    <div id="jason-mobile" className="founder-block">
+                        <h4>Jason Gaver</h4>
+                        <img alt="jason-gaver" src={imgPath + 'jason-picture.jpg'} id="jason-pic" className="about-clip" />
+                        <p className="paragraph-text">
+                            Jason served four years on active duty with the U.S. Navy and five additional years in the U.S. Navy Reserves where he deployed numerous times around the globe.  Jason spent 10 years as a Test & Evaluation Engineer supporting numerous
+                            Department of Defense Surface Ship Weapons Programs.  He was a founding member of TASC Veteran, or TVETS, an employee resource group open solely to TASC employees who are veterans.  The mission of TVETS is to provide mentoring and community outreach to
+                            veterans by promoting networking among veterans, sponsoring veteran initiatives and professional development opportunities.<br /> <br /> Jason is currently the President of Mulch & More, Southeast North Carolina’s leading landscape supply and garden center.  In his
+                            role he oversees the strategic trajectory of the organization and provides operational support of day to day operations.  Jason and his family live in Leland, North Carolina where he is active in his community with the Leland Area Rotary Club and the
+                            Cape Fear F3 community. Jason holds an A.A. degree from Carroll Community College as well as a B.S. and M.S. degree from The Johns Hopkins University.
+                        </p>
+                    </div>
                     <div id="jason" className="founder-block">
                         <h4>Jason Gaver</h4>
                         <p className="paragraph-text">
@@ -35,7 +46,7 @@ class About extends Component {
                         </p>
                         <img alt="jason-gaver" src={imgPath + 'jason-picture.jpg'} id="jason-pic" className="about-clip" />
                     </div>
-                    <div className="founder-block">
+                    <div id="chad" className="founder-block">
                         <h4>Chad Gleaton</h4>
                         <img alt="chad-gleaton" src={imgPath + 'chad-picture.jpg'} id="chad-pic" className="about-clip" />
                         <p className="paragraph-text">

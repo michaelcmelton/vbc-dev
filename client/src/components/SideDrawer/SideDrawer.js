@@ -23,7 +23,7 @@ const SideDrawer = (props) => {
                 <li className="sidedrawer-item"><Link to='/contact'>Contact</Link></li>
                 <li className="sidedrawer-item"><Link to='/about'>About</Link></li>
                 {auth ? <li className="sidedrawer-item"><Link to='/profile'>Profile</Link></li> : <li className="sidedrawer-item"><Link to='/login'>Login</Link></li>}
-                {auth ? <li className="sidedrawer-item"><Logout /></li> : null}
+                {auth ? <Logout parent="sideDrawer" /> : null}
             </ul>
             <div className="sidedrawer-copyright">
                 <p>&#169; 2020. Veteran Business Connection. Designed and Developed by <a href="https://meltondevelopment.com/">Melton Development</a></p>.

@@ -1,23 +1,27 @@
+.about {
+    overflow-x: hidden;
+}
+
 .founder-block {
     display: grid;
-    grid-template-columns: 2;
-    grid-template-rows: 2;
+    grid-template-columns: 1;
+    grid-template-rows: 3;
     grid-template-areas: 
-    "h1 h1"
-    "picture text";
+    "h1"
+    "picture" 
+    "text";
 }
 
 #about-logo {
-    margin-left: 4em;
+    margin-top: 0.75em;
+    margin-left: 3.5em;
 }
 
 .company-content {
-    display: flex;
     align-items: center;
 }
 
 .company-content p {
-    margin-left: 5em;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.67;
@@ -27,15 +31,27 @@
     grid-area: h1;
     font-size: 22px;
     font-family: 'Barlow Condensed', sans-serif;
-    margin-left: 6em;
-}
-#jason h4 {
-    text-align: right;
-    margin-right: 7em;
 }
 
-#jason p {
-    margin-left: 4em;
+#jason {
+    display: none;
+}
+
+#jason-mobile h4 {
+    text-align: center;
+}
+
+#chad h4 {
+    text-align: center;
+}
+
+
+#chad p {
+    padding-right: 1.75em;
+}
+
+#jason-mobile p {
+    padding-right: 1.25em;
 }
 
 #jason-pic {
@@ -46,7 +62,6 @@
 #chad-pic {
     clip-path: circle(7.5em at 48% 37%);
     margin-top: 1em;
-    margin-right: 2.5em;
     min-width: 23em;
 }
 
@@ -60,4 +75,62 @@
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 26px;
     margin-bottom: 0;
+}
+
+@media screen and (min-width: 992px) {
+    #jason-mobile {
+        display: none; 
+    }
+    .founder-block {
+        display: grid;
+        grid-template-columns: 2;
+        grid-template-rows: 2;
+        grid-template-areas: "h1 h1" "picture text";
+    }
+    #about-logo {
+        margin-left: 4em;
+    }
+    .company-content {
+        display: flex;
+        align-items: center;
+    }
+    .company-content p {
+        margin-left: 5em;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.67;
+    }
+    .founder-block h4 {
+        grid-area: h1;
+        font-size: 22px;
+        font-family: 'Barlow Condensed', sans-serif;
+        margin-left: 6em;
+    }
+    #jason h4 {
+        text-align: right;
+        margin-right: 7em;
+    }
+    #jason p {
+        margin-left: 4em;
+    }
+    #jason-pic {
+        clip-path: circle(7.5em at 48% 37%);
+        margin-top: 1em;
+    }
+    #chad-pic {
+        clip-path: circle(7.5em at 48% 37%);
+        margin-top: 1em;
+        margin-right: 2.5em;
+        min-width: 23em;
+    }
+    .paragraph-text {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.67;
+    }
+    .about h2 {
+        text-align: center;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 26px;
+        margin-bottom: 0;
+    }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadUserBusiness, businessDelete } from '../../actions/businessActions';
-import { changePass, deleteUser } from '../../actions/authActions';
+import { changePass, deleteUser, loadUser } from '../../actions/authActions';
 import PropTypes from 'prop-types';
 import Backdrop from '../Backdrop/Backdrop';
 import BusinessForm from '../BusinessForm/BusinessForm';
@@ -10,7 +10,7 @@ import BusinessForm from '../BusinessForm/BusinessForm';
 import './Profile.css';
 
 class Profile extends Component {
-
+    _isMounted = false;
     state = {
         password: '',
         newPassword: '',
@@ -21,7 +21,10 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        this.loadData();
+        this._isMounted = true;
+        this.props.loadUser().then(data => {
+            this.loadData(data);
+        })
     }
 
     deleteAccount = () => {
@@ -47,7 +50,8 @@ class Profile extends Component {
         });
     }
 
-    loadData = () => {
+    loadData = (user) => {
+        if(this._isMounted) {
         document.body.style.overflowY = 'scroll';
         fetch('/api/business/')
             .then(res => res.json())
@@ -57,10 +61,10 @@ class Profile extends Component {
 
                 this.setState({ industryOption: arr });
             });
-        this.props.loadUserBusiness(this.props.user.id).then(data => {
-            if (this.props.businessList !== 'No Businesses found for user.') {
+        this.props.loadUserBusiness(user.id).then(data => {
+            if (data.data !== 'No Businesses found for user.') {
                 this.setState({
-                    businessList: this.props.businessList.map(i => {
+                    businessList: data.data.map(i => {
                         return (
                             <li className="business-item" key={i._id}>
                                 {i.businessName}
@@ -79,12 +83,14 @@ class Profile extends Component {
             }
         });
     }
+}
 
     static propTypes = {
         changePass: PropTypes.func.isRequired,
         loadUserBusiness: PropTypes.func.isRequired,
         businessDelete: PropTypes.func.isRequired,
-        deleteUser: PropTypes.func.isRequired
+        deleteUser: PropTypes.func.isRequired,
+        loadUser: PropTypes.func.isRequired
     }
 
     onChange = e => {
@@ -195,4 +201,4 @@ const mapStateToProps = state => ({
     businessList: state.business.userBusinessList
 })
 
-export default connect(mapStateToProps, { changePass, loadUserBusiness, businessDelete, deleteUser })(Profile);
+export default connect(mapStateToProps, { changePass, loadUserBusiness, businessDelete, deleteUser, loadUser })(Profile);
