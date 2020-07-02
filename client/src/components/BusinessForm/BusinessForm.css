@@ -74,7 +74,7 @@
     font-family: 'Barlow Condensed', sans-serif;
 }
 
-form button {
+.form-container form button {
     width: 85%;
     margin-bottom: 0.5em;
 }
@@ -152,7 +152,7 @@ form button {
         font-family: 'Barlow Condensed', sans-serif;
     }
 
-    form button {
+    .form-container form button {
         margin-left: 3em;
     }
 }
