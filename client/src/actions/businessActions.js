@@ -95,7 +95,7 @@ export const loadUserBusiness = (id) => (dispatch, getState) => new Promise((res
                 type: USER_BUSINESS_LOADED,
                 payload: res.data
             });
-            resolve();
+            resolve(res.data);
         })
 });
 
