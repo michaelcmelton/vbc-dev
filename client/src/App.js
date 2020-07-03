@@ -17,6 +17,13 @@ import rootReducer from './reducers';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import About from './components/About/About';
+import createHistory from 'history/createBrowserHistory';
+
+export const history = createHistory();
+
+history.listen((location, action) => {
+  window.scrollTo(0,0);
+});
 
 const initialState = {};
 
@@ -71,7 +78,7 @@ class App extends Component {
     } else if (document.body.classList.length > 0) {
       document.body.classList.remove('open-side');
     }
-
+    
     return (
       <Router>
         <Provider store={store}>

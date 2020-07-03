@@ -71,7 +71,7 @@ class Register extends Component {
                     {this.state.msg ? <h4 className="error-msg">{this.state.msg}</h4> : null}
                     <form onSubmit={this.onSubmit}>
                         <input onChange={this.onChange} name="email" type="email" placeholder="example@example.com" />
-                        <input onChange={this.onChange} name="name" placeholder="Name" />
+                        <input onChange={this.onChange} name="name" placeholder="First and Last Name" />
                         <select onChange={this.onChange} name="branch">
                             <option value="">Branch of Serivice</option>
                             <option value="Army">Army</option>

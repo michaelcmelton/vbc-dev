@@ -102,8 +102,8 @@
         margin-bottom: 12em;
         z-index: 300;
         position: absolute;
-        top: -5%;
-        left: 30%;
+        top: -12%;
+        left: 22%;
         width: 44em;
     }
 
@@ -130,7 +130,7 @@
 
     .bottom-half-form {
         display: flex;
-        margin-left: 2.5em;
+        margin-left: 1.2em;
         margin-bottom: 0.5em;
     }
     
@@ -139,20 +139,27 @@
     }
 
     .form-container form h4 {
-        text-align: center;
         font-size: 18px;
         font-family: 'Barlow Condensed', sans-serif;
         margin-bottom: 0.5em;
     }
 
     .bottom-half-form div h4 {
-        text-align: center;
         margin-bottom: 0.5em;
         font-size: 18px;
         font-family: 'Barlow Condensed', sans-serif;
     }
 
     .form-container form button {
-        margin-left: 3em;
+        border: none;
+        background-color: #2D3763;
+        color: white;
+        width: 35%;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        margin-left: 4.3em;
+        margin-right: 0.5em;
+        margin-bottom: 1.5em;
+        font-size: 16px;
     }
 }
