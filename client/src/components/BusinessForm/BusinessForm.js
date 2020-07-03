@@ -18,7 +18,7 @@ class BusinessForm extends Component {
                 state: props.business.state,
                 industry: props.business.industry,
                 industryOther: props.business.industryOther,
-                biography: props.business.bigoraphy,
+                biography: props.business.biography,
                 areasServiced: props.business.areasServiced,
                 phone: props.business.phone,
                 email: props.business.email,
@@ -189,6 +189,7 @@ class BusinessForm extends Component {
     }
 
     render() {
+        console.log(this.props);
         let optionValues = this.props.industryOption.map((industry, index) => <option key={index} value={industry}>{industry}</option>);
         return (
             <div className="business-form">

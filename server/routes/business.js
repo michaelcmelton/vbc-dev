@@ -47,6 +47,26 @@ businessRouter.post('/', auth, (req, res) => {
       });
       return;
     }
+    if(!req.body.biography) {
+      res.status(401).json({
+        message: 'About Section is required.'
+      });
+      return;
+    }
+    if(/^(https:|http:)(www\.)?\S*/.test(req.body.website)) {
+      res.status(401).json({
+        message: 'Please use the full URL of your website.'
+      });
+      return;
+    }
+
+    if(/^(https:|http:)(www\.)?facebook\.com\/\\S*/.test(req.body.website)) {
+      res.status(401).json({
+        message: 'Please use the full facebook URL.'
+      });
+      return;
+    }
+
     business.insertMany(createItems, (err, docs) => {
       if (err) {
         let message;
@@ -97,6 +117,26 @@ businessRouter.post('/:id', auth, (req, res) => {
     });
     return;
   }
+  if(!req.body.biography) {
+    res.status(401).json({
+      message: 'About Section is required.'
+    });
+    return;
+  }
+  if(/^((https:|http:)\/\/)(www\.)?\S*/.test(req.body.website)) {
+    res.status(401).json({
+      message: 'Please use the full URL of your website.'
+    });
+    return;
+  }
+
+  if(/^(https:|http:)(www\.)?facebook\.com\/\\S*/.test(req.body.website)) {
+    res.status(401).json({
+      message: 'Please use the full facebook URL.'
+    });
+    return;
+  }
+
   business.findOneAndUpdate({ _id: req.params.id }, req.body, {
     overwrite: true,
     new: true

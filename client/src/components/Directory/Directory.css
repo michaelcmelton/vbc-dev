@@ -9,6 +9,12 @@
     margin-left: 4em;
 }
 
+.search-form h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-align: center;
+    font-size: 22px;
+}
+
 .directory-main h1 {
     font-size: 42px;
     font-family: 'Roboto', sans-serif;
@@ -16,7 +22,38 @@
 }
 
 .search-form form {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    margin-left: 25em;
+    margin-right: auto;
+    max-width: 16em;
+}
+
+.search-form label {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.search-form button {
+    margin-left: 1.5em;
+    border: none;
+    background-color: #2D3763;
+    color: white;
+    width: 80%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-top: 0.75em;
+    margin-right: 0.5em;
+    margin-bottom: 1.5em;
+    font-size: 16px;
+}
+
+ .search-form input, .search-form select {
+     width: 15em;
+ }
+
+.search-form h3 {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    margin: 0;
+    padding: 0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }

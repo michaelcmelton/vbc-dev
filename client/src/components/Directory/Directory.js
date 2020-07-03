@@ -8,7 +8,7 @@ class Directory extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      usStates: ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','U.S. Virgin Islands','Virginia','Washington','West Virginia','Wisconsin','Wyoming'],
+      usStates: ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'U.S. Virgin Islands', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
       rawData: [],
       directoryData: [],
       originalData: [],
@@ -29,7 +29,7 @@ class Directory extends Component {
       if (service === '' && industry === '') {
         this.setState({ directoryData: this.state.originalData });
       } else if (service !== '') {
-        searchData = this.state.rawData.filter(i => i.biography !== null).filter(i => i.biography.contains(service) || i.name.comtains(service));
+        searchData = this.state.rawData.filter(i => i.biography !== null).filter(i => i.biography.toUpperCase().includes(service.toUpperCase()) || i.name.toUpperCase().includes(service.toUpperCase()));
         const states = [...new Set(searchData.map(i => { return i.state }))];
         let object = {};
         states.forEach((st, index) => {
@@ -45,7 +45,14 @@ class Directory extends Component {
             });
             object.people.push(obj);
           }
-          this.setState({ directoryData: [...this.state.directoryData, JSON.parse(JSON.stringify(object))] });
+          this.setState({ directoryData: [...this.state.directoryData, JSON.parse(JSON.stringify(object))] }, () => {
+            console.log(this.state.directoryData.length);
+            if (this.state.directoryData.length < 10) {
+              document.getElementById('maindirectory').style.columns = 'auto 1';
+            } else {
+              document.getElementById('maindirectory').style.columns = 'auto 2';
+            }
+          });
         })
       } else if (industry !== '') {
         searchData = this.state.rawData.filter(i => i.industry === industry);
@@ -64,7 +71,14 @@ class Directory extends Component {
             });
             object.people.push(obj);
           }
-          this.setState({ directoryData: [...this.state.directoryData, JSON.parse(JSON.stringify(object))] });
+          this.setState({ directoryData: [...this.state.directoryData, JSON.parse(JSON.stringify(object))] }, () => {
+            console.log(this.state.directoryData.length);
+            if (this.state.directoryData.length < 10) {
+              document.getElementById('maindirectory').style.columns = 'auto 1';
+            } else {
+              document.getElementById('maindirectory').style.columns = 'auto 2';
+            }
+          });
         })
       }
     });
@@ -99,7 +113,12 @@ class Directory extends Component {
             object.people.push(obj);
           }
           this.setState({ directoryData: [...this.state.directoryData, JSON.parse(JSON.stringify(object))] });
-          this.setState({originalData: this.state.directoryData});
+          this.setState({ originalData: this.state.directoryData });
+          if (this.state.directoryData.length < 10) {
+            document.getElementById('maindirectory').style.columns = 1;
+          } else {
+            document.getElementById('maindirectory').style.columns = 2;
+          }
         })
       })
   }
@@ -112,6 +131,7 @@ class Directory extends Component {
     let backdrop;
     let businessDetail;
     let optionValues;
+
     if (this.props.show) {
       backdrop = <Backdrop drawerClickHandler={this.props.close} />
       businessDetail = <BusinessDetail close={this.props.close} data={this.state.businessDetailData} />
@@ -129,7 +149,6 @@ class Directory extends Component {
 
     return (
       <div className="directory-main">
-        <h1>Directory Search</h1>
         <div className='search-form'>
           <h4>What are you looking for today?</h4>
           <form onSubmit={this.onSubmit}>
