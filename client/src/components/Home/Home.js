@@ -48,7 +48,7 @@ const Home = (props) => {
             <div className="founders-desktop">
                 <h1>Our Team</h1>
                 <div className="founder">
-                    <img alt="chad-gleaton" src={imgPath + 'chad-picture.jpg'} className="clip-circle" />
+                    <img id="chad-pic-home" alt="chad-gleaton" src={imgPath + 'chad-picture.jpg'} className="clip-circle" />
                     <div className="founder-text-right">
                         <h2>Chad Gleaton</h2>
                         <p>Chad Gleaton served over six years on active duty with the 75th Ranger Regiment.  He was assigned to the 1st Ranger Battalion serving there from 2005 to 2008 where he deployed three times, twice to Iraq and once to Afghanistan.
@@ -69,7 +69,7 @@ const Home = (props) => {
             <div className="founders-mobile">
                 <h1>Our Team</h1>
                 <div className="founder">
-                    <img alt="chad-gleaton" src={imgPath + 'chad-picture.jpg'} className="clip-circle" />
+                    <img style={{maxWidth: 24 + 'em'}} alt="chad-gleaton" src={imgPath + 'chad-picture.jpg'} className="clip-circle" />
                     <div className="founder-text">
                         <h2>Chad Gleaton</h2>
                         <p>Chad Gleaton served over six years on active duty with the 75th Ranger Regiment.  He was assigned to the 1st Ranger Battalion serving there from 2005 to 2008 where he deployed three times, twice to Iraq and once to Afghanistan.
@@ -78,7 +78,7 @@ const Home = (props) => {
                     </div>
                 </div>
                 <div className="founder">
-                <img alt="jason-gaver" src={imgPath + 'jason-picture.jpg'} className='clip-circle' />
+                    <img alt="jason-gaver" src={imgPath + 'jason-picture.jpg'} className='clip-circle' />
                     <div className="founder-text">
                         <h2>Jason Gaver</h2>
                         <p>Jason Gaver served four years on active duty with the U.S. Navy and five additional years in the U.S. Navy Reserves where he deployed numerous times around the globe.
@@ -91,21 +91,23 @@ const Home = (props) => {
                 <div className="cta">
                     <h3>Ready to list?</h3>
                     <p>Create an account below to get started!</p>
-                    <Link to='/register'><button>Create an account</button></Link> 
+                    <Link to='/register'><button>Create an account</button></Link>
                 </div>
-                <div className="contact">
-                    <h3>Questions?</h3>
-                    <h4>Ask below and we will get back to you as soon as possible!</h4>
-                    <form className='contact-form'>
-                        <label htmlFor="name">Name: </label>
-                        <input id="name" name="name" placeholder="Name"></input>
-                        <label htmlFor="email">Email: </label>
-                        <input id="email" email="email" placeholder="Email"></input>
-                        <label htmlFor="questions">Questions: </label>
-                        <textarea id="questions" name="questions" rows='10' cols='15' placeholder="Put your questions here."></textarea>
-                        <button type="button">Submit Questions</button>
-                    </form>
-                </div>
+                    <div id="contact" className="contact">
+                        <h3>Questions?</h3>
+                        <h4>Ask below and we will get back to you as soon as possible!</h4>
+                        <form className='contact-form'>
+                            <label htmlFor="name">Name: </label>
+                            <input id="name" name="name" placeholder="Name"></input>
+                            <label htmlFor="email">Email: </label>
+                            <input id="email" name="email" placeholder="Email"></input>
+                            <label htmlFor="phoneNumber">Phone #: </label>
+                            <input id="phoneNumber" name="phoneNumber" placeholder="Phone Number"></input>
+                            <label htmlFor="questions">Questions: </label>
+                            <textarea id="questions" name="questions" rows='10' cols='15' placeholder="Ask your questions here!"></textarea>
+                            <button type="button">Submit Questions</button>
+                        </form>
+                    </div>
             </div>
         </div>
     );

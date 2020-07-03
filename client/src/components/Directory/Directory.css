@@ -4,8 +4,19 @@
     font-family: 'Barlow Condensed', sans-serif;
 }
 
+.directory #maindirectory {
+    columns: 2;
+    margin-left: 4em;
+}
+
 .directory-main h1 {
     font-size: 42px;
     font-family: 'Roboto', sans-serif;
     text-align: center;
+}
+
+.search-form form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

@@ -85,7 +85,7 @@
     font-family: 'Barlow Condensed', sans-serif;
 }
 
-form button {
+.login-form-container form button {
     font-size: 18px;
     border: none;
     background-color: #2D3763;
@@ -93,8 +93,7 @@ form button {
     width: 35%;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    margin-left: 2.4em;
-    margin-right: 1em;
+    margin-left: 2.1em;
     margin-bottom: 4em;
 }
 

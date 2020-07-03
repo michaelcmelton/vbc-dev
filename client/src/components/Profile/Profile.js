@@ -198,7 +198,8 @@ const mapStateToProps = state => ({
     token: state.auth.token,
     user: state.auth.user,
     passMsg: state.auth.opMsg,
-    businessList: state.business.userBusinessList
+    businessList: state.business.userBusinessList,
+    firstLogin: state.auth.firstLogin
 })
 
 export default connect(mapStateToProps, { changePass, loadUserBusiness, businessDelete, deleteUser, loadUser })(Profile);

@@ -48,7 +48,7 @@ class About extends Component {
                     </div>
                     <div id="chad" className="founder-block">
                         <h4>Chad Gleaton</h4>
-                        <img alt="chad-gleaton" src={imgPath + 'chad-picture.jpg'} id="chad-pic" className="about-clip" />
+                        <img id="chad-pic" alt="chad-gleaton" src={imgPath + 'chad-picture.jpg'} className="about-clip" />
                         <p className="paragraph-text">
                             Chad Gleaton served over six years on active duty with the 75th Ranger Regiment.  He was assigned to the 1st Ranger Battalion serving there from 2005 to 2008 where he deployed three times, twice to Iraq and once to Afghanistan.  From 2008 to 2011,
                             he served as a RIP instructor with the 75th Ranger Special Troops Battalion.  He served in the SC Army National Guard and has responded to the historic ‘1000 Year Flood’ in 2014, Hurricane Matthew in 2015, and Hurricane Irma in 2017.  He is continuing

@@ -74,7 +74,7 @@
     font-family: 'Barlow Condensed', sans-serif;
 }
 
-form button {
+.register-form-container form button {
     font-size: 18px;
     border: none;
     background-color: #2D3763;

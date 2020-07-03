@@ -94,7 +94,7 @@
 .password-change input {
     width: 100%;
 }
-.form-group {
+.password-change form .form-group {
     margin-top: 0;
     margin-bottom: 0.75em;
 }
@@ -197,7 +197,7 @@
         margin-right: 4em;
         float: right;
     }
-    .form-group {
+    .password-change form .form-group {
         margin-top: 0;
         margin-bottom: 0.75em;
     }

@@ -101,6 +101,10 @@
     color: #999999;
 }
 
+#chad-pic-home {
+    max-width: 24em;
+    clip-path: circle(8em at 37% 56%);
+}
 .header-logo {
     display: none;
 }
@@ -343,5 +347,10 @@
     .box-container { 
         flex-direction: row;
         margin-bottom: 4em;
+    }
+
+    #chad-pic-home {
+        max-width: 24em;
+        clip-path: circle(8em at 37% 56%);
     }
 }

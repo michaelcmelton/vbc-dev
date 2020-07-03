@@ -40,7 +40,7 @@ userRouter.get('/token', auth, (req, res) => {
 userRouter.post('/login', (req, res) => {
     const { email, password } = req.body;
     User.findOne({ email }, (err, user) => {
-        if (user === null) return res.status(400).json({message: 'Email not found. Do you have an account?'});
+        if (user === null) return res.status(400).json({ message: 'Email not found. Do you have an account?' });
         bcrypt.compare(password, user.password, (err, success) => {
             if (err || success === false) {
                 return res.status(401).json({
@@ -64,30 +64,32 @@ userRouter.post('/login', (req, res) => {
 });
 
 userRouter.delete('/:id', auth, (req, res) => {
+    console.log('delete reached.');
     const id = req.params.id;
-    Business.find({ownerId: id}, (err, docs) => {
-        docs.forEach(doc => {
-            Business.findByIdAndDelete(doc._id, (err, mongores) => {
-                if(err) {
-                    res.status(500).json({
-                        message: err.message,
-                    });
-                    return;
-                }
-            });
-            User.findByIdAndDelete(id,(err, mongores) => {
-                if(err) {
-                    res.status(500).json({
-                        message: err.message,
-                    });
-                    return;
-                }
-                res.status(200).json({
-                    message: mongores
+    Business.find({ ownerId: id }, (err, docs) => {
+        if (docs.length > 0) {
+            docs.forEach(doc => {
+                Business.findByIdAndDelete(doc._id, (err, mongores) => {
+                    if (err) {
+                        res.status(500).json({
+                            message: err.message,
+                        });
+                        return;
+                    }
+                });
+            })
+        }
+        User.findByIdAndDelete(id, (err, mongores) => {
+            if (err) {
+                res.status(500).json({
+                    message: err.message,
                 });
                 return;
+            }
+            res.status(200).json({
+                message: mongores
             });
-        })
+        });
     })
 });
 
@@ -105,12 +107,14 @@ userRouter.post('/passwordchange', auth, (req, res) => {
             bcrypt.genSalt(10).then(salt => {
                 bcrypt.hash(newPassword, salt, (err, hash) => {
                     user.password = hash;
-                    user.save().then(res.status(203).json({user: {
-                        id: user.id,
-                        name: user.name,
-                        email: user.email,
-                        branch: user.branch
-                    }, msg: 'Password successfully updated.'}))
+                    user.save().then(res.status(203).json({
+                        user: {
+                            id: user.id,
+                            name: user.name,
+                            email: user.email,
+                            branch: user.branch
+                        }, msg: 'Password successfully updated.'
+                    }))
                 });
             })
         });

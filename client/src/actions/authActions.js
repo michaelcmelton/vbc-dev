@@ -29,7 +29,7 @@ export const loadUser = () => (dispatch, getState) => new Promise((resolve, reje
             dispatch({
                 type: AUTH_ERROR
             });
-            reject();
+            reject(err);
         });
 });
 

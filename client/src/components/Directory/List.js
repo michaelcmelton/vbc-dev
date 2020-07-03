@@ -22,13 +22,13 @@ class List extends Component {
         let children;
         if(this.state.showChild && this.props.children) {
             children = this.props.children.map(function (childnode) {
-                return <List callback={this.props.callback.bind(this)} show={this.props.show} close={this.props.close} open={this.props.open} node={childnode} children={childnode.people} />
+                return <List key={childnode.name.toString()} callback={this.props.callback.bind(this)} show={this.props.show} close={this.props.close} open={this.props.open} node={childnode} children={childnode.people} />
             }, this)
         }
 
         return (
-            <li key={this.props.node.name.toString()} onClick={this.props.children !== undefined ? this.handleCollapse.bind(this) : this.showBusiness.bind(this)}>
-            <span>{this.props.node.name}</span>
+            <li onClick={this.props.children !== undefined ? this.handleCollapse.bind(this) : this.showBusiness.bind(this)}>
+            <span>{this.props.node.name} {this.props.node.people ? `(${this.props.node.people.length})` : ''}</span>
             {children ? <ul>{children}</ul> : null}
             </li>
         )

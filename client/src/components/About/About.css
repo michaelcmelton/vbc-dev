@@ -106,9 +106,17 @@
         font-family: 'Barlow Condensed', sans-serif;
         margin-left: 6em;
     }
+
+    #jason {
+        display: grid;
+    }
     #jason h4 {
         text-align: right;
         margin-right: 7em;
+    }
+
+    #chad h4 {
+        text-align: left;
     }
     #jason p {
         margin-left: 4em;
@@ -118,10 +126,11 @@
         margin-top: 1em;
     }
     #chad-pic {
-        clip-path: circle(7.5em at 48% 37%);
+        margin-left: 1.7em;
+        clip-path: circle(7.5em at 37% 54%);
         margin-top: 1em;
         margin-right: 2.5em;
-        min-width: 23em;
+        max-width: 24em;
     }
     .paragraph-text {
         font-family: 'Roboto', sans-serif;
