@@ -23,12 +23,9 @@ class BusinessDetail extends Component {
                 </div>
                 <div className="contact-div">
                     <h3>Contact</h3>
-                    <h4>phone</h4>
-                    <h4>{this.props.data.phone}</h4>
-                    <h4>email</h4>
-                    <h4>{this.props.data.email}</h4>
-                    <h4>website</h4>
-                    <h4>{this.props.data.website}</h4>
+                    <h4><a href={`tel:${this.props.data.phone}`}>{this.props.data.phone}</a></h4>
+                    <h4><a href={`mailto:${this.props.data.email}`}>{this.props.data.email}</a></h4>
+                    <h4><a rel="noopener noreferrer" target='_blank' href={this.props.data.website}>{this.props.data.website}</a></h4>
                 </div>
                 <div className="bio-div">
                     <h3>About</h3>
