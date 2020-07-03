@@ -193,7 +193,7 @@ class BusinessForm extends Component {
         return (
             <div className="business-form">
                 <div className="form-container">
-                    <h2>{this.state.id ? 'Edit Business' : 'Add Business'}</h2>
+                    <h2>{this.state.id ? 'Edit Business' : 'List a Business'}</h2>
                     {this.state.msg ? <h4>{this.state.msg}</h4> : <br />}
                     <form onSubmit={this.onSubmit}>
                         <h4>General</h4>

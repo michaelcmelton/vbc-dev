@@ -43,10 +43,15 @@
 }
 
 .contact-form button {
-    width: 100%;
     margin-top: 0.5em;
     margin-left: auto;
     margin-right: auto;
+    background-color: #2D3763;
+    border: none;
+    padding: .75em 2em;
+    font-size: 18px;
+    width: 100%;
+    color: white;
 }
 
 .contact h3 {
@@ -122,7 +127,7 @@
 .header-banner {
     margin: 0;
     padding: 0;
-    font-size: 24px;
+    font-size: 18px;
     margin-top: 0.5em;
     text-align: center;
 }
@@ -322,16 +327,16 @@
     .header-banner {
         margin: 0;
         padding: 0;
-        font-size: 54px;
-        margin-top: 1.3em;
+        font-size: 32px;
+        margin-top: 2.7em;
         margin-left: 1.1em;
     }
 
     .header-subtext {
         margin: 0;
         padding: 0;
-        font-size: 36px;
-        margin-left: 1.2em;
+        font-size: 28px;
+        margin-left: 6.7em;
         padding-top: 0.25em;
     }
     

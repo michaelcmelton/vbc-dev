@@ -13,8 +13,8 @@ const Home = (props) => {
             <div className="header">
                 <img className="header-logo" alt="logo" src={imgPath + 'VBC.png'} />
                 <div className="header-flex-container">
-                    <h1 className="header-banner">You Served. They Served.</h1>
-                    <h4 className="header-subtext">Let us connect you as civilians and to civilians.</h4>
+                    <h1 className="header-banner">Find and Support Locally Owned Veteran Business.</h1>
+                    <h4 className="header-subtext">Veteran Owned Businesses for You</h4>
                 </div>
                 <img className="mobile-header-logo" alt="logo" src={imgPath + 'VBC.png'} />
             </div>
