@@ -1,0 +1,16 @@
+@import-normalize;
+
+html, body {
+  background-color: #FBFBFB;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+body.open-side {
+  overflow: hidden;
+}

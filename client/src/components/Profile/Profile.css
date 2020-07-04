@@ -1,0 +1,241 @@
+.profile-container {
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 3;
+    grid-template-areas: "business" "change" "delete";
+}
+
+.business-list {
+    grid-area: business;
+}
+
+.password-change {
+    grid-area: change;
+}
+
+.delete-account {
+    grid-area: delete;
+}
+
+.user-business {
+    width: 100%;
+    padding: 0;
+    padding-left: 1em;
+    list-style-type: none;
+}
+
+.profile h4 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 0;
+}
+
+.business-list h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    text-align: center;
+}
+
+.business-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75em;
+    margin-right: 2.5em;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.delete-account h2 {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.delete-account h3 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.delete-button {
+    text-align: center;
+    font-size: 18px;
+    border: none;
+    background-color: #991818;
+    color: white;
+    width: 70%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-left: 3em;
+    margin-right: auto;
+    margin-bottom: 4em;
+}
+
+.business-add {
+    font-size: 18px;
+    border: none;
+    background-color: #2D3763;
+    color: white;
+    width: 50%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-left: 4.25em;
+    margin-right: 1em;
+    margin-bottom: 4em;
+}
+
+.business-item i {
+    font-size: 22px;
+    margin-right: 0.5em;
+}
+
+.edit {
+    color: #2D3763;
+}
+
+.delete {
+    color: red;
+}
+
+.password-change h3 {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+}
+
+.password-change label {
+    font-family: 'Roboto', sans-serif;
+    text-align: right;
+    font-size: 14px;
+}
+
+.password-change input {
+    width: 100%;
+}
+
+.password-change form .form-group {
+    margin-top: 0;
+    margin-bottom: 0.75em;
+}
+
+.password-change button {
+    margin-left: 2.5em;
+    border: none;
+    background-color: #2D3763;
+    color: white;
+    width: 80%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-right: 0.5em;
+    margin-bottom: 1.5em;
+}
+
+@media screen and (min-width: 992px) {
+    .profile-container {
+        display: grid;
+        grid-template-columns: 2;
+        grid-template-rows: 2;
+        grid-template-areas: "business business" "change delete";
+    }
+    .business-list {
+        grid-area: business;
+    }
+    .password-change {
+        grid-area: change;
+    }
+    .delete-account {
+        grid-area: delete;
+    }
+    .user-business {
+        width: 100%;
+        list-style-type: none;
+    }
+    .profile h4 {
+        font-family: 'Roboto', sans-serif;
+        margin-bottom: 0;
+    }
+    .business-list h2 {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 26px;
+        text-align: center;
+    }
+    .business-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.75em;
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+    }
+    .delete-account h2 {
+        text-align: center;
+        font-family: 'Barlow Condensed', sans-serif;
+    }
+    .delete-account h3 {
+        text-align: center;
+        font-family: 'Roboto', sans-serif;
+    }
+    .delete-button {
+        text-align: center;
+        font-size: 18px;
+        border: none;
+        background-color: #991818;
+        color: white;
+        width: 30%;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        margin-left: 35%;
+        margin-right: auto;
+        margin-bottom: 4em;
+    }
+    .business-add {
+        font-size: 18px;
+        border: none;
+        background-color: #2D3763;
+        color: white;
+        width: 20%;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        margin-left: 1.5em;
+        margin-right: 1em;
+        margin-bottom: 4em;
+    }
+    .business-item i {
+        font-size: 22px;
+        margin-right: 0.5em;
+    }
+    .edit {
+        color: #2D3763;
+    }
+    .delete {
+        color: red;
+    }
+    .password-change h3 {
+        text-align: center;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 22px;
+    }
+    .password-change label {
+        font-family: 'Roboto', sans-serif;
+        text-align: right;
+    }
+    .password-change input {
+        width: 60%;
+        margin-right: 4em;
+        float: right;
+    }
+    .password-change form .form-group {
+        margin-top: 0;
+        margin-bottom: 0.75em;
+    }
+    .password-change button {
+        margin-left: 2.5em;
+        border: none;
+        background-color: #2D3763;
+        color: white;
+        width: 80%;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        margin-right: 0.5em;
+        margin-bottom: 1.5em;
+        font-size: 16px;
+    }
+}

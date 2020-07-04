@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+.clip-circle {
+    clip-path: circle(7.5em at 48% 37%);
+    margin: 0;
+    padding: 0;
+    max-width: 95%;
+}
+
+.cta h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-align: center;
+    font-size: 24px;
+}
+
+.cta p {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+
+.cta button {
+    color: white;
+    background-color: #2D3763;
+    border: none;
+    padding: .75em 2em;
+    font-size: 18px;
+    width: 100%;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.contact-form input{
+    display: block;
+    height: 3.2em;
+    margin-bottom: 0.5em;
+}
+
+.contact-form button {
+    margin-top: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #2D3763;
+    border: none;
+    padding: .75em 2em;
+    font-size: 18px;
+    width: 100%;
+    color: white;
+}
+
+.contact h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-align: center;
+    font-size: 24px;
+}
+
+.contact h4 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 18px;
+}
+
+.contact-form textarea {
+    font-family: 'Roboto', sans-serif;
+}
+
+.founders-mobile h1 { 
+    font-size: 32px;
+    text-align:center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: bold;
+}
+
+.founders-mobile h2 {
+    text-align: center;
+    font-size: 28px;
+}
+
+.founders-desktop {
+    display: none;
+}
+
+.founder-text h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+    margin-top: 0.8em;
+}
+
+.founder-text p {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.67em;
+    font-size: 18px;
+}
+
+.founder-text p a {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color: #999999;
+}
+
+#chad-pic-home {
+    max-width: 28em;
+    clip-path: circle(7.5em at 37% 56%);
+}
+.header-logo {
+    display: none;
+}
+.header {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1;
+    grid-row: 3;
+}
+
+.header-banner, .header-subtext, .body-text {
+    font-family: 'Roboto', sans-serif;
+}
+
+.header-banner {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    margin-top: 0.5em;
+    text-align: center;
+}
+
+.header-subtext {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.body-text {
+    line-height: 1.65em;       
+}
+
+.header-subtext, .body-text {
+    font-weight: 400;
+}
+
+.mobile-header-logo {
+    margin-top: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0.75em;
+    align-items: center;
+}
+
+.box {
+    width: 20em;
+    min-height: 20em;
+    border-top: 4px solid #2D3763;
+    box-shadow: 2px 3px 7px #ccc;
+    margin-bottom: 0.5em;
+}
+
+.box img {
+    margin: 0 auto;
+    display: block;
+    margin-top: 0.5em;
+}
+
+.box h4 {
+    margin: 0;
+    padding: 0;
+    margin-top: 0.5em;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.box p {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4em;
+}
+
+.box a {
+    text-decoration: none;
+}
+
+.box button {
+    margin: 0 auto;
+    display: block;
+    background-color: rgba(45, 55, 99, 0.95);
+    border-radius: 0.6em;
+    color: #ffffff;
+    border: none;
+    padding: 1.2em 2.8em;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    margin-bottom: 0.5em;
+}
+
+.box button:hover {
+    cursor: pointer;
+}
+
+.home { 
+    overflow-x: hidden;
+}
+/* Desktop Layout */
+
+@media screen and (min-width: 992px) {
+    .final {
+        display: flex;
+    }
+
+    .final .cta, .final .contact {
+       width: 50%;
+    }
+
+    .cta p {
+        margin-top: 8.5em;
+    }
+    .cta button {
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 50%;
+    }
+
+    .founders-desktop h1 { 
+        font-size: 32px;
+        text-align:center;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: bold;
+    }
+
+    .contact-form button {
+        width: 50%;
+    }
+
+    .mobile-header-logo {
+        display: none;
+    }
+
+    .founders-desktop {
+        display: block;
+    }
+
+    .founders-mobile {
+        display: none;
+    }
+
+
+    .founders h1 {
+        text-align: center;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 36px;
+    }
+    
+    .founder {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.9em;
+    }
+
+    .founder-text-right {
+        max-width: 60em;
+    }
+
+    .founder-text-right h2 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 28px;
+        margin: 0;
+        padding: 0;
+        margin-top: 0.8em;
+        text-align: right;
+    }
+
+    .founder-text-right p {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.67em;
+        font-size: 18px;
+        text-align: right;
+    }
+
+    .founder-text-right p a {
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        color: #2D3763;
+    }
+
+    .founder-text-left h2 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 28px;
+        margin: 0;
+        padding: 0;
+        margin-top: 0.8em;
+    }
+
+    .founder-text-left p {
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.67em;
+        font-size: 18px;
+    }
+
+    .founder-text-left p a {
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        color: #2D3763;
+    }
+
+    .clip-circle {
+        clip-path: circle(8em at 47% 37%);
+        margin: 0;
+        padding: 0;
+    }
+    .header-logo {
+        margin-top: 0.5em;
+        display: block;
+    }
+
+    .header-banner {
+        margin: 0;
+        padding: 0;
+        font-size: 32px;
+        margin-top: 2.7em;
+        margin-left: 1.1em;
+    }
+
+    .header-subtext {
+        margin: 0;
+        padding: 0;
+        font-size: 28px;
+        margin-left: 6.7em;
+        padding-top: 0.25em;
+        text-align: left;
+    }
+    
+    .header {
+        display: flex;
+    }
+
+    .body-text {
+        line-height: 1.65em;
+        font-size: 18px;       
+    }
+
+    .box-container { 
+        flex-direction: row;
+        margin-bottom: 4em;
+    }
+
+    #chad-pic-home {
+        max-width: 28em;
+        clip-path: circle(8em at 37% 56%);
+    }
+}

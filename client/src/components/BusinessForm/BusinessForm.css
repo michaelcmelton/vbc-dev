@@ -1,0 +1,165 @@
+.business-form {
+    overflow-x: hidden;
+    z-index: 400;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form-container {
+    margin: 0;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow:  3px 2px 15px #cccccc;
+    margin-top: 8em;
+    border: 1px solid #aaaaaa;
+    z-index: 300;
+    position: absolute;
+    top: -17%;
+    left: 2%;
+    width: 95%;
+
+}
+
+.form-container h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.general-input {
+    font-size: 14px;
+    margin-left: 1.5em;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 0.5em;
+    width: 85%;
+}
+
+.form-container input{
+    margin-bottom: 0.5em;
+    width: 85%;
+    display: block;
+    height: 2.5em;
+}
+
+.bottom-half-form {
+    margin-bottom: 0.5em;
+}
+
+.bottom-half-form div {
+    margin-left: 1.5em;
+    width: 100%;
+    font-size: 16px;
+}
+
+.form-container form h4 {
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Barlow Condensed', sans-serif;
+    margin-bottom: 0.5em;
+}
+
+.bottom-half-form div h4 {
+    text-align: left;
+    margin-left: 6em;
+    margin-bottom: 0.5em;
+    font-size: 18px;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.form-container form button {
+    width: 85%;
+    margin-bottom: 0.5em;
+}
+
+@media screen and (min-width: 992px) {
+    .business-form {
+        z-index: 400;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .form-container {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow:  3px 2px 15px #cccccc;
+        margin-top: 8em;
+        border: 1px solid #aaaaaa;
+        margin-bottom: 12em;
+        z-index: 300;
+        position: absolute;
+        top: -12%;
+        left: 22%;
+        width: 44em;
+    }
+
+    .form-container h2 {
+        font-family: 'Barlow Condensed', sans-serif;
+        text-align: center;
+        margin-top: 1em;
+    }
+
+    .general-input {
+        margin-left: 3.5em;
+        display: block;
+        font-family: 'Roboto', sans-serif;
+        margin-bottom: 0.5em;
+        width: 85%;
+    }
+
+    .form-container input{
+        margin-bottom: 0.5em;
+        width: 85%;
+        display: block;
+        height: 2.5em;
+    }
+
+    .bottom-half-form {
+        display: flex;
+        margin-left: 1.2em;
+        margin-bottom: 0.5em;
+    }
+    
+    .bottom-half-form div {
+        width: 50%;
+    }
+
+    .form-container form h4 {
+        font-size: 18px;
+        font-family: 'Barlow Condensed', sans-serif;
+        margin-bottom: 0.5em;
+    }
+
+    .bottom-half-form div h4 {
+        margin-bottom: 0.5em;
+        font-size: 18px;
+        font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    .form-container form button {
+        border: none;
+        background-color: #2D3763;
+        color: white;
+        width: 35%;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        margin-left: 4.3em;
+        margin-right: 0.5em;
+        margin-bottom: 1.5em;
+        font-size: 16px;
+    }
+}

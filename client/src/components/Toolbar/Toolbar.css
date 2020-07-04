@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+
+.mobile-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20px;
+    width: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    margin-top: 1em;
+    margin-left: 0.75em;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #dddddd;
+    padding-bottom: 0.5em;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.mobile-spacer {
+    margin-left: 1.8em;
+}
+
+.mobile-logo {
+    max-width: 2.5em;
+    max-height: 2.5em;
+    margin-top: 0.5em;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.nav-menu {
+    display: none;
+    list-style-type: none;
+}
+
+.mobile-button:focus {
+    outline: none;
+}
+
+.mobile-button-line {
+    width: 25px;
+    height: 2px;
+    background-color: black;
+}
+
+@media screen and (min-width: 992px) {
+    .mobile-button {
+        display: none;
+        height: 0;
+        width: 0;
+    }
+
+    .navbar {
+        border-top:5px solid #2D3763;
+        background-color: #cccccc;
+        margin: 0;
+        padding: 0;
+        position: sticky;
+        top: 0;
+        left: 0;
+        box-shadow: 1px 2px 5px #aaa;
+    }
+
+    .nav {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .nav-menu {
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-menu-item {
+        padding: 1em;
+        font-size: 16px;
+        font-family: 'Barlow Condensed', sans-serif;
+        border: none;
+        background: transparent;
+    }
+
+    .nav-menu-item:hover {
+        color: #ffffff;
+    }
+
+    .nav-menu-item {
+        position: relative;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-transition: color 1000ms;
+        transition: color 1000ms;
+        padding: 1.75em;
+        font-size: 18px;
+        font-family: 'Barlow Condensed', sans-serif;
+        border: none;
+        background: transparent;
+    }
+
+    .nav-menu-item:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #2D3763;
+        transform: scaleY(0);
+        transform-origin: 50% 0%;
+        transition-property: transform;
+        transition: 300ms ease-out;
+    }
+
+    .nav-menu-item:hover:before {
+        transform: scaleY(1);
+    }
+
+    .mobile-logo {
+        display: none;
+    }
+}

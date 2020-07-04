@@ -1,0 +1,160 @@
+.businessDetail {
+    padding-bottom: 1em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    z-index: 500;
+    background-color: #eee;
+    width: 80%;
+    height: 87%;
+    position: fixed;
+    left: 2%;
+    top: 5%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:10% 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "detail1"
+    "bio"
+    "social-div"
+    "contact-div"
+    "location-div";
+    border-radius: 0.75em;
+    box-shadow: #bbb 1px 3px 7px;
+}
+
+#detail-name {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    grid-row: 1;
+    grid-area: detail1;
+}
+
+.businessDetail h4 {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 1.5em;
+}
+
+.businessDetail .location-div {
+    grid-area: location-div;
+}
+
+.businessDetail .social-div {
+    grid-area: social-div;
+}
+
+.businessDetail .contact-div {
+    grid-area: contact-div;
+}
+
+.active {
+    color: rgba(0,0,255,0.7);
+}
+
+.inactive {
+    color: rgba(135,135,135, 0.7);
+}
+
+.social-div h3 {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.social-div h3, .location-div h3, .contact-div h3, .bio-div h3 {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.bio-div p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.social-div #social-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+@media screen and (min-width: 992px) {
+    .businessDetail {
+        padding-bottom: 1em;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        z-index: 500;
+        background-color: #eee;
+        min-width: 30em;
+        max-width: 50em;
+        min-height: 30em;
+        max-height: 32em;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: grid;
+        grid-template-columns: 1fr 15% 1fr;
+        grid-template-rows:20% 1fr 1fr;
+        grid-template-areas: 
+        "detail1 detail1 detail1"
+        "location-div social-div bio"
+        "contact-div contact-div bio";
+        border-radius: 0.75em;
+        box-shadow: #bbb 1px 3px 7px;
+    }
+
+    #detail-name {
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        grid-row: 1;
+        grid-area: detail1;
+    }
+
+    .businessDetail h4 {
+        font-family: 'Roboto', sans-serif;
+        margin-top: 0em;
+        margin-bottom: 0em;
+        margin-left: 1.5em;
+    }
+
+    .businessDetail .location-div {
+        grid-area: location-div;
+    }
+
+    .businessDetail .social-div {
+        grid-area: social-div;
+    }
+
+    .businessDetail .contact-div {
+        grid-area: contact-div;
+    }
+
+    .active {
+        color: rgba(0,0,255,0.7);
+    }
+
+    .inactive {
+        color: rgba(135,135,135, 0.7);
+    }
+
+    .social-div h3 {
+        text-align: center;
+        font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    .social-div h3, .location-div h3, .contact-div h3, .bio-div h3 {
+        text-align: center;
+        font-family: 'Barlow Condensed', sans-serif;
+    }
+
+    .bio-div p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+    }
+
+    .social-div #social-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
