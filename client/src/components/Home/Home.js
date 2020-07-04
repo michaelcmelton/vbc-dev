@@ -69,7 +69,7 @@ const Home = (props) => {
             <div className="founders-mobile">
                 <h1>Our Team</h1>
                 <div className="founder">
-                    <img style={{maxWidth: 24 + 'em'}} alt="chad-gleaton" src={imgPath + 'chad-picture.jpg'} className="clip-circle" />
+                    <img id="chad-pic-home" alt="chad-gleaton" src={imgPath + 'chad-picture.jpg'} className="clip-circle" />
                     <div className="founder-text">
                         <h2>Chad Gleaton</h2>
                         <p>Chad Gleaton served over six years on active duty with the 75th Ranger Regiment.  He was assigned to the 1st Ranger Battalion serving there from 2005 to 2008 where he deployed three times, twice to Iraq and once to Afghanistan.

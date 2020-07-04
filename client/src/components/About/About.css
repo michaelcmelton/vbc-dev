@@ -60,9 +60,9 @@
 }
 
 #chad-pic {
-    clip-path: circle(7.5em at 48% 37%);
+    clip-path: circle(7.5em at 37% 47%);
     margin-top: 1em;
-    min-width: 23em;
+    max-width: 23em;
 }
 
 .paragraph-text {

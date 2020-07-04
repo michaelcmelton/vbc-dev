@@ -107,8 +107,8 @@
 }
 
 #chad-pic-home {
-    max-width: 24em;
-    clip-path: circle(8em at 37% 56%);
+    max-width: 28em;
+    clip-path: circle(7.5em at 37% 56%);
 }
 .header-logo {
     display: none;
@@ -137,6 +137,7 @@
     padding: 0;
     font-size: 16px;
     margin-bottom: 0.5em;
+    text-align: center;
 }
 
 .body-text {
@@ -211,6 +212,10 @@
 
 .box button:hover {
     cursor: pointer;
+}
+
+.home { 
+    overflow-x: hidden;
 }
 /* Desktop Layout */
 
@@ -338,6 +343,7 @@
         font-size: 28px;
         margin-left: 6.7em;
         padding-top: 0.25em;
+        text-align: left;
     }
     
     .header {

@@ -1,12 +1,32 @@
 .directory ul {
     list-style-type: none;
-    font-size: 32px;
+    font-size: 26px;
     font-family: 'Barlow Condensed', sans-serif;
 }
 
 .directory #maindirectory {
-    columns: 2;
+    columns: 1;
+}
+
+.search-form form {
     margin-left: 4em;
+    margin-right: auto;
+    max-width: 16em;
+}
+
+@media screen and (min-width: 992px) {
+    .directory #maindirectory {
+        columns: 2;
+        margin-left: 9em;
+    }
+    .search-form form {
+        margin-left: 31em;
+    }
+    .directory ul {
+        list-style-type: none;
+        font-size: 32px;
+        font-family: 'Barlow Condensed', sans-serif;
+    }
 }
 
 .search-form h4 {
@@ -19,12 +39,6 @@
     font-size: 42px;
     font-family: 'Roboto', sans-serif;
     text-align: center;
-}
-
-.search-form form {
-    margin-left: 25em;
-    margin-right: auto;
-    max-width: 16em;
 }
 
 .search-form label {

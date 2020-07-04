@@ -102,23 +102,25 @@ class Directory extends Component {
           this.setState({ industries: industriesAll });
           const industries = data.data.filter(i => i.state === st).map(i => i.industry);
           object.people = [];
-          for (let industry of industries) {
+          if (industries.length > 0) {
+            for (let industry of industries) {
+              let obj = {};
+              obj.name = industry;
+              obj.people = data.data.filter(i => i.state === st && i.industry === industry).map(i => {
+                i.name = i.businessName;
+                delete i.businessName;
+                return i;
+              });
+              object.people.push(obj);
+            }
+          } else {
             let obj = {};
-            obj.name = industry;
-            obj.people = data.data.filter(i => i.state === st && i.industry === industry).map(i => {
-              i.name = i.businessName;
-              delete i.businessName;
-              return i;
-            });
+            obj.name="Be the first veteran to list!";
+            obj.people = [];
             object.people.push(obj);
           }
           this.setState({ directoryData: [...this.state.directoryData, JSON.parse(JSON.stringify(object))] });
           this.setState({ originalData: this.state.directoryData });
-          if (this.state.directoryData.length < 10) {
-            document.getElementById('maindirectory').style.columns = 1;
-          } else {
-            document.getElementById('maindirectory').style.columns = 2;
-          }
         })
       })
   }

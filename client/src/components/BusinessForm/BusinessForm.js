@@ -207,7 +207,7 @@ class BusinessForm extends Component {
                             <option value="other">Other</option>
                         </select>
                         {this.state.industry === 'other' ? <input onChange={this.onChange} name="industryOther" placeholder="Input your industry here"></input> : ''}
-                        <textarea className="general-input" onChange={this.onChange} id="bio" rows="10" maxLength="750" name="biography" placeholder="Tell us your business story." value={this.state.biography ? this.state.biography : ''}></textarea>
+                        <textarea className="general-input" onChange={this.onChange} id="bio" rows="10" maxLength="750" name="biography" placeholder="Tell us what your business provides, and how it all started!" value={this.state.biography ? this.state.biography : ''}></textarea>
                         <div className="bottom-half-form">
                             <div>
                                 <h4>Contact Info</h4>

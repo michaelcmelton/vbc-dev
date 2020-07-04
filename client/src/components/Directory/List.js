@@ -28,7 +28,7 @@ class List extends Component {
 
         return (
             <li onClick={this.props.children !== undefined ? this.handleCollapse.bind(this) : this.showBusiness.bind(this)}>
-            <span>{this.props.node.name} {this.props.node.people ? `(${this.props.node.people.length})` : ''}</span>
+            <span>{this.props.node.name}</span>
             {children ? <ul>{children}</ul> : null}
             </li>
         )
