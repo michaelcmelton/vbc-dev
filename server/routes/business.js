@@ -110,13 +110,6 @@ businessRouter.post('/', auth, (req, res) => {
 
 // Update record by ID.
 businessRouter.post('/:id', auth, (req, res) => {
-  var test = /(Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New\sHampshire|New\sJersey|New\sMexico|New\sYork|North\sCarolina|North\sDakota|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode\sIsland|South\sCarolina|South\sDakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West\sVirginia|Wisconsin|Wyoming)/gm.test(req.body.state);
-  if(test !== true) {
-    res.status(401).json({
-      message: 'State is not valid. Please use the full state name. (eg. North Carolina)'
-    });
-    return;
-  }
   if(!req.body.biography) {
     res.status(401).json({
       message: 'About Section is required.'

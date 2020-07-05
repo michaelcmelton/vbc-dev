@@ -15,6 +15,7 @@ class BusinessForm extends Component {
                 ownerId: props.user.id,
                 businessName: props.business.businessName,
                 city: props.business.city,
+                stateSelect: ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'U.S. Virgin Islands','Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
                 state: props.business.state,
                 industry: props.business.industry,
                 industryOther: props.business.industryOther,
@@ -35,6 +36,7 @@ class BusinessForm extends Component {
                 ownerId: props.user.id,
                 businessName: null,
                 city: null,
+                stateSelect: ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'U.S. Virgin Islands','Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
                 state: null,
                 industry: null,
                 industryOther: null,
@@ -189,7 +191,7 @@ class BusinessForm extends Component {
     }
 
     render() {
-        console.log(this.props);
+       let stateOptions = this.state.stateSelect.map((state, index) => <option key={index + state} value={state}>{state}</option>);
         let optionValues = this.props.industryOption.map((industry, index) => <option key={index} value={industry}>{industry}</option>);
         return (
             <div className="business-form">
@@ -200,7 +202,10 @@ class BusinessForm extends Component {
                         <h4>General</h4>
                         <input className="general-input" onChange={this.onChange} name="businessName" placeholder="Business Name" value={this.state.businessName ? this.state.businessName : ''}></input>
                         <input className="general-input" onChange={this.onChange} name="city" placeholder="City" value={this.state.city ? this.state.city : ''}></input>
-                        <input className="general-input" onChange={this.onChange} name="state" placeholder="State" type="state" value={this.state.state ? this.state.state : ''}></input>
+                        <select className="general-input" onChange={this.onChange} name="state" placeholder="State" type="state" value={this.state.state ? this.state.state : ''}>
+                            <option value="">Select a State</option>
+                            {stateOptions}
+                        </select>
                         <select className="general-input" onChange={this.onChange} id="industry" name="industry" value={this.state.industry ? this.state.industry : ''}>
                             <option value="">Select an Industry</option>
                             {optionValues}
