@@ -4,6 +4,14 @@
     font-family: 'Barlow Condensed', sans-serif;
 }
 
+.directory ul li {
+   cursor: pointer;
+}
+
+.directory ul li:hover {
+   color: #ddd;
+}
+
 .directory #maindirectory {
     columns: 1;
 }

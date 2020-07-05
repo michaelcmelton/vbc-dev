@@ -19,7 +19,11 @@ if(process.env.NODE_ENV === "production") {
   app.use(express.static(publicPath));
   app.use(express.static(path.join(publicPath, 'static')));
 }
-app.use(morgan('combined'));
+
+if(process.env.NODE_ENV === 'development') {
+	app.use(morgan('combined'));
+}
+
 app.use(express.json());
 
 app.use((req, res, next) => {

@@ -362,6 +362,7 @@
 
     #chad-pic-home {
         max-width: 28em;
-        clip-path: circle(8em at 37% 56%);
+        max-height: 22em;
+	clip-path: circle(8em at 37% 56%);
     }
 }
