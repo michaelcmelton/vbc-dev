@@ -64,7 +64,6 @@ userRouter.post('/login', (req, res) => {
 });
 
 userRouter.delete('/:id', auth, (req, res) => {
-    console.log('delete reached.');
     const id = req.params.id;
     Business.find({ ownerId: id }, (err, docs) => {
         if (docs.length > 0) {
@@ -122,18 +121,18 @@ userRouter.post('/passwordchange', auth, (req, res) => {
 });
 
 userRouter.post('/register', (req, res) => {
-    // const  passwordValidation = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[\]:;<>,.?~_+-=|]).{15,32}$/gm;
+    const  passwordValidation = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[\]:;<>,.?~_+-=|]).{8,32}$/gm;
     const { email, password, confPassword, branch, name } = req.body;
     if (!email || !password || !confPassword || !branch || !name) {
         return res.status(400).json({
             message: 'All Fields Required.'
         });
     }
-    // if(passwordValidation.test(password) === false) {
-    //     return res.status(400).json({
-    //         message: 'Passwords does not meet minimum security requirements.'
-    //     });
-    // }
+    if(passwordValidation.test(password) === false) {
+        return res.status(400).json({
+            message: 'Passwords does not meet minimum security requirements. Password must include 1 Special Character, 1 Uppercase Letter, 1 Lowercase Letter, and minimum of 8 characters.'
+        });
+    }
     if (password !== confPassword) {
         return res.status(400).json({
             message: 'Passwords do not match.'
