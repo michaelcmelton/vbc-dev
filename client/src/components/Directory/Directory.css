@@ -8,7 +8,7 @@
    cursor: pointer;
 }
 
-.directory ul li:hover {
+.directory ul li span:hover {
    color: #ddd;
 }
 
