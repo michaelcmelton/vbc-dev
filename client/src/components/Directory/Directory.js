@@ -100,7 +100,7 @@ class Directory extends Component {
           object.id = index;
           const industriesAll = data.data.map(i => i.industry);
           this.setState({ industries: industriesAll });
-          const industries = data.data.filter(i => i.state === st).map(i => i.industry).sort((a, b) => a < b ? -1 : 1);
+          const industries = [...new Set(data.data.filter(i => i.state === st).map(i => i.industry).sort((a, b) => a < b ? -1 : 1))];
           object.people = [];
           if (industries.length > 0) {
             for (let industry of industries) {
