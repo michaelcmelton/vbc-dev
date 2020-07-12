@@ -35,7 +35,7 @@ class Directory extends Component {
         states.forEach((st, index) => {
           object.name = st;
           object.id = index;
-          const industries = searchData.filter(i => i.state === st).map(i => i.industry).sort((a, b) => a < b ? -1 : 1);
+          const industries = [...new Set(searchData.filter(i => i.state === st).map(i => i.industry).sort((a, b) => a < b ? -1 : 1))];
           object.people = [];
           for (let industry of industries) {
             let obj = {};
@@ -61,7 +61,7 @@ class Directory extends Component {
         states.forEach((st, index) => {
           object.name = st;
           object.id = index;
-          const industries = searchData.filter(i => i.state === st).map(i => i.industry).sort((a, b) => a < b ? -1 : 1);
+          const industries = [...new Set(searchData.filter(i => i.state === st).map(i => i.industry).sort((a, b) => a < b ? -1 : 1))];
           object.people = [];
           for (let industry of industries) {
             let obj = {};
@@ -139,7 +139,7 @@ class Directory extends Component {
       businessDetail = <BusinessDetail close={this.props.close} data={this.state.businessDetailData} />
     }
 
-    optionValues = this.state.industries.map((option) => {
+    optionValues = [...new Set(this.state.industries)].sort((a,b) => a < b ? -1 : 1).map((option) => {
       return <option key={option} value={option}>{option}</option>
     })
 
