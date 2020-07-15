@@ -5,7 +5,7 @@
     z-index: 500;
     background-color: #eee;
     width: 80%;
-    height: 87%;
+    height: 40em;
     position: fixed;
     left: 2%;
     top: 5%;
@@ -109,6 +109,7 @@
         text-align: center;
         grid-row: 1;
         grid-area: detail1;
+        font-size: 30px;
     }
 
     .businessDetail h4 {

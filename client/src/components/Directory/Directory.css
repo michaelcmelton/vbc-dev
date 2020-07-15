@@ -17,7 +17,7 @@
 }
 
 .search-form form {
-    margin-left: 4em;
+    margin-left: 16%;
     margin-right: auto;
     max-width: 16em;
 }
@@ -25,10 +25,10 @@
 @media screen and (min-width: 992px) {
     .directory #maindirectory {
         columns: 2;
-        margin-left: 9em;
+        margin-left: 22%;
     }
     .search-form form {
-        margin-left: 31em;
+        margin-left: 38%;
     }
     .directory ul {
         list-style-type: none;

@@ -71,13 +71,9 @@ class Profile extends Component {
                     businessList: data.data.map(i => {
                         return (
                             <li className="business-item" key={i._id}>
-                                {i.businessName}
-                                <div style={{
-                                width: 8 + 'vw',
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center'}}>
-                                    <h5 style={{margin:0, padding:0}} onClick={() => { this.editBusiness(i._id) }} >Edit Business</h5>
+                                <p>{i.businessName}</p>
+                                <div className="business-actions">
+                                    <h5 onClick={() => { this.editBusiness(i._id) }} >Edit Business</h5>
                                     <i onClick={() => { this.deleteBusiness(i._id) }} className="fa fa-2x fa-trash delete" aria-hidden="true"></i>
                                 </div>
                             </li>
@@ -132,7 +128,7 @@ class Profile extends Component {
                             <li className="business-item" key={i._id}>
                                 {i.businessName}
                                 <div>
-                                    <i onClick={() => { this.editBusiness(i._id) }} class="fa fa-2x fa-pencil-square-o edit" aria-hidden="true"></i>
+                                    <h5 style={{margin:0, padding:0}} onClick={() => { this.editBusiness(i._id) }} >Edit Business</h5>
                                     <i onClick={() => { this.deleteBusiness(i._id) }} class="fa fa-2x fa-trash delete" aria-hidden="true"></i>
                                 </div>
                             </li>

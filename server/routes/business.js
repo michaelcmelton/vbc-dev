@@ -37,56 +37,18 @@ businessRouter.get('/', (req, res) => {
  * creation
  */
 businessRouter.post('/', auth, (req, res) => {
-  if (req.body instanceof Array) {
-    const createItemsLength = req.body.length;
-    const createItems = req.body;
-    var test = /(Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New\sHampshire|New\sJersey|New\sMexico|New\sYork|North\sCarolina|North\sDakota|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode\sIsland|South\sCarolina|South\sDakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West\sVirginia|Wisconsin|Wyoming)/gm.test(req.body.state);
-    if(test !== true) {
-      res.status(401).json({
-        message: 'State is not valid.'
-      });
-      return;
-    }
+    
     if(!req.body.biography) {
       res.status(401).json({
         message: 'About Section is required.'
       });
       return;
     }
-    if(/^(https:|http:)(www\.)?\S*/.test(req.body.website)) {
-      res.status(401).json({
-        message: 'Please use the full URL of your website.'
-      });
-      return;
-    }
+    
+    // TODO Validation
 
-    if(/^(https:|http:)(www\.)?facebook\.com\/\\S*/.test(req.body.website)) {
-      res.status(401).json({
-        message: 'Please use the full facebook URL.'
-      });
-      return;
-    }
-
-    business.insertMany(createItems, (err, docs) => {
-      if (err) {
-        let message;
-        const messageArr = err.message.split(':');
-        [message, ...rest] = messageArr.reverse().map((element) => element.trim());
-        res.status(401).json({
-          message
-        });
-
-        return;
-      }
-      res.send({
-        status: 201,
-        itemsCreatedCount: createItemsLength,
-        data: docs,
-        items: createItems
-      });
-    })
-  } else {
     const createItem = req.body;
+
     business.create(createItem, (err, data) => {
       if (err) {
         console.log(err);
@@ -105,7 +67,6 @@ businessRouter.post('/', auth, (req, res) => {
         item: createItem
       })
     });
-  }
 });
 
 // Update record by ID.
@@ -116,19 +77,8 @@ businessRouter.post('/:id', auth, (req, res) => {
     });
     return;
   }
-  if(/^((https:|http:)\/\/)(www\.)?\S*/.test(req.body.website)) {
-    res.status(401).json({
-      message: 'Please use the full URL of your website.'
-    });
-    return;
-  }
 
-  if(/^(https:|http:)(www\.)?facebook\.com\/\\S*/.test(req.body.website)) {
-    res.status(401).json({
-      message: 'Please use the full facebook URL.'
-    });
-    return;
-  }
+  // TODO URL Validation
 
   business.findOneAndUpdate({ _id: req.params.id }, req.body, {
     overwrite: true,

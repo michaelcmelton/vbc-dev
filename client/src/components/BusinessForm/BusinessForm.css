@@ -42,6 +42,10 @@
     width: 85%;
 }
 
+#other-input {
+    margin-left: 1.5em;
+}
+
 .form-container input{
     margin-bottom: 0.5em;
     width: 85%;
@@ -77,9 +81,62 @@
 .form-container form button {
     width: 85%;
     margin-bottom: 0.5em;
+    border: none;
+    background-color: #2D3763;
+    color: white;
+    margin-left: 2.1em;
+    padding-top: 1.7em;
+    padding-bottom: 1.7em;
+    font-size: 16px;
+}
+
+.online-check {
+    width: 30vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.online-check h5 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+#online {
+    margin: 0;
+    padding: 0;
+    margin-left: 0;
+    min-width: 25%;
 }
 
 @media screen and (min-width: 992px) {
+
+    online-check {
+        max-width: 15vw;
+        display: flex;
+        align-items: center;
+        margin-left: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .online-check h5 {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #online {
+        margin: 0;
+        padding: 0;
+        margin-left: 0;
+        max-width: 25%;
+    }
+
     .business-form {
         z-index: 400;
         position: absolute;
@@ -99,12 +156,16 @@
         box-shadow:  3px 2px 15px #cccccc;
         margin-top: 8em;
         border: 1px solid #aaaaaa;
-        margin-bottom: 12em;
+        margin-bottom: 4em;
         z-index: 300;
         position: absolute;
         top: -12%;
         left: 22%;
         width: 44em;
+    }
+
+    #other-input {
+        margin-left: 3.5em;
     }
 
     .form-container h2 {
