@@ -217,7 +217,7 @@ class BusinessForm extends Component {
                             <div>
                                 <h4>Contact Info</h4>
                                 <input onChange={this.onChange} name="areasServiced" placeholder="Areas Serviced" value={this.state.areasServiced ? this.state.areasServiced : ''}></input>
-                                <input onChange={this.onChange} name="phone" placeholder="Phone Number (123-456-7890)" value={this.state.phone ? this.state.phone : ''}></input>
+                                <input onChange={this.onChange} name="phone" placeholder="Phone Number (1234567890)" value={this.state.phone ? this.state.phone : ''}></input>
                                 <input onChange={this.onChange} name="email" placeholder="Email" value={this.state.email ? this.state.email : ''}></input>
                                 <input onChange={this.onChange} name="website" placeholder="Website (https://veteranbusinessconnection.org/)" value={this.state.website ? this.state.website : ''}></input>
                             </div>

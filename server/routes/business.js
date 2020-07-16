@@ -85,7 +85,7 @@ businessRouter.post('/:id', auth, (req, res) => {
   body.lastUpdated = Date.now();
 
   business.findOneAndUpdate({ _id: req.params.id }, body, {
-    overwrite: true,
+    overwrite: false,
     new: true
   }, (err, doc) => {
     if (err) {
