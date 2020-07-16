@@ -209,23 +209,23 @@ class BusinessForm extends Component {
                         <select className="general-input" onChange={this.onChange} id="industry" name="industry" value={this.state.industry ? this.state.industry : ''}>
                             <option value="">Select an Industry</option>
                             {optionValues}
-                            <option value="other">Other</option>
+                            <option value="other">Select this option to put in your own industry.</option>
                         </select>
-                        {this.state.industry === 'other' ? <input onChange={this.onChange} name="industryOther" placeholder="Input your industry here"></input> : ''}
+                        {this.state.industry === 'other' ? <input id="other-input" onChange={this.onChange} name="industryOther" placeholder="Input your industry here"></input> : ''}
                         <textarea className="general-input" onChange={this.onChange} id="bio" rows="10" maxLength="750" name="biography" placeholder="Tell us what your business provides, and how it all started!" value={this.state.biography ? this.state.biography : ''}></textarea>
                         <div className="bottom-half-form">
                             <div>
                                 <h4>Contact Info</h4>
                                 <input onChange={this.onChange} name="areasServiced" placeholder="Areas Serviced" value={this.state.areasServiced ? this.state.areasServiced : ''}></input>
-                                <input onChange={this.onChange} name="phone" placeholder="Phone Number" value={this.state.phone ? this.state.phone : ''}></input>
+                                <input onChange={this.onChange} name="phone" placeholder="Phone Number (123-456-7890)" value={this.state.phone ? this.state.phone : ''}></input>
                                 <input onChange={this.onChange} name="email" placeholder="Email" value={this.state.email ? this.state.email : ''}></input>
-                                <input onChange={this.onChange} name="website" placeholder="Website" value={this.state.website ? this.state.website : ''}></input>
+                                <input onChange={this.onChange} name="website" placeholder="Website (https://veteranbusinessconnection.org/)" value={this.state.website ? this.state.website : ''}></input>
                             </div>
                             <div>
                                 <h4>Social Media</h4>
-                                <input onChange={this.onChange} name="facebook" placeholder="Facebook URL" value={this.state.facebook ? this.state.facebook : ''}></input>
-                                <input onChange={this.onChange} name="instagram" placeholder="Instagram URL" value={this.state.instagram ? this.state.instagram : ''}></input>
-                                <input onChange={this.onChange} name="twitter" placeholder="Twitter URL" value={this.state.twitter ? this.state.twitter : ''}></input>
+                                <input onChange={this.onChange} name="facebook" placeholder="Facebook URL (https://facebook.com/veteranbusinessconnection)" value={this.state.facebook ? this.state.facebook : ''}></input>
+                                <input onChange={this.onChange} name="instagram" placeholder="Instagram URL (https://instagram.com/veteranbusinessconnection)" value={this.state.instagram ? this.state.instagram : ''}></input>
+                                <input onChange={this.onChange} name="twitter" placeholder="Twitter URL (https://twitter.com/veteranbusinessconnection)" value={this.state.twitter ? this.state.twitter : ''}></input>
                             </div>
                         </div>
                         <button>{this.state.id ? 'Save Changes' : 'Add Business'}</button>

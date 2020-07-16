@@ -4,6 +4,12 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const businessSchema = new Schema({
+  createdAt: {
+    type: Date
+  },
+  lastUpdated: {
+    type:Date
+  },
   ownerId: {
     type: String,
     required: true
@@ -29,14 +35,7 @@ const businessSchema = new Schema({
     required: [true, 'Areas Serviced is required.']
   },
   phone: {
-    type: String,
-    validate: {
-      validator (validData) {
-        return (/\d{3}-\d{3}-\d{4}/).test(validData)
-      },
-      message: (props) => `${props.value} is not a valid phone number.`
-    },
-    required: [true, 'Business phone number required']
+    type: String
   },
   email: {
     type: String,

@@ -48,6 +48,8 @@ businessRouter.post('/', auth, (req, res) => {
     // TODO Validation
 
     const createItem = req.body;
+    createItem.createdAt = Date.now();
+    createItem.lastUpdated = Date.now();
 
     business.create(createItem, (err, data) => {
       if (err) {
@@ -79,8 +81,10 @@ businessRouter.post('/:id', auth, (req, res) => {
   }
 
   // TODO URL Validation
+  const body = req.body;
+  body.lastUpdated = Date.now();
 
-  business.findOneAndUpdate({ _id: req.params.id }, req.body, {
+  business.findOneAndUpdate({ _id: req.params.id }, body, {
     overwrite: true,
     new: true
   }, (err, doc) => {
