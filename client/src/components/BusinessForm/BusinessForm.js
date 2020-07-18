@@ -27,6 +27,8 @@ class BusinessForm extends Component {
                 facebook: props.business.facebook,
                 instagram: props.business.instagram,
                 twitter: props.business.twitter,
+                online: props.business.online,
+                nonprofit: props.business.nonprofit,
                 industryOption: null,
                 msg: null
             }
@@ -49,6 +51,8 @@ class BusinessForm extends Component {
                 instagram: null,
                 twitter: null,
                 industryOption: null,
+                online: null,
+                nonprofit: null,
                 msg: null
             }
         }
@@ -67,6 +71,10 @@ class BusinessForm extends Component {
 
     static propTypes = {
         businessAdd: PropTypes.func.isRequired
+    }
+
+    checkboxChange = e => {
+        this.setState({[e.target.name]: e.target.checked });
     }
 
     onChange = e => {
@@ -91,7 +99,10 @@ class BusinessForm extends Component {
                 website,
                 facebook,
                 instagram,
-                twitter } = this.state;
+                twitter,
+                nonprofit,
+                online
+            } = this.state;
             let editBusiness;
             if (industry === 'other') {
                 editBusiness = {
@@ -108,7 +119,9 @@ class BusinessForm extends Component {
                     website,
                     facebook,
                     instagram,
-                    twitter
+                    twitter,
+                    nonprofit,
+                    online
                 }
             } else {
                 editBusiness = {
@@ -125,9 +138,12 @@ class BusinessForm extends Component {
                     website,
                     facebook,
                     instagram,
-                    twitter
+                    twitter,
+                    nonprofit,
+                    online
                 }
             }
+
             this.props.businessAdd(editBusiness).then(
                 data => {
                     this.props.updateBusiness();
@@ -147,7 +163,9 @@ class BusinessForm extends Component {
                 website,
                 facebook,
                 instagram,
-                twitter } = this.state;
+                twitter,
+                nonprofit,
+                online } = this.state;
             let newBusiness;
             if (industry === 'other') {
                 newBusiness = {
@@ -163,7 +181,9 @@ class BusinessForm extends Component {
                     website,
                     facebook,
                     instagram,
-                    twitter
+                    twitter,
+                    nonprofit,
+                    online
                 }
             } else {
                 newBusiness = {
@@ -179,7 +199,9 @@ class BusinessForm extends Component {
                     website,
                     facebook,
                     instagram,
-                    twitter
+                    twitter,
+                    nonprofit,
+                    online
                 }
             }
             this.props.businessAdd(newBusiness).then(
@@ -212,6 +234,15 @@ class BusinessForm extends Component {
                             <option value="other">Select this option to put in your own industry.</option>
                         </select>
                         {this.state.industry === 'other' ? <input id="other-input" onChange={this.onChange} name="industryOther" placeholder="Input your industry here"></input> : ''}
+                        <div className="checkbox-wrapper">
+                        <input className="checkbox-input" type="checkbox" onChange={this.checkboxChange} name="online" checked={this.state.online ? this.state.online : false}></input>
+                        <h4>Online Business?</h4>
+                        </div>
+                        <br/>
+                        <div className="checkbox-wrapper">
+                        <input className="checkbox-input" type="checkbox" onChange={this.checkboxChange} name="nonprofit" checked={this.state.nonprofit ? this.state.nonprofit : false}></input>
+                        <h4>Nonprofit Business?</h4>
+                        </div>
                         <textarea className="general-input" onChange={this.onChange} id="bio" rows="10" maxLength="750" name="biography" placeholder="Tell us what your business provides, and how it all started!" value={this.state.biography ? this.state.biography : ''}></textarea>
                         <div className="bottom-half-form">
                             <div>

@@ -35,7 +35,9 @@ export const businessAdd = ({ id = null, ownerId,
     website,
     facebook,
     instagram,
-    twitter }) => (dispatch, getState) => new Promise((resolve, reject) => {
+    twitter,
+    online,
+    nonprofit    }) => (dispatch, getState) => new Promise((resolve, reject) => {
 
         const body = JSON.stringify({
             id,
@@ -52,7 +54,9 @@ export const businessAdd = ({ id = null, ownerId,
             website,
             facebook,
             instagram,
-            twitter
+            twitter,
+            online,
+            nonprofit
         });
         if (id) {
             axios.post(`/api/business/${id}`, body, tokenConfig(getState))

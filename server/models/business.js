@@ -13,7 +13,17 @@ const businessSchema = new Schema({
   ownerId: {
     type: String,
     required: true
-  }, 
+  },
+  nonprofit: {
+    type: Boolean,
+    required: true,
+    default: 0
+  },
+  online: {
+    type: Boolean,
+    required: true,
+    default: 0
+  },
   businessName: {
     type: String,
     required: [true, 'BusinessName is required.']

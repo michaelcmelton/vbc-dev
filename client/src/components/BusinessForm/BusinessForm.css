@@ -46,7 +46,7 @@
     margin-left: 1.5em;
 }
 
-.form-container input{
+.bottom-half-form input{
     margin-bottom: 0.5em;
     width: 85%;
     display: block;
@@ -113,28 +113,44 @@
     min-width: 25%;
 }
 
+.checkbox-wrapper {
+    display: flex;
+    margin-left: 3.5em;
+    margin-top: 0.5em;
+    width: 60%;
+    height: 15%;
+    align-items: center;
+}
+
+.checkbox-input {
+    width: 15%;
+    margin-right: 0;
+    display: inline;
+}
+
+.checkbox-wrapper h4 {
+    margin: 0;
+}
+
 @media screen and (min-width: 992px) {
 
-    online-check {
-        max-width: 15vw;
+    .checkbox-wrapper {
         display: flex;
+        margin-left: 3.5em;
+        margin-top: 0.5em;
+        width: 60%;
+        height: 15%;
         align-items: center;
-        margin-left: 1.5em;
-        margin-bottom: 0.5em;
     }
-    
-    .online-check h5 {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: 16px;
-        margin: 0;
-        padding: 0;
+
+    .checkbox-input {
+        width: 15%;
+        margin-right: 0;
+        display: inline;
     }
-    
-    #online {
+
+    .checkbox-wrapper h4 {
         margin: 0;
-        padding: 0;
-        margin-left: 0;
-        max-width: 25%;
     }
 
     .business-form {
@@ -182,7 +198,7 @@
         width: 85%;
     }
 
-    .form-container input{
+    .bottom-half-form input{
         margin-bottom: 0.5em;
         width: 85%;
         display: block;

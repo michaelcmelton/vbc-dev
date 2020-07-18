@@ -73,6 +73,7 @@ businessRouter.post('/', auth, (req, res) => {
 
 // Update record by ID.
 businessRouter.post('/:id', auth, (req, res) => {
+  console.log(req.body);
   if(!req.body.biography) {
     res.status(401).json({
       message: 'About Section is required.'
@@ -85,7 +86,7 @@ businessRouter.post('/:id', auth, (req, res) => {
   body.lastUpdated = Date.now();
 
   business.findOneAndUpdate({ _id: req.params.id }, body, {
-    overwrite: false,
+    overwrite: true,
     new: true
   }, (err, doc) => {
     if (err) {
