@@ -15,6 +15,8 @@ class Directory extends Component {
       directoryFormat: [],
       businessDetailData: {},
       industries: [],
+      online: [],
+      nonprofit: [],
       service: '',
       industry: ''
     };
@@ -24,9 +26,12 @@ class Directory extends Component {
     e.preventDefault();
     const { service, industry } = this.state;
     let searchData;
-
+    document.getElementById('nonprofit').style.display = 'none';
+    document.getElementById('online').style.display = 'none';
     this.setState({ directoryData: [] }, () => {
       if (service === '' && industry === '') {
+        document.getElementById('nonprofit').style.display = 'block';
+        document.getElementById('online').style.display = 'block';
         this.setState({ directoryData: this.state.originalData });
       } else if (service !== '') {
         searchData = this.state.rawData.filter(i => i.biography !== null).filter(i => i.biography.toUpperCase().includes(service.toUpperCase()) || i.name.toUpperCase().includes(service.toUpperCase()));
@@ -92,6 +97,7 @@ class Directory extends Component {
     fetch('/api/business')
       .then(res => res.json())
       .then(data => {
+
         this.setState({ rawData: data.data });
         const states = [...new Set(this.state.usStates)];
         let object = {};
@@ -121,6 +127,8 @@ class Directory extends Component {
           }
           this.setState({ directoryData: [...this.state.directoryData, JSON.parse(JSON.stringify(object))] });
           this.setState({ originalData: this.state.directoryData });
+          this.setState({online: this.state.rawData.filter(i => i.online === true)});
+          this.setState({nonprofit: this.state.rawData.filter(i => i.nonprofit === true)});
         })
       })
   }
@@ -149,6 +157,18 @@ class Directory extends Component {
       );
     }, this);
 
+    let nonprofit = this.state.nonprofit.map(function(business) {
+      return (
+        <List key={business._id + ' - ' + business.name} callback={this.passBusinessDetailBack.bind(this)} show={this.props.show} close={this.props.close} open={this.props.open} node={business} children={business.people} />
+      );
+    }, this);
+
+    let online = this.state.online.map(function(business) {
+      return (
+        <List key={business._id + ' - ' + business.name} callback={this.passBusinessDetailBack.bind(this)} show={this.props.show} close={this.props.close} open={this.props.open} node={business} children={business.people} />
+      );
+    }, this);
+
     return (
       <div className="directory-main">
         <div className='search-form'>
@@ -170,6 +190,19 @@ class Directory extends Component {
           </form>
         </div>
         <div className="directory">
+          <div id="online">
+            <h2 style={{textAlign: 'center'}}>Online Businesses</h2>
+            <ul id="onlinedirectory">
+              {online}
+            </ul>
+          </div>
+          <div id='nonprofit'>
+            <h2 style={{textAlign: 'center'}}>Non-Profit Businesses</h2>
+            <ul id="onlinedirectory">
+              {nonprofit}
+            </ul>
+          </div>
+          <h2 style={{textAlign: 'center'}}>By State</h2>
           <ul id="maindirectory">
             {nodes}
           </ul>

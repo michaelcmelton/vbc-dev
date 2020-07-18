@@ -22,7 +22,18 @@
     max-width: 16em;
 }
 
+.directory h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+}
+
 @media screen and (min-width: 992px) {
+
+    .directory h2 {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 36px;
+    }
+
     .directory #maindirectory {
         columns: 2;
         margin-left: 22%;
