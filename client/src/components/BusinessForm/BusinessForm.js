@@ -29,11 +29,13 @@ class BusinessForm extends Component {
                 twitter: props.business.twitter,
                 online: props.business.online,
                 nonprofit: props.business.nonprofit,
+                createdAt: props.business.createdAt,
                 industryOption: null,
                 msg: null
             }
         } else {
             this.state = {
+                createdAt: null,
                 id: null,
                 ownerId: props.user.id,
                 businessName: null,
@@ -101,7 +103,8 @@ class BusinessForm extends Component {
                 instagram,
                 twitter,
                 nonprofit,
-                online
+                online,
+                createdAt
             } = this.state;
             let editBusiness;
             if (industry === 'other') {
@@ -121,7 +124,8 @@ class BusinessForm extends Component {
                     instagram,
                     twitter,
                     nonprofit,
-                    online
+                    online,
+                    createdAt
                 }
             } else {
                 editBusiness = {
@@ -140,7 +144,8 @@ class BusinessForm extends Component {
                     instagram,
                     twitter,
                     nonprofit,
-                    online
+                    online,
+                    createdAt
                 }
             }
 

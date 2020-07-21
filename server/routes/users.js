@@ -65,7 +65,7 @@ userRouter.post('/login', (req, res) => {
 
 userRouter.delete('/:id', auth, (req, res) => {
     const id = req.params.id;
-    Business.find({ ownerId: id }, (err, docs) => {
+    Business.find({ ownerId: ObjectId(id) }, (err, docs) => {
         if (docs.length > 0) {
             docs.forEach(doc => {
                 Business.findByIdAndDelete(doc._id, (err, mongores) => {
@@ -123,6 +123,7 @@ userRouter.post('/passwordchange', auth, (req, res) => {
 userRouter.post('/register', (req, res) => {
     const  passwordValidation = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[\]:;<>,.?~_+-=|]).{8,32}$/gm;
     const { email, password, confPassword, branch, name } = req.body;
+    const createdAt = Date.now();
     if (!email || !password || !confPassword || !branch || !name) {
         return res.status(400).json({
             message: 'All Fields Required.'
@@ -148,7 +149,8 @@ userRouter.post('/register', (req, res) => {
             email,
             branch,
             name,
-            password
+            password,
+            createdAt
         });
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {

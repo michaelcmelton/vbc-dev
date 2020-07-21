@@ -19,6 +19,10 @@ const UsersSchema = new Schema({
   branch: {
     type: String,
     required: true
+  },
+  createdAt:{
+  type: Date,
+  required: true 
   }
 })
 

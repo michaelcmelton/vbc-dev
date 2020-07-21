@@ -11,7 +11,7 @@ const businessSchema = new Schema({
     type:Date
   },
   ownerId: {
-    type: String,
+    type: Schema.Types.ObjectId,
     required: true
   },
   nonprofit: {

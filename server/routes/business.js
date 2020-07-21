@@ -14,6 +14,8 @@ const express = require('express')
 const businessRouter = express.Router()
 const business = require('../models/business');
 const auth = require('../middleware/auth');
+const { create } = require('../models/business');
+var ObjectId = require('mongodb').ObjectID;
 
 // Get All Business Records in the database. (use for search.)
 businessRouter.get('/', (req, res) => {
@@ -48,6 +50,7 @@ businessRouter.post('/', auth, (req, res) => {
     // TODO Validation
 
     const createItem = req.body;
+    createItem.ownerId = ObjectId(createItem.ownerId);
     createItem.createdAt = Date.now();
     createItem.lastUpdated = Date.now();
 
@@ -83,10 +86,13 @@ businessRouter.post('/:id', auth, (req, res) => {
 
   // TODO URL Validation
   const body = req.body;
+  const createDate = req.body.createdAt;
   body.lastUpdated = Date.now();
+  body.ownerId = ObjectId(body.ownerId);
+  body.createdAt = createDate;
 
   business.findOneAndUpdate({ _id: req.params.id }, body, {
-    overwrite: true,
+    upsert: true,
     new: true
   }, (err, doc) => {
     if (err) {
@@ -145,7 +151,7 @@ businessRouter.delete('/delete', auth, (req, res) => {
 
 // Gets all records for a particular user.
 businessRouter.get('/:ownerId', auth, (req, res) => {
-  business.find({ ownerId: req.params.ownerId }, (err, data) => {
+  business.find({ ownerId: ObjectId(req.params.ownerId) }, (err, data) => {
     if (err) {
       res.json({
         status: 500,
