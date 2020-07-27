@@ -241,12 +241,12 @@ class BusinessForm extends Component {
                         {this.state.industry === 'other' ? <input id="other-input" onChange={this.onChange} name="industryOther" placeholder="Input your industry here"></input> : ''}
                         <div className="checkbox-wrapper">
                         <input className="checkbox-input" type="checkbox" onChange={this.checkboxChange} name="online" checked={this.state.online ? this.state.online : false}></input>
-                        <h4>Online Business?</h4>
+                        <h4>Are you an online Business?</h4>
                         </div>
                         <br/>
                         <div className="checkbox-wrapper">
                         <input className="checkbox-input" type="checkbox" onChange={this.checkboxChange} name="nonprofit" checked={this.state.nonprofit ? this.state.nonprofit : false}></input>
-                        <h4>Nonprofit Business?</h4>
+                        <h4>Are you a nonprofit Business?</h4>
                         </div>
                         <textarea className="general-input" onChange={this.onChange} id="bio" rows="10" maxLength="750" name="biography" placeholder="Tell us what your business provides, and how it all started!" value={this.state.biography ? this.state.biography : ''}></textarea>
                         <div className="bottom-half-form">
