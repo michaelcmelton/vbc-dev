@@ -127,8 +127,8 @@ class Directory extends Component {
           }
           this.setState({ directoryData: [...this.state.directoryData, JSON.parse(JSON.stringify(object))] });
           this.setState({ originalData: this.state.directoryData });
-          this.setState({online: this.state.rawData.filter(i => i.online === true)});
-          this.setState({nonprofit: this.state.rawData.filter(i => i.nonprofit === true)});
+          this.setState({online: this.state.rawData.filter(i => i.online === true).sort((a,b) => a.name > b.name ? 1 : -1)});
+          this.setState({nonprofit: this.state.rawData.filter(i => i.nonprofit === true).sort((a,b) => a.name > b.name ? 1 : -1)});
         })
       })
   }
@@ -197,7 +197,7 @@ class Directory extends Component {
             </ul>
           </div>
           <div id='nonprofit'>
-            <h2 style={{textAlign: 'center'}}>Non-Profit Businesses</h2>
+            <h2 style={{textAlign: 'center'}}>Non-Profit Organization</h2>
             <ul id="onlinedirectory">
               {nonprofit}
             </ul>
