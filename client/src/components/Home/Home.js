@@ -38,12 +38,6 @@ const Home = (props) => {
                     <p>We have many veteran-owned businesses waiting for you to find them! Find what you need today! </p>
                     <Link to="/directory"><button>Search the Directory</button></Link>
                 </div>
-                <div className="box">
-                    <h4>Make Connections</h4>
-                    <img alt="connect-icon" src={imgPath + 'connect-icon.svg'} />
-                    <p>We will help you make connections with clients and fellow veterans alike. Giving back to those who served.</p>
-                    <Link to="/register"><button>Create an Account</button></Link>
-                </div>
             </div>
             <div className="founders-desktop">
                 <h1>Our Team</h1>

@@ -157,7 +157,7 @@
 .box-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 0.75em;
     align-items: center;
 }
