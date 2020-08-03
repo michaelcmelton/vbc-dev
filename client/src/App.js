@@ -9,7 +9,7 @@ import Register from './components/Register/Register';
 import Profile from './components/Profile/Profile';
 import Directory from './components/Directory/Directory';
 import FAQ from './components/FAQ/FAQ';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useLocation } from 'react-router-dom';
 
 import { loadUser } from './actions/authActions';
 import './App.css';
@@ -79,7 +79,6 @@ class App extends Component {
     } else if (document.body.classList.length > 0) {
       document.body.classList.remove('open-side');
     }
-    
     return (
       <Router>
         <Provider store={store}>
