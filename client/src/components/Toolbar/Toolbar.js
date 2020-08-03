@@ -23,6 +23,7 @@ const Toolbar = (props) => {
                         <li><Link to='/'><button className="nav-menu-item">Home</button></Link></li>
                         <li><Link to='/directory'><button className="nav-menu-item">Directory</button></Link></li>
                         <li><Link to='/about'><button className="nav-menu-item">About</button></Link></li>
+                        <li><Link to='/faq'><button className="nav-menu-item">FAQ</button></Link></li>
                         {auth ? <li><Link to='/profile'><button className="nav-menu-item">Profile</button></Link></li> : <li><Link to='/login'><button className="nav-menu-item">Login</button></Link></li>}
                         {auth ? <li><Logout /></li> : null}
                     </ul>

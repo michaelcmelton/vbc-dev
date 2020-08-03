@@ -8,6 +8,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Profile from './components/Profile/Profile';
 import Directory from './components/Directory/Directory';
+import FAQ from './components/FAQ/FAQ';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { loadUser } from './actions/authActions';
@@ -91,6 +92,7 @@ class App extends Component {
                 <Route path="/" exact component={Home} />
                 <Route path="/about" component={About} />
                 <Route path="/login" component={Login} />
+                <Route path="/faq" component={FAQ} />
                 <Route path="/directory" render={(props) => <Directory {...props} show={this.state.businessDetailOpen} open={this.openBusinessDetail} close={this.closeBuinessDetail} />} />
                 <Route path="/register" component={Register} />
                 <Route path="/profile" render={(props) => <Profile {...props} show={this.state.businesssFormOpen} open={this.businessFormOpenHandler} businessList={this.props.businessList} close={this.businessFormCloseHandler} />} />

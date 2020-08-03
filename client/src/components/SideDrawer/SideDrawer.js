@@ -21,6 +21,7 @@ const SideDrawer = (props) => {
                 <li className="sidedrawer-item"><Link to='/'>Home</Link></li>
                 <li className="sidedrawer-item"><Link to='/directory'>Directory</Link></li>
                 <li className="sidedrawer-item"><Link to='/about'>About</Link></li>
+                <li className="sidedrawer-item"><Link to='/faq'>FAQ</Link></li>
                 {auth ? <li className="sidedrawer-item"><Link to='/profile'>Profile</Link></li> : <li className="sidedrawer-item"><Link to='/login'>Login</Link></li>}
                 {auth ? <Logout parent="sideDrawer" /> : null}
             </ul>
