@@ -53,8 +53,8 @@ class BusinessForm extends Component {
                 instagram: null,
                 twitter: null,
                 industryOption: null,
-                online: null,
-                nonprofit: null,
+                online: false,
+                nonprofit: false,
                 msg: null
             }
         }
