@@ -1,0 +1,22 @@
+.content {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.inactive {
+    overflow: hidden;
+}
+
+@media screen and (min-width: 992px) {
+    .content {
+        margin-left: 7em;
+        margin-right: 7em;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .content {
+        margin-left: 20em;
+        margin-right: 20em;
+    }
+}
