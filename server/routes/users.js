@@ -47,7 +47,7 @@ userRouter.post('/login', (req, res) => {
                     message: 'Password Invalid. Please try again.'
                 });
             }
-            jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: 1800 }, (err, token) => {
+            jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: process.env.NODE_ENV === "development" ? 20 : 1800 }, (err, token) => {
                 if (err) throw err;
                 res.status(200).json({
                     user: {

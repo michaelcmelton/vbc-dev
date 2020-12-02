@@ -1,11 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './v1/App';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./v2/App";
+import { AuthProvider } from "./v2/contexts/user";
 
 //Initial Store setup for Redux
 
 ReactDOM.render(
-      <App />,
-  document.getElementById('root')
+  <AuthProvider>
+    <App />
+  </AuthProvider>,
+  document.getElementById("root")
 );
