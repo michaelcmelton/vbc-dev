@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import Navigation from './components/Navigation';
@@ -10,7 +10,6 @@ const App = () => {
   
   return (
     <BrowserRouter>
-      <Login />
       <Navigation pages={["Home", "Directory", "FAQ", "About", "Profile", "Login", "Logout"]}/>
       <Switch>
         <Route exact path="/" component={Home} />

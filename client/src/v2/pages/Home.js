@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-import Input from "../common/Input";
 
 import { useUserDispatch } from "../contexts/user";
 import { loadUser } from "../contexts/user/userActions";
@@ -33,7 +32,6 @@ const Home = () => {
   });
   return <div>
       <h1>Home</h1>
-      <Input type="email" required={true} name="email" label="Email" placeholder="email123@gmail.com" value=""/>
   </div>;
 };
 
